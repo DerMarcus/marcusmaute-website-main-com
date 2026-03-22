@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Marcus Maute</title>
+<meta name="description" content="Long-form writing on AI transformation, infrastructure, and what executives get wrong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+.page-hero {
+  background: #06090f;
+  padding: 110px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px),
+    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px);
+}
+.page-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--red);
+}
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.page-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.92;
+  color: #fff;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+.page-sub { font-size: 18px; color: rgba(255,255,255,0.55); max-width: 500px; line-height: 1.7; }
+
+/* Featured */
+.featured-wrap { background: var(--bg); padding: 72px 48px; }
+.featured-inner { max-width: 1100px; margin: 0 auto; }
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  background: #fff;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow .2s;
+}
+.featured-card:hover { box-shadow: 0 8px 40px rgba(13,34,82,0.1); }
+.featured-left {
+  background: var(--navy);
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.featured-left::after {
+  content: '';
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 3px; background: var(--red);
+}
+.featured-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 14px;
+}
+.featured-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase; color: #fff;
+  line-height: 1.1; letter-spacing: 0.01em;
+}
+.featured-date {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-top: 28px;
+}
+.featured-right { padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; }
+.featured-excerpt { font-size: 16px; color: var(--muted); line-height: 1.75; flex: 1; margin-bottom: 24px; }
+.featured-cta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--red);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+
+/* Post list */
+.posts-section { background: #fff; padding: 72px 48px; border-top: 1px solid var(--border); }
+.posts-section-inner { max-width: 1100px; margin: 0 auto; }
+.posts-list-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--dim); margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--navy);
+}
+.post-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .15s;
+}
+.post-row:hover .post-row-title { color: var(--red); }
+.post-row-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--red); min-width: 100px;
+  padding-top: 3px; flex-shrink: 0;
+}
+.post-row-body { flex: 1; }
+.post-row-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900;
+  text-transform: uppercase; color: var(--text);
+  line-height: 1.1; letter-spacing: 0.01em;
+  margin-bottom: 5px;
+  transition: color .15s;
+}
+.post-row-excerpt { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+.post-row-meta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--dim); text-align: right;
+  min-width: 90px; padding-top: 3px; flex-shrink: 0;
+}
+
+/* NL strip */
+.nl-strip { background: var(--red); padding: 56px 48px; }
+.nl-strip-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.nl-strip h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  text-transform: uppercase; color: #fff;
+  letter-spacing: 0.02em; line-height: 1;
+}
+.nl-strip p { font-size: 15px; color: rgba(255,255,255,0.75); margin-top: 8px; max-width: 360px; line-height: 1.6; }
+.nl-strip-form { display: flex; gap: 10px; flex-shrink: 0; }
+.nl-strip-form input {
+  padding: 13px 18px;
+  border: none;
+  border-radius: var(--r);
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  width: 240px;
+}
+.nl-strip-form button {
+  background: var(--navy);
+  color: #fff; border: none;
+  padding: 13px 22px;
+  border-radius: var(--r);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  cursor: pointer; white-space: nowrap;
+  transition: background .15s;
+}
+.nl-strip-form button:hover { background: var(--navy-m); }
+
+@media (max-width: 900px) {
+  .page-hero { padding: 80px 24px 56px; }
+  .featured-wrap, .posts-section { padding: 56px 24px; }
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-left::after { top: auto; right: 0; bottom: 0; left: 0; width: auto; height: 3px; }
+  .post-row { flex-wrap: wrap; }
+  .post-row-meta { text-align: left; }
+  .nl-strip { padding: 48px 24px; }
+  .nl-strip-inner { flex-direction: column; align-items: flex-start; }
+  .nl-strip-form { flex-direction: column; width: 100%; }
+  .nl-strip-form input { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo"><span class="logo-thin">MARCUS</span><span class="logo-bold">MAUTE</span></a>
+  <div class="nav-links">
+    <a href="/blog/" class="active">Writing</a>
+    <a href="/#speaking">Speaking</a>
+    <a href="/#newsletter" class="nav-cta">Newsletter →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/blog/">Writing</a>
+  <a href="/#speaking">Speaking</a>
+  <a href="/#newsletter">Newsletter →</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-eyebrow light">Writing</div>
+    <div class="page-title">The Blog.</div>
+    <p class="page-sub">Long-form thinking on AI transformation, infrastructure, and what executives get wrong. Posted when I have something worth saying.</p>
+  </div>
+</div>
+
+<div class="featured-wrap">
+  <div class="featured-inner">
+    <div class="section-eyebrow">Featured</div>
+    <a href="/blog/ai-transformation-stack.html" class="featured-card">
+      <div class="featured-left">
+        <div>
+          <div class="featured-eyebrow">Cornerstone article</div>
+          <div class="featured-title">The AI Transformation Stack</div>
+        </div>
+        <div class="featured-date">March 2026 · 8 min read</div>
+      </div>
+      <div class="featured-right">
+        <p class="featured-excerpt">There are three layers to any serious AI initiative. Most transformation roadmaps are 80% Layer 1, 15% Layer 2, and 5% Layer 3. In production, that ratio flips — and that's why pilots die. This is the foundational framework I build everything else on.</p>
+        <span class="featured-cta">Read the article →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="posts-section">
+  <div class="posts-section-inner">
+    <div class="posts-list-label">All articles</div>
+    <a href="/blog/ai-transformation-stack.html" class="post-row">
+      <div class="post-row-tag">Infrastructure</div>
+      <div class="post-row-body">
+        <div class="post-row-title">The AI Transformation Stack</div>
+        <div class="post-row-excerpt">Three layers. Most companies obsess over the wrong one — and that's why pilots die in production.</div>
+      </div>
+      <div class="post-row-meta">Mar 2026 · 8 min</div>
+    </a>
+    <a href="/blog/dt-vs-ai-transformation.html" class="post-row">
+      <div class="post-row-tag">DT vs AI</div>
+      <div class="post-row-body">
+        <div class="post-row-title">Why Digital Transformation Failed — And What AI Gets Wrong</div>
+        <div class="post-row-excerpt">70% of DT initiatives failed. AI transformation is already repeating the same mistakes, faster.</div>
+      </div>
+      <div class="post-row-meta">Mar 2026 · 6 min</div>
+    </a>
+    <a href="/blog/head-of-ai-mistake.html" class="post-row">
+      <div class="post-row-tag">Org Design</div>
+      <div class="post-row-body">
+        <div class="post-row-title">Your Head of AI Hire Might Be the Problem</div>
+        <div class="post-row-excerpt">Creating a central AI function feels like progress. In most companies it's actually building a bottleneck.</div>
+      </div>
+      <div class="post-row-meta">Mar 2026 · 5 min</div>
+    </a>
+  </div>
+</div>
+
+<div class="nl-strip">
+  <div class="nl-strip-inner">
+    <div>
+      <h3>The Transformation Layer</h3>
+      <p>Weekly 300-word essay. No news digest. Pure POV on AI transformation, every Monday.</p>
+    </div>
+    <form class="nl-strip-form" onsubmit="e=event;e.preventDefault();this.querySelector('button').textContent='✓ Subscribed'">
+      <input type="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe →</button>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="/" class="footer-logo"><span class="flogo-thin">MARCUS</span><span class="flogo-bold">MAUTE</span></a>
+    <div class="footer-links">
+      <a href="/blog/">Writing</a>
+      <a href="/#speaking">Speaking</a>
+      <a href="https://linkedin.com/in/marcusmaute" target="_blank">LinkedIn</a>
+      <a href="mailto:marcus@marcusmaute.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Marcus Maute · Zug, Switzerland</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){ document.getElementById('nav-mobile').classList.toggle('open'); }
+</script>
+</body>
+</html>

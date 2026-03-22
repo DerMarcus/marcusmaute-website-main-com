@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Head of AI Hire Might Be the Problem — Marcus Maute</title>
+<meta name="description" content="Creating a central AI function feels like progress. In most companies it's building a bottleneck. Here's what the winners do instead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/article.css">
+<style>
+.model-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 36px 0; }
+.model-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 26px; }
+.model-card.wrong { border-top: 4px solid var(--red); }
+.model-card.right { border-top: 4px solid var(--navy); }
+.model-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px; }
+.model-card.wrong .model-label { color: var(--red); }
+.model-card.right .model-label { color: var(--navy); }
+.model-title { font-family: 'Barlow Condensed', sans-serif; font-size: 19px; font-weight: 900; text-transform: uppercase; color: var(--text); margin-bottom: 14px; letter-spacing: 0.02em; line-height: 1.15; }
+.model-card ul { list-style: none; }
+.model-card ul li { font-size: 13.5px; color: var(--muted); padding: 5px 0 5px 18px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.5; }
+.model-card ul li:last-child { border-bottom: none; }
+.model-card.wrong ul li::before { content: '×'; position: absolute; left: 0; color: var(--red); font-weight: 800; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; }
+.model-card.right ul li::before { content: '→'; position: absolute; left: 0; color: var(--navy); font-size: 12px; }
+.jd-box { background: var(--navy); border-radius: var(--r); padding: 32px; margin: 36px 0; position: relative; overflow: hidden; }
+.jd-box::before { content: 'JOB DESCRIPTION'; position: absolute; bottom: -12px; right: -12px; font-family: 'Barlow Condensed', sans-serif; font-size: 80px; font-weight: 900; color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none; }
+.jd-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+.jd-title { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 20px; letter-spacing: 0.02em; }
+.jd-items { display: flex; flex-direction: column; gap: 12px; }
+.jd-item { display: flex; gap: 12px; align-items: flex-start; }
+.jd-num { width: 22px; height: 22px; background: var(--red); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 900; color: #fff; flex-shrink: 0; margin-top: 1px; }
+.jd-text { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+.jd-text strong { color: #fff; font-weight: 600; }
+@media (max-width: 600px) { .model-compare { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo"><span class="logo-thin">MARCUS</span><span class="logo-bold">MAUTE</span></a>
+  <div class="nav-links">
+    <a href="/blog/" class="active">Writing</a>
+    <a href="/#speaking">Speaking</a>
+    <a href="/#newsletter" class="nav-cta">Newsletter →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/blog/">Writing</a>
+  <a href="/#speaking">Speaking</a>
+  <a href="/#newsletter">Newsletter →</a>
+</div>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span>
+      <a href="/blog/">Writing</a><span class="sep">/</span>
+      <a href="#">This article</a>
+    </div>
+    <div class="article-tag">Org Design</div>
+    <h1 class="article-h1">Your Head<br>of AI Hire<br>Might Be<br>the Problem</h1>
+    <p class="article-lead">Creating a central AI function feels like progress. In most companies it's actually building a bottleneck. Here's what the companies winning at AI transformation do instead.</p>
+    <div class="article-meta">
+      <div class="article-meta-item"><strong>Marcus Maute</strong></div>
+      <div class="article-meta-item"><strong>March 2026</strong></div>
+      <div class="article-meta-item"><strong>5 min</strong> read</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body-wrap">
+<div class="article-body">
+
+<p>The most common first move in enterprise AI transformation is also the most dangerous one: hiring a Head of AI and giving them ownership of all AI initiatives.</p>
+
+<p>It feels like the right call. You're signalling commitment. You're creating accountability. You're getting a senior person in the room when AI decisions get made.</p>
+
+<p>What you're actually doing, in most cases, is creating a bottleneck.</p>
+
+<div class="pull-quote"><p>"We created CDOs. Then everyone waited for the CDO to do digital. We're doing the same thing with AI."</p></div>
+
+<h2>The Centralisation Trap</h2>
+
+<p>When you create a Head of AI and put all AI initiatives under one function, a predictable set of dynamics kicks in.</p>
+
+<p>Every AI idea in the organisation now has to go through the AI team. The AI team, being a small group with limited bandwidth, becomes a queue. Teams across the business stop experimenting on their own — they wait for the AI team to come to them. The AI team, meanwhile, gets protective of its portfolio.</p>
+
+<p>The business units don't build AI fluency. They build a dependency.</p>
+
+<div class="model-compare">
+  <div class="model-card wrong">
+    <div class="model-label">The typical model</div>
+    <div class="model-title">Centralised AI Function</div>
+    <ul>
+      <li>All AI runs through one team</li>
+      <li>Business units wait to be served</li>
+      <li>Head of AI owns all AI decisions</li>
+      <li>AI fluency stays in one function</li>
+      <li>Bottleneck grows as demand grows</li>
+      <li>Innovation requires central approval</li>
+    </ul>
+  </div>
+  <div class="model-card right">
+    <div class="model-label">The winning model</div>
+    <div class="model-title">Distributed AI Capability</div>
+    <ul>
+      <li>AI embedded in every function</li>
+      <li>Business units build their own AI</li>
+      <li>Shared infrastructure, distributed ownership</li>
+      <li>AI fluency is a baseline expectation</li>
+      <li>Capacity scales automatically</li>
+      <li>Innovation happens at the edge</li>
+    </ul>
+  </div>
+</div>
+
+<h2>The CDO Parallel</h2>
+
+<p>This is not a new failure mode. We ran this exact experiment during the digital transformation era.</p>
+
+<p>Companies that hired CDOs and created central digital functions largely failed to transform. The CDO became a political player managing a separate team that did "digital things" while the rest of the organisation continued operating exactly as before. Digital fluency never diffused into the business.</p>
+
+<p>The companies that got digital transformation right took a different approach: they embedded digital capability into every function, set expectations that business leaders would own digital outcomes, and used a small central team for shared infrastructure and standards — not for doing the work.</p>
+
+<p>The AI transformation parallel is exact.</p>
+
+<h2>What the Head of AI Role Should Actually Look Like</h2>
+
+<p>None of this means you shouldn't have a Head of AI. It means the role needs to be defined differently.</p>
+
+<div class="jd-box">
+  <div class="jd-label">The right job description</div>
+  <div class="jd-title">Head of AI — What This Role Should Own</div>
+  <div class="jd-items">
+    <div class="jd-item"><div class="jd-num">1</div><div class="jd-text"><strong>Shared infrastructure.</strong> The model serving layer, data pipelines, the observability stack. The plumbing every team uses but no single team should own.</div></div>
+    <div class="jd-item"><div class="jd-num">2</div><div class="jd-text"><strong>Standards and guardrails.</strong> How AI gets evaluated before it goes to production. Security, compliance, the rules of the road — not the driving.</div></div>
+    <div class="jd-item"><div class="jd-num">3</div><div class="jd-text"><strong>Capability building.</strong> Making every PM, analyst, and ops lead in the company more capable of building AI into their own work. Train the organisation, don't replace it.</div></div>
+    <div class="jd-item"><div class="jd-num">4</div><div class="jd-text"><strong>Killing the role itself.</strong> The explicit goal: make AI so embedded in every team that a centralised AI function is no longer necessary.</div></div>
+  </div>
+</div>
+
+<h2>The Metric That Matters</h2>
+
+<p>Here's the test for whether your AI transformation structure is working: can the Head of AI go on a two-week holiday without any AI initiative in the company slowing down?</p>
+
+<p>In a centralised model, the answer is no. In a distributed model with strong embedded capability, the answer is yes.</p>
+
+<div class="pull-quote"><p>"The Head of AI should be killing their own job description — not by doing more AI, but by making AI so embedded that nobody needs a centralised function anymore."</p></div>
+
+<p>That's a harder job to hire for. It requires someone who is genuinely excited about giving capability away, about making other people's work better rather than owning the most interesting work themselves.</p>
+
+<p>But it's the only Head of AI worth hiring.</p>
+
+<div class="article-cta">
+  <h3>The Transformation Layer</h3>
+  <p>A weekly 300-word essay on AI transformation, infrastructure, and what executives get wrong.</p>
+  <form class="nl-form" style="max-width:380px;margin:0 auto" onsubmit="e=event;e.preventDefault();this.querySelector('button').textContent='✓ Subscribed'">
+    <input type="email" class="light" placeholder="your@email.com" required>
+    <button type="submit" class="btn-red">Subscribe →</button>
+  </form>
+</div>
+
+<a href="/blog/ai-transformation-stack.html" class="next-post">
+  <div>
+    <div class="next-post-label">Read next</div>
+    <div class="next-post-title">The AI Transformation Stack</div>
+  </div>
+  <div class="next-post-arrow">→</div>
+</a>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="/" class="footer-logo"><span class="flogo-thin">MARCUS</span><span class="flogo-bold">MAUTE</span></a>
+    <div class="footer-links">
+      <a href="/blog/">Writing</a>
+      <a href="/#speaking">Speaking</a>
+      <a href="https://linkedin.com/in/marcusmaute" target="_blank">LinkedIn</a>
+      <a href="mailto:marcus@marcusmaute.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Marcus Maute · Zug, Switzerland</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){ document.getElementById('nav-mobile').classList.toggle('open'); }
+</script>
+</body>
+</html>

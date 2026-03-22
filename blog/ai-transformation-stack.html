@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Transformation Stack — Marcus Maute</title>
+<meta name="description" content="There are three layers to any serious AI initiative. Most roadmaps get the ratios backwards — and that's why pilots die in production.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/article.css">
+<style>
+/* Layer cards */
+.layers { display: flex; flex-direction: column; gap: 0; margin: 36px 0; }
+.layer {
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+  background: #fff;
+  position: relative;
+}
+.layer:first-child { border-radius: var(--r) var(--r) 0 0; border-left: 4px solid var(--red); }
+.layer:nth-child(2) { margin-top: -1px; border-left: 4px solid var(--navy); }
+.layer:last-child { margin-top: -1px; border-radius: 0 0 var(--r) var(--r); border-left: 4px solid var(--dim); }
+.layer-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.layer:first-child .layer-num { color: var(--red); }
+.layer:nth-child(2) .layer-num { color: var(--navy); }
+.layer:last-child .layer-num { color: var(--dim); }
+.layer-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900;
+  text-transform: uppercase; color: var(--text);
+  letter-spacing: 0.02em; margin-bottom: 6px;
+}
+.layer-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin: 0; }
+.layer-examples {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--dim); margin-top: 8px;
+}
+
+/* Ratio bars */
+.ratio-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px;
+  margin: 36px 0;
+}
+.ratio-box-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--dim); margin-bottom: 20px;
+}
+.ratio-row { margin-bottom: 16px; }
+.ratio-row:last-child { margin-bottom: 0; }
+.ratio-labels {
+  display: flex; justify-content: space-between;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.ratio-labels span:first-child { color: var(--text); }
+.ratio-labels span:last-child { color: var(--muted); }
+.ratio-track { height: 26px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.ratio-fill {
+  height: 100%;
+  display: flex; align-items: center;
+  padding-left: 10px;
+  border-radius: 2px;
+}
+.ratio-fill span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 800;
+  color: #fff; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ratio-note {
+  font-size: 13px; color: var(--muted);
+  font-style: italic; margin-top: 16px;
+  padding-top: 16px; border-top: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo"><span class="logo-thin">MARCUS</span><span class="logo-bold">MAUTE</span></a>
+  <div class="nav-links">
+    <a href="/blog/" class="active">Writing</a>
+    <a href="/#speaking">Speaking</a>
+    <a href="/#newsletter" class="nav-cta">Newsletter →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/blog/">Writing</a>
+  <a href="/#speaking">Speaking</a>
+  <a href="/#newsletter">Newsletter →</a>
+</div>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span>
+      <a href="/blog/">Writing</a><span class="sep">/</span>
+      <a href="#">This article</a>
+    </div>
+    <div class="article-tag">Infrastructure</div>
+    <h1 class="article-h1">The AI<br>Transformation<br>Stack</h1>
+    <p class="article-lead">There are three layers to any serious AI initiative. Most roadmaps get the ratios completely backwards — and that's why pilots die in production.</p>
+    <div class="article-meta">
+      <div class="article-meta-item"><strong>Marcus Maute</strong></div>
+      <div class="article-meta-item"><strong>March 2026</strong></div>
+      <div class="article-meta-item"><strong>8 min</strong> read</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body-wrap">
+<div class="article-body">
+
+<p>I've watched the same thing happen across company after company. A team spends six months building an AI pilot. It works beautifully in the demo. Leadership is excited. Then it goes to production — and quietly dies.</p>
+
+<p>Nobody talks about this enough. We celebrate the demos. We don't talk about the graveyard of pilots that never shipped.</p>
+
+<p>After seeing this pattern repeat itself, I've come to believe there's a single underlying cause: <strong>companies are building their AI initiatives on an inverted stack.</strong></p>
+
+<div class="pull-quote"><p>"The model you chose matters a lot less than whether your data is clean, your pipeline is reliable, and your costs don't blow up at scale."</p></div>
+
+<h2>The Three Layers</h2>
+
+<p>Any serious AI initiative has three distinct layers. Understanding them — and how much attention each one deserves — is the foundation of everything else.</p>
+
+<div class="layers">
+  <div class="layer">
+    <div class="layer-num">Layer 1</div>
+    <div class="layer-title">The Model</div>
+    <p class="layer-desc">Which model you're using, how it's configured, whether you're fine-tuning or using RAG, how prompts are structured. This is what most conversations obsess over.</p>
+    <div class="layer-examples">e.g. GPT-4o vs Claude vs Llama · Fine-tuning vs RAG · Prompt engineering</div>
+  </div>
+  <div class="layer">
+    <div class="layer-num">Layer 2</div>
+    <div class="layer-title">The Application</div>
+    <p class="layer-desc">The product built on top of the model. The interface, the workflow integration, the UX. Where the model meets the user or the process.</p>
+    <div class="layer-examples">e.g. Copilot interfaces · Chatbots · Automated workflows · API integrations</div>
+  </div>
+  <div class="layer">
+    <div class="layer-num">Layer 3</div>
+    <div class="layer-title">The Infrastructure</div>
+    <p class="layer-desc">Everything underneath: data pipelines, inference costs, latency, monitoring, failover, cost controls, security, compliance. The boring layer nobody wants to talk about.</p>
+    <div class="layer-examples">e.g. Data pipelines · Inference costs · Observability · Failover · Access controls</div>
+  </div>
+</div>
+
+<h2>The Ratio Problem</h2>
+
+<p>Here's where most AI transformation efforts go wrong. The typical roadmap looks like this:</p>
+
+<div class="ratio-box">
+  <div class="ratio-box-title">Typical AI Transformation Roadmap — Budget Allocation</div>
+  <div class="ratio-row">
+    <div class="ratio-labels"><span>Layer 1: Model</span><span>80%</span></div>
+    <div class="ratio-track"><div class="ratio-fill" style="width:80%;background:var(--red)"><span>Model obsession</span></div></div>
+  </div>
+  <div class="ratio-row">
+    <div class="ratio-labels"><span>Layer 2: Application</span><span>15%</span></div>
+    <div class="ratio-track"><div class="ratio-fill" style="width:15%;background:var(--navy)"></div></div>
+  </div>
+  <div class="ratio-row">
+    <div class="ratio-labels"><span>Layer 3: Infrastructure</span><span>5%</span></div>
+    <div class="ratio-track"><div class="ratio-fill" style="width:5%;background:var(--dim)"></div></div>
+  </div>
+  <p class="ratio-note">In production, this ratio flips. The infrastructure layer becomes 80% of your actual problems.</p>
+</div>
+
+<p>When a pilot reaches production, you stop caring about which model scored 2% better on your benchmark. You start caring about whether your data pipeline breaks at 3am, whether inference costs are 10× what you projected, whether your observability stack can tell you when something's gone wrong.</p>
+
+<p>The companies quietly winning at AI transformation aren't always running the fanciest models. They're the ones who invested in the boring layer — and it compounded.</p>
+
+<h2>Why This Happens</h2>
+
+<p>The model layer is visible and exciting. You can demo a better prompt result in 10 minutes. You can show leadership a side-by-side comparison on your use case. Progress is tangible and fast.</p>
+
+<p>The infrastructure layer is invisible until it fails. Data pipelines don't announce themselves. Inference cost curves don't appear until you're at scale. Monitoring gaps don't surface until something breaks in production and you have no idea why.</p>
+
+<p>There's also a skills and incentive problem. Most AI teams are staffed by ML engineers who are brilliant at the model layer and have limited experience with production infrastructure. The skills that matter most in production — reliability engineering, cost optimisation, observability — are underrepresented in early AI teams.</p>
+
+<div class="pull-quote"><p>"Most transformation roadmaps are 80% Layer 1, 15% Layer 2, and 5% Layer 3. In production, that ratio flips."</p></div>
+
+<h2>What the Stack-Aware Companies Do Differently</h2>
+
+<p>The companies that successfully take AI from pilot to production treat Layer 3 as a first-class citizen from day one. They don't retrofit infrastructure after the fact — they design it in from the start.</p>
+
+<p><strong>They cost-model at scale before they build.</strong> Inference costs are not linear. A model that costs $0.002 per request in development looks very different when you're processing a million requests a day.</p>
+
+<p><strong>They treat data pipelines as a product.</strong> Not a project that gets stood up once, but an ongoing product with owners, SLAs, and monitoring. The quality of your data pipeline determines the ceiling of your AI performance — regardless of which model sits on top of it.</p>
+
+<p><strong>They instrument everything from the start.</strong> Observability isn't an afterthought. They want to know: which requests are failing? What's the latency distribution? When the model output quality degrades, how will they know?</p>
+
+<p><strong>They separate the model from the infrastructure.</strong> The best teams treat models as interchangeable components that sit on top of a stable infrastructure layer. This means they can swap models without rebuilding the plumbing each time.</p>
+
+<h2>The Practical Implication</h2>
+
+<p>If you're planning an AI transformation initiative, the most important question you can ask is not "which model should we use?" It's "what does our infrastructure layer look like — and is it production-ready?"</p>
+
+<p>If the honest answer is "we haven't really thought about that yet," then you're building on sand. The pilot will work. The production deployment will struggle.</p>
+
+<p>The AI transformation stack isn't glamorous. Data pipelines and inference cost optimisation don't make for exciting demos. But they're the difference between AI that works in a meeting room and AI that works in the real world.</p>
+
+<p>That's the layer worth investing in.</p>
+
+<div class="article-cta">
+  <h3>The Transformation Layer</h3>
+  <p>A weekly 300-word essay on AI transformation, infrastructure, and what executives get wrong.</p>
+  <form class="nl-form" style="max-width:380px;margin:0 auto" onsubmit="e=event;e.preventDefault();this.querySelector('button').textContent='✓ Subscribed'">
+    <input type="email" class="light" placeholder="your@email.com" required>
+    <button type="submit" class="btn-red">Subscribe →</button>
+  </form>
+</div>
+
+<a href="/blog/dt-vs-ai-transformation.html" class="next-post">
+  <div>
+    <div class="next-post-label">Next article</div>
+    <div class="next-post-title">Why Digital Transformation Failed — And What AI Gets Wrong</div>
+  </div>
+  <div class="next-post-arrow">→</div>
+</a>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="/" class="footer-logo"><span class="flogo-thin">MARCUS</span><span class="flogo-bold">MAUTE</span></a>
+    <div class="footer-links">
+      <a href="/blog/">Writing</a>
+      <a href="/#speaking">Speaking</a>
+      <a href="https://linkedin.com/in/marcusmaute" target="_blank">LinkedIn</a>
+      <a href="mailto:marcus@marcusmaute.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Marcus Maute · Zug, Switzerland</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){ document.getElementById('nav-mobile').classList.toggle('open'); }
+</script>
+</body>
+</html>
