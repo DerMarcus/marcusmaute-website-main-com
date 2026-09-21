@@ -132,7 +132,7 @@ The four cards, in order, and the source for each card's copy:
    `../agentic_report/images/tensorx/tensorx-logo.svg` (the light-ground version; inspected and
    confirmed the "T" mark's gradient fills render, per the SVG traps noted in the report repo's own
    CLAUDE.md), copied to `assets/img/logos/tensorx-logo.svg`. Links to https://tensorx.ai.
-3. **Solstice Staking** — "Staking" pill. Facts fetched from solsticestaking.io on 21 September 2026:
+3. **Solstice Staking** — "Blockchain" pill (owner instruction, 21 September 2026; was "Staking"). Facts fetched from solsticestaking.io on 21 September 2026:
    institutional-grade non-custodial staking infrastructure, Ethereum/Solana/NEAR Protocol support,
    zero commission, >$1B staked assets, Solstice Staking AG based in Zug. The site states a copyright
    year (2026) and "4 Years Track Record" but never a founding/"since" year, so none is shown. Logo:
