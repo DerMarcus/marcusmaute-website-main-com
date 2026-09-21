@@ -12,7 +12,7 @@ Five pages plus a blog: home, the report, work with me, press, about.
 ```
 index.html                          Home
 agentic-finance/index.html          The report
-work-with-me/index.html             Advisory, workshops, speaking
+work-with-me/index.html             Speaking (advisory block hidden in an HTML comment, see below)
 press/index.html                    Bios, headshot, report facts, quotes cleared for use
 about/index.html                    Bio, background
 blog/index.html                     Writing index ("The Blog")
@@ -27,6 +27,27 @@ llms.txt, sitemap.xml, robots.txt   At the site root
 ```
 Blog articles carry their own per-page `<style>` for article-specific components (tables, ratio
 bars, comparison cards) — they don't need `pages.css`.
+
+## Home page section order
+`index.html` runs: hero → report (`#report`) → positions (`#positions`) → manifesto (`.manifesto`,
+"What I believe") → work with me (`#work`) → writing → follow → footer (moved 21 September 2026;
+the report used to sit after the manifesto, and the manifesto used to sit right after the hero).
+The manifesto keeps its dark background and its `border-bottom: 3px solid var(--red)`; it carries
+no `border-top`, so entering it from the grey `#positions` section is a plain colour change (by
+design, matches how `.sec.dark` sections read elsewhere) and leaving it into the white `#work`
+section is the same dark-bottom-bar-into-light-top-border pairing that used to sit between the
+manifesto and the report. Don't add a second border at either seam.
+
+## work-with-me: advisory block hidden
+The "Advisory — Two ways in." section (`The Mandate Workshop` and `Readiness assessment` cards) in
+`work-with-me/index.html` is wrapped in an HTML comment (`<!-- HIDDEN 2026-09-21 (owner): advisory
+block, restore when ready ... -->`) rather than deleted, so it can be restored later. Because of
+that, the page hero now introduces talks and briefings directly (no more "That is where I work
+with institutions, and it is what I talk about on stage."), the home page's `#work` section lists
+only "Keynotes and board briefings" under `.speaking-topics`, and the report page's "Put it to
+work" box points at "Talks and briefings" (`../work-with-me/index.html`) instead of "The Mandate
+Workshop". If the owner asks to restore the advisory block, uncomment it and reverse those three
+copy changes.
 
 ## Consistency (every page)
 Same nav (The Report · Writing · About · Work with me → as `.nav-cta`), same mobile nav (adds
