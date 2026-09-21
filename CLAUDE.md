@@ -19,6 +19,7 @@ blog/index.html                     Writing index ("The Blog")
 blog/ai-transformation-stack.html   Article
 blog/dt-vs-ai-transformation.html   Article
 blog/head-of-ai-mistake.html        Article
+404.html                            Not-found page (Cloudflare Pages 404; root-relative paths, see below)
 assets/style.css                    Design system (Barlow Condensed + Lora, navy #0d2252, red #c8192c)
 assets/pages.css                    Shared components for the five main pages (.page-hero, .num-list, .card, etc.)
 assets/article.css                  Shared chrome for the three blog articles
@@ -103,6 +104,9 @@ a `<title>` and meta description.
 - Do not rewrite the blog articles' body text, only their chrome (nav, footer, CTAs).
 - All internal links and asset paths are relative (never root-relative), so pages open correctly
   from disk, from a local server and on Cloudflare; link directory pages as `.../index.html`.
+  **`404.html` is the one deliberate exception:** Cloudflare Pages serves it at whatever URL was
+  requested (e.g. `/blog/old/thing`), so a relative path would break at depth. Its nav, footer and
+  page links all use root-relative paths (`/assets/style.css`, `/index.html`, etc.) instead.
 
 ## Facts that must stay consistent everywhere
 - Name: **Marcus Maute**. Role: **"TensorX Swiss Representative."** Location: **Zürich** (never Zug).
