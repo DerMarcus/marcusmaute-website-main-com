@@ -55,16 +55,16 @@
 .speaking-topic:hover { border-left-color: var(--red); background: #fdf5f6; }
 .speaking-topic strong { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--text); display: block; letter-spacing: 0.03em; margin-bottom: 4px; }
 .speaking-topic span { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-.posts-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.posts-grid { max-width: 640px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
 .post-card { background: #fff; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background .18s; }
 .post-card:hover { background: #f5f7fb; }
-.post-card-top { background: var(--navy); padding: 28px 24px 22px; position: relative; }
+.post-card-top { background: var(--navy); padding: 32px 32px 26px; position: relative; }
 .post-card-top::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); }
 .post-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .post-tag::before { content: ''; display: block; width: 18px; height: 1px; background: var(--red); }
-.post-title-card { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 900; text-transform: uppercase; color: #fff; line-height: 1.1; letter-spacing: 0.01em; }
-.post-card-body { padding: 20px 24px; flex: 1; display: flex; flex-direction: column; }
-.post-excerpt { font-size: 13.5px; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 16px; }
+.post-title-card { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; color: #fff; line-height: 1.1; letter-spacing: 0.01em; }
+.post-card-body { padding: 24px 32px 28px; flex: 1; display: flex; flex-direction: column; }
+.post-excerpt { font-size: 14.5px; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 18px; }
 .post-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
 .post-date { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
 .post-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); }
@@ -72,7 +72,7 @@
 .view-all { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,25,44,0.25); padding-bottom: 2px; }
 @media (max-width: 900px) {
   .hero-content { padding: 96px 24px 72px; }
-  .posts-grid { grid-template-columns: 1fr; }
+  .posts-grid { max-width: 100%; }
   .blog-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 </style>
@@ -294,17 +294,9 @@ here, since its own comment close sequence would have ended this wrapper early)
     <a href="blog/index.html" class="view-all">All articles →</a>
   </div>
   <div class="posts-grid">
-    <a href="blog/ai-transformation-stack.html" class="post-card">
-      <div class="post-card-top"><div class="post-tag">Cornerstone</div><div class="post-title-card">The AI Transformation Stack</div></div>
-      <div class="post-card-body"><p class="post-excerpt">Three layers. Most roadmaps get the ratios backwards, and that is why pilots die in production. The foundational framework.</p><div class="post-foot"><span class="post-date">Mar 2026 · 8 min</span><span class="post-cta">Read →</span></div></div>
-    </a>
-    <a href="blog/dt-vs-ai-transformation.html" class="post-card">
-      <div class="post-card-top"><div class="post-tag">DT vs AI</div><div class="post-title-card">Why Digital Transformation Failed</div></div>
-      <div class="post-card-body"><p class="post-excerpt">Most digital transformation programmes failed. AI transformation is already making the same mistakes. Here is the pattern and how to break it.</p><div class="post-foot"><span class="post-date">Mar 2026 · 6 min</span><span class="post-cta">Read →</span></div></div>
-    </a>
-    <a href="blog/head-of-ai-mistake.html" class="post-card">
-      <div class="post-card-top"><div class="post-tag">Org design</div><div class="post-title-card">Your Head of AI Hire Might Be the Problem</div></div>
-      <div class="post-card-body"><p class="post-excerpt">A central AI function feels like progress. In most companies it is building a bottleneck. What the companies that get it right do instead.</p><div class="post-foot"><span class="post-date">Mar 2026 · 5 min</span><span class="post-cta">Read →</span></div></div>
+    <a href="blog/energy-currency.html" class="post-card">
+      <div class="post-card-top"><div class="post-tag">Economics</div><div class="post-title-card">Energy currency.</div></div>
+      <div class="post-card-body"><p class="post-excerpt">In December 1921 Henry Ford proposed replacing gold with a currency backed by energy. On 3 January 2009 someone built one.</p><div class="post-foot"><span class="post-date">13 Jun 2024 · 11 min</span><span class="post-cta">Read →</span></div></div>
     </a>
   </div>
 </section>
@@ -540,15 +532,10 @@ Contact: marcus@marcusmaute.com · Zürich · travel across Europe
 
 ## Writing
 
-- **The AI Transformation Stack** (March 2026, 8 min read) — Three layers. Most roadmaps get the
-  ratios backwards, and that is why pilots die in production. The foundational framework.
-  https://www.marcusmaute.com/blog/ai-transformation-stack.html
-- **Why Digital Transformation Failed** (March 2026, 6 min read) — Most digital transformation
-  programmes failed. AI transformation is already making the same mistakes. Here is the pattern and
-  how to break it. https://www.marcusmaute.com/blog/dt-vs-ai-transformation.html
-- **Your Head of AI Hire Might Be the Problem** (March 2026, 5 min read) — A central AI function
-  feels like progress. In most companies it is building a bottleneck.
-  https://www.marcusmaute.com/blog/head-of-ai-mistake.html
+- **Energy currency.** (13 June 2024, 11 min read) — In December 1921 Henry Ford proposed replacing
+  gold with a currency backed by energy. On 3 January 2009 someone built one. Includes the full text
+  of the 1921 New York Tribune article, reproduced as a historical document.
+  https://www.marcusmaute.com/blog/energy-currency.html
 
 ## Every page on this site
 

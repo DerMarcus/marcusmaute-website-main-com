@@ -22,15 +22,14 @@ work-with-me/index.html             Speaking (advisory block hidden in an HTML c
 press/index.html                    Bios, headshot, report facts, quotes cleared for use
 about/index.html                    Bio, background
 blog/index.html                     Writing index ("The Blog")
-blog/ai-transformation-stack.html   Article
-blog/dt-vs-ai-transformation.html   Article
-blog/head-of-ai-mistake.html        Article
+blog/energy-currency.html           Article (see "Blog" below)
 404.html                            Not-found page (Cloudflare Pages 404; root-relative paths, see below)
 marcus-maute.md                     Site-wide factual Markdown (the Agent view's content), repo root
 assets/style.css                    Design system (Barlow Condensed + Lora, navy #0d2252, red #c8192c);
                                      also carries the mode-toggle and Agent-view CSS (shared by every page)
 assets/pages.css                    Shared components for the five main pages (.page-hero, .num-list, .card, etc.)
-assets/article.css                  Shared chrome for the three blog articles
+assets/article.css                  Shared chrome for blog articles
+assets/img/blog/                    Tribune scan images for the energy-currency article (see "Blog" below)
 assets/js/site.js                   Human/Agent toggle, mobile menu (see below)
 assets/img/                         marcus-maute-press.jpg, agentic-finance-report-cover.jpg/.webp
 tools/build_agent_view.py           Re-embeds marcus-maute.md into every page's Agent view (see below)
@@ -320,6 +319,28 @@ https://www.linkedin.com/in/marcusmaute/, Contact mailto:marcus@marcusmaute.com)
 "© 2026 Marcus Maute · Zürich, Switzerland", `<html lang="en-GB">`, a `<link rel="canonical">`,
 a `<link rel="alternate" type="text/markdown">`, a `<title>` and meta description. See "Human/Agent
 toggle and the Agent view" above for the toggle, the human-view/agent-view wrapper and `site.js`.
+
+## Blog
+The blog carries a single article, **`blog/energy-currency.html`, "Energy currency."**, dated
+**13 June 2024** (the owner's original publication date; the site itself was rebuilt around the
+Agentic Finance Report in September 2026, but this article predates that and keeps its own date).
+The three earlier articles (`ai-transformation-stack.html`, `dt-vs-ai-transformation.html`,
+`head-of-ai-mistake.html`) were deleted 21 September 2026 and 301-redirect to it from the repo-root
+`_redirects` file (Cloudflare Pages format).
+
+The article argues money has always had to be hard to earn, limited in supply and easy to verify,
+traces Henry Ford's December 1921 proposal to back a currency with energy instead of gold, and reads
+bitcoin's proof of work as the version of that idea that got built. It reproduces the full text of
+the 4 December 1921 New York Tribune article ("Ford Would Replace Gold With Energy Currency and Stop
+Wars") **verbatim, as a public-domain historical document** (`.tribune-doc` block), alongside four
+scans of the original pages (`assets/img/blog/tribune-p1.webp`, `tribune-p6a.webp`, `tribune-p6b.webp`,
+`tribune-p6c.webp`; click-through to full size). **The editor's note on Ford's antisemitism must stay
+immediately above the document block** — it explains that Ford's "international bankers" language
+came from the same period as his newspaper's antisemitic conspiracy theorising, and that the
+transcription is reproduced for its idea about money, not as an endorsement. Don't remove or move
+that note away from the transcription, and don't edit the transcription itself (it keeps its own
+1921 spelling, em-dashes and "to-day", exempt from the site's no-em-dash rule, which applies to copy
+written for the site, not to a verbatim historical source).
 
 ## Content rules
 - British spelling in any copy written for the site.
