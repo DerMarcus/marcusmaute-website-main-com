@@ -109,7 +109,7 @@ Added 21 September 2026 right after the hero, then moved the same day to directl
 slot the deleted positions section used to occupy), modelled on the "One thesis. Four ventures."
 pattern from raoulpal.com but built in the site's own design language (not Pal's styling or headline
 wording): a heading ("One thesis. Four
-ventures.") with a short standfirst on the right, then a 2×2 `.venture-grid` of `.venture-card`s
+houses.") with a short standfirst on the right, then a 2×2 `.venture-grid` of `.venture-card`s
 (logo top-left ~36px tall, a small pill label, the venture name, one or two sentences, an arrow link
 at the foot — a normal link, not a whole-card anchor, to keep the markup accessible). New CSS is
 under `/* ── ventures ── */` in `assets/pages.css` (`.ventures-head`, `.venture-grid`,
@@ -119,7 +119,10 @@ file, `.venture-pill`, `.venture-link`); responsive to one column under 900px in
 from more than one side: as research, as infrastructure, as capital, and as practice." — each
 venture is assigned one of those four words (research / infrastructure / capital / practice); this
 is editorial framing, not a claim that all four ventures are substantively about agentic finance
-(Neuer Lab in particular is not).
+(Neuer Lab in particular is not). **Heading changed to "One thesis. Four houses." (owner
+instruction, 21 September 2026; was "One thesis. Four ventures.")** — markup, section id
+(`#ventures`), eyebrow ("Ventures") and CSS classes (`.venture-grid`, `.venture-card`, etc.) are
+unchanged, only the second line of the heading's wording.
 
 The four cards, in order, and the source for each card's copy:
 1. **Agentic Finance Report** — "Research · 2026" pill. Facts from this repo's own `CLAUDE.md`
@@ -151,7 +154,8 @@ The four cards, in order, and the source for each card's copy:
    do not add one until the owner supplies it** (his CV role there, "Managing Director, Solstice
    Staking AG", was removed from the Agentic Finance Report itself in September 2026; don't reuse it
    here without the owner's say-so).
-4. **Neuer Lab** — "Wellness" pill. Facts fetched from neuerlab.com on 21 September 2026: mindset,
+4. **Neuer Lab** — "Longevity" pill (owner instruction, 21 September 2026; was "Wellness"). Facts
+   fetched from neuerlab.com on 21 September 2026: mindset,
    spirituality and longevity; mental training, emotional release work, and leadership/awareness
    workshops; integrates neuroscience with conscious human development. No location or founding year
    is stated on the site, so neither appears on the card. **No logo file exists and none was
