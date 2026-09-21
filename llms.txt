@@ -2,6 +2,7 @@
 
 > Lead author of the Agentic Finance Report (2026) and TensorX Swiss Representative, based in Zürich. Works on how regulated financial institutions let AI agents act on capital inside mandates people write and control: the mandate first, then the stack.
 
+- Markdown edition: https://www.marcusmaute.com/marcus-maute.md — one site-wide, factual Markdown document (who Marcus is, the report, Neo, talks, writing, every page). Every page also carries it inline: an "Agent" toggle in the nav (or `#agent` in the URL) swaps the page for this Markdown, with a copy button and a download link.
 - Name: Marcus Maute
 - Role: TensorX Swiss Representative (https://tensorx.ai)
 - Location: Zürich, Switzerland

@@ -20,27 +20,82 @@ blog/ai-transformation-stack.html   Article
 blog/dt-vs-ai-transformation.html   Article
 blog/head-of-ai-mistake.html        Article
 404.html                            Not-found page (Cloudflare Pages 404; root-relative paths, see below)
-assets/style.css                    Design system (Barlow Condensed + Lora, navy #0d2252, red #c8192c)
+marcus-maute.md                     Site-wide factual Markdown (the Agent view's content), repo root
+assets/style.css                    Design system (Barlow Condensed + Lora, navy #0d2252, red #c8192c);
+                                     also carries the mode-toggle and Agent-view CSS (shared by every page)
 assets/pages.css                    Shared components for the five main pages (.page-hero, .num-list, .card, etc.)
 assets/article.css                  Shared chrome for the three blog articles
+assets/js/site.js                   Human/Agent toggle, mobile menu (see below)
 assets/img/                         marcus-maute-press.jpg, agentic-finance-report-cover.jpg/.webp
-llms.txt, sitemap.xml, robots.txt   At the site root
+tools/build_agent_view.py           Re-embeds marcus-maute.md into every page's Agent view (see below)
+llms.txt, sitemap.xml, robots.txt, _headers   At the site root
 ```
 Blog articles carry their own per-page `<style>` for article-specific components (tables, ratio
 bars, comparison cards) — they don't need `pages.css`.
 
+## Human/Agent toggle and the Agent view
+Modelled on agenticfinancereport.com's own toggle (`../agentic_report/website/agenticfinancereport.com/`).
+Every page (including 404.html) carries it:
+- **Desktop nav:** a compact pill (`.mode-toggle`) with a "Human" button (small circle) and an "Agent"
+  button (`&gt;_`), in place of the old red "Work with me →" `nav-cta`. It sits as the last item in
+  `.nav-links` and is hidden by the same `@media (max-width:768px){.nav-links{display:none}}` rule
+  that already hid the CTA, so nothing extra was needed for mobile.
+- **Mobile nav:** the same pill, full-width, as the *first* item inside `#nav-mobile` (tried "next to
+  the burger" first and rejected it: the wordmark plus burger already use most of 375px, so a second
+  control there would crowd; top-of-menu was the uncrowded choice). "Work with me →" stays in the
+  mobile menu and the footer, just not as a nav button.
+- **State:** `localStorage['mm-mode']` (`'human'` or `'agent'`), read and written by `assets/js/site.js`.
+  Both toggles (nav + mobile) stay in sync via `aria-pressed`. `#agent` in the URL opens Agent view
+  regardless of the stored mode. `toggleMenu()` (the mobile burger) moved into `site.js` as
+  `window.toggleMenu`, so the existing `onclick="toggleMenu()"` markup still works.
+- **human-view / agent-view:** every page's existing content (nav/mobile-nav aside) is wrapped in
+  `<main id="human-view">…</main>`. Right before `<footer class="footer">` sits
+  `<main id="agent-view" hidden>` (heading "Marcus Maute, in Markdown.", a one-line explainer, Copy
+  Markdown / Download .md / Back-to-human-view buttons, and a `<pre id="md-view">` that `site.js`
+  fills from the embedded script tag on first switch to Agent). Both regions are marked
+  `<!--AGENT-VIEW-->…<!--/AGENT-VIEW-->`.
+- **The embedded Markdown:** `marcus-maute.md` (repo root) is the **same, site-wide** document on
+  every page (not per-page content) — who Marcus is, the Agentic Finance Report, Neo, talks and
+  writing, and a link to every page. It sits inside
+  `<!--AGENT-MD--><script type="text/markdown" id="agent-md">…</script><!--/AGENT-MD-->`, with
+  `</script` escaped as `<\/script` (same trick as the reference site). `site.js` unescapes it into
+  `#md-view` the first time a page switches to Agent view.
+- **`tools/build_agent_view.py`** (stdlib only) re-embeds `marcus-maute.md` between the `<!--AGENT-MD-->`
+  markers on every page that has them. It does **not** touch anything else (the toggle markup, the
+  human-view wrapper, the agent-view heading/buttons are hand-authored, ordinary page content, since
+  this site has no template/build step). **Re-run it after any change to `marcus-maute.md`**, and
+  after any page edit that could make `marcus-maute.md` stale (a new page, a changed fact, a new
+  article) — update the .md first, then run `python3 tools/build_agent_view.py`.
+- **`marcus-maute.md` must stay factual**: no instructions addressed to AI systems, no hidden text,
+  nothing not already said on the pages it summarises (same rule as `llms.txt`).
+- Every page's `<head>` also carries `<link rel="alternate" type="text/markdown" href="…marcus-maute.md">`,
+  and `assets/js/site.js` is loaded via a relative `<script src>` on every page except `404.html`,
+  which (like its other assets) uses the root-relative `/assets/js/site.js`.
+- `marcus-maute.md` is also listed in `sitemap.xml` and pointed to from `llms.txt`; `_headers` serves
+  `/*.md` as `Content-Type: text/markdown; charset=utf-8` for Cloudflare Pages.
+
+## Home page hero
+`.hero-actions` carries a single button, "The Agentic Finance Report" (`.btn-red`). The ghost
+"Work with me →" button that used to sit beside it was removed 21 September 2026; "Work with me"
+stays reachable from `#work`, the nav toggle's replacement `.nav-cta`, the mobile menu and the
+footer.
+
 ## Home page section order
-`index.html` runs: hero → report (`#report`) → positions (`#positions`) → manifesto (`.manifesto`,
-"What I believe") → Neo (`#neo`) → work with me (`#work`) → writing → follow → footer (Neo added
-21 September 2026, between the manifesto and work with me; before that the report used to sit
-after the manifesto, and the manifesto used to sit right after the hero).
+`index.html` runs: hero → report (`#report`) → Neo (`#neo`) → positions (`#positions`) → manifesto
+(`.manifesto`, "What I believe") → work with me (`#work`) → writing → follow → footer (Neo moved to
+directly after the report 21 September 2026; before that it sat between the manifesto and work with
+me, and before that the report used to sit after the manifesto, with the manifesto right after the
+hero — this is in fact a reversion to that earlier report/positions/manifesto/work ordering, just
+with Neo now inserted right after the report).
 The manifesto keeps its dark background and its `border-bottom: 3px solid var(--red)`; it carries
 no `border-top`, so entering it from the grey `#positions` section is a plain colour change (by
-design, matches how `.sec.dark` sections read elsewhere). `#neo` is also `.sec.dark` with its own
-`border-top: 3px solid var(--red)` (from `.sec.dark`), so the manifesto's bottom bar and Neo's top
-bar sit back to back; leaving Neo into the white `#work` section is the same
-dark-bottom-bar-into-light-top-border pairing that used to sit between the manifesto and the
-report. Don't add a second border at any of these seams.
+design, matches how `.sec.dark` sections read elsewhere). `#neo` is `.sec.dark`, so it carries its
+own `border-top: 3px solid var(--red)` regardless of context: white `#report` straight into dark
+`#neo` is the same white-into-`.sec.dark` seam already used on `about/index.html` and
+`agentic-finance/index.html` (the dark section's own red top border, no extra styling needed); Neo
+into the grey `#positions` section uses `#positions`'s own `border-top: 1px solid var(--border)`,
+the same subtle seam Neo used leaving into `#work` before it moved. Don't add a second border at
+any of these seams.
 
 ## Neo section (`#neo`, home page)
 A dark `.sec.dark` band introducing Neo, an autonomous on-chain art-collecting agent that Marcus
@@ -88,12 +143,14 @@ Workshop". If the owner asks to restore the advisory block, uncomment it and rev
 copy changes.
 
 ## Consistency (every page)
-Same nav (The Report · Writing · About · Work with me → as `.nav-cta`), same mobile nav (adds
-Press; Neo is deliberately **not** in either nav). Same footer links on all nine pages (The Report,
-Work with me, Writing, Press, About, Neo https://github.com/DerMarcus/nftneo, LinkedIn
+Same nav (The Report · Writing · About · the Human/Agent toggle in place of the old "Work with me →"
+`nav-cta`), same mobile nav (the toggle at the top, then adds Press, then Work with me →; Neo is
+deliberately **not** in either nav). Same footer links on all nine pages (The Report, Work with me,
+Writing, Press, About, Neo https://github.com/DerMarcus/nftneo, LinkedIn
 https://www.linkedin.com/in/marcusmaute/, Contact mailto:marcus@marcusmaute.com), footer
 "© 2026 Marcus Maute · Zürich, Switzerland", `<html lang="en-GB">`, a `<link rel="canonical">`,
-a `<title>` and meta description.
+a `<link rel="alternate" type="text/markdown">`, a `<title>` and meta description. See "Human/Agent
+toggle and the Agent view" above for the toggle, the human-view/agent-view wrapper and `site.js`.
 
 ## Content rules
 - British spelling in any copy written for the site.
