@@ -95,12 +95,14 @@ Neo (`#neo`) → work with me (`#work`) → writing → follow → footer. The p
 else used those rules). Ventures moved from right after the hero to directly after Neo, then, later
 the same day, Neo was moved to directly after Ventures instead (a straight block swap, no copy
 changed), so the seam sequence is: hero straight into white `#report` again (as it was before
-Ventures first existed); white `#report` into grey `#the-surf` uses `.sec.grey`'s own
-`border-top: 1px solid var(--border)`; grey `#the-surf` into white `#ventures` is the mirror of
-that, `.sec.white`'s own border doing the job; white `#ventures` into dark `#neo` needs no extra
-styling since `#neo` carries its own `border-top: 3px solid var(--red)` regardless of context; dark
-`#neo` into white `#work` again needs nothing extra, `#work`'s own `.sec.white` border-top doing the
-same job it always did. No two adjacent sections share a background class in the current order.
+Ventures first existed); white `#report` into dark `#the-surf` needs no extra styling since
+`#the-surf` is `.sec.dark` and carries its own `border-top: 3px solid var(--red)` regardless of
+context (matched to Neo's treatment 21 September 2026, see "The Surf section" below); dark
+`#the-surf` into white `#ventures` needs nothing extra either, `.sec.white`'s own border doing the
+job; white `#ventures` into dark `#neo` needs no extra styling since `#neo` carries its own
+`border-top: 3px solid var(--red)` regardless of context; dark `#neo` into white `#work` again needs
+nothing extra, `#work`'s own `.sec.white` border-top doing the same job it always did. No two
+adjacent sections share a background class in the current order.
 **The manifesto (`.manifesto`, "What I believe") moved off the
 home page entirely on 21 September 2026** — it now sits on `about/index.html`, in the slot the
 "How I work" section used to occupy (see "About page" below). (Earlier history: Neo sat directly
@@ -173,23 +175,32 @@ The four cards, in order, and the source for each card's copy:
    an open item.** **Marcus's role at Neuer Lab is not stated anywhere — do not add one until the
    owner supplies it.**
 `#neo` is `.sec.dark`, so it carries its own `border-top: 3px solid var(--red)` regardless of
-context: white `#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid
-var(--border)`; grey `#the-surf` into white `#ventures` is the mirror seam, `.sec.white`'s own
-border doing the job; white `#ventures` straight into dark `#neo` needs no extra styling, the same
-into-`.sec.dark` seam already used on `about/index.html` (the dark section's own red top border);
-dark `#neo` into white `#work` needs nothing extra either, `#work`'s own `.sec.white` border-top
-doing the same job it always did. Don't add a second
+context: white `#report` into dark `#the-surf` needs no extra styling, `#the-surf` being `.sec.dark`
+too and carrying its own red top border the same way; dark `#the-surf` into white `#ventures` needs
+nothing extra either, `.sec.white`'s own border doing the job; white `#ventures` straight into dark
+`#neo` needs no extra styling, the same into-`.sec.dark` seam already used on `about/index.html`
+(the dark section's own red top border); dark `#neo` into white `#work` needs nothing extra either,
+`#work`'s own `.sec.white` border-top doing the same job it always did. Don't add a second
 border at any of these seams. (The manifesto's own seam notes moved to "About page" below with the
 section itself.)
 
 ## The Surf section (`#the-surf`, home page)
-A compact grey `.sec.grey` band, home page only, between the report and Ventures (originally added
-between the report and Neo, before Neo moved to after Ventures), added 21 September
-2026. **Marked "coming soon" — there is still no launch date, host line, guests or platform links.**
-Styled with the site's own `/* ── the surf ── */` block in `assets/pages.css` (`.surf-grid`: a fixed
-~260px cover column beside the flexible text column on desktop, stacking to one column under
-900px; `.surf-head` for the eyebrow/title/pill row; `.surf-pill` red rounded "Coming soon" badge;
-`#the-surf.sec` reduced vertical padding to keep the band compact).
+A dark `.sec.dark` band (owner instruction, 21 September 2026; was `.sec.grey`, see below), home
+page only, between the report and Ventures (originally added between the report and Neo, before Neo
+moved to after Ventures), added 21 September 2026. **Marked "coming soon" — there is still no launch
+date, host line, guests or platform links.** Styled with the site's own `/* ── the surf ── */` block
+in `assets/pages.css` (`.surf-grid`: a fixed ~260px cover column beside the flexible text column on
+desktop, stacking to one column under 900px; `.surf-head` for the eyebrow/title/pill row; `.surf-pill`
+red rounded "Coming soon" badge, unchanged on the dark ground; `#the-surf.sec` reduced vertical
+padding to keep the band compact). **Switched from grey to dark, matching Neo's treatment exactly**
+(same `.sec.dark`, so the same `border-top: 3px solid var(--red)` applies automatically): the eyebrow
+took Neo's `light` variant (`section-eyebrow light`, same as `#neo`'s), the title needed no class
+change (`.sec.dark .section-title{color:#fff}` already covers it), and the body line got a page-scoped
+override, `#the-surf .section-sub{color:rgba(255,255,255,0.5)}`, mirroring `#neo .section-sub`'s. The
+cover's shadow/border was re-tuned for the dark ground: the old navy-tinted shadow and hairline
+(`rgba(13,26,48,…)`, meant for a grey backdrop) were swapped for `.neo-shot`'s formula, a dark drop
+shadow plus a light hairline ring (`box-shadow: 0 16px 40px rgba(0,0,0,0.35), 0 0 0 1px
+rgba(255,255,255,0.14)`), so the cover edge still reads against the dark band.
 - **Source material, first pass:** the owner initially attached `~/Downloads/7PO4ohCZ.zip.part`,
   which **did not exist anywhere on disk** (checked Downloads, Desktop, and a broader
   home-directory search) — not corrupted, simply absent. The section first shipped with only the
