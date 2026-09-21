@@ -6,12 +6,18 @@ Plain HTML/CSS site, no build step. Hosted on Cloudflare Pages from GitHub
 
 ## What this is
 Marcus Maute's personal site, repositioned around the **Agentic Finance Report** (2026).
-Five pages plus a blog: home, the report, work with me, press, about.
+Four pages plus a blog: home, work with me, press, about.
+
+**The report no longer has a page on this site.** `agentic-finance/index.html` was deleted on the
+owner's instruction (21 September 2026): the report now lives only at agenticfinancereport.com, and
+every link that used to point at the internal page (hero button, `#report` section, nav, mobile nav,
+footer, and the about/press/work-with-me/blog mentions) now points to
+**https://www.agenticfinancereport.com/** with `rel="noopener" target="_blank"`. The home page's
+`#report` section and the Ventures card both describe the report but neither hosts it.
 
 ## Page map
 ```
-index.html                          Home
-agentic-finance/index.html          The report
+index.html                          Home (hero + #report section link out to agenticfinancereport.com)
 work-with-me/index.html             Speaking (advisory block hidden in an HTML comment, see below)
 press/index.html                    Bios, headshot, report facts, quotes cleared for use
 about/index.html                    Bio, background
@@ -75,10 +81,11 @@ Every page (including 404.html) carries it:
   `/*.md` as `Content-Type: text/markdown; charset=utf-8` for Cloudflare Pages.
 
 ## Home page hero
-`.hero-actions` carries a single button, "The Agentic Finance Report" (`.btn-red`). The ghost
-"Work with me →" button that used to sit beside it was removed 21 September 2026; "Work with me"
-stays reachable from `#work`, the nav toggle's replacement `.nav-cta`, the mobile menu and the
-footer.
+`.hero-actions` carries a single button, "The Agentic Finance Report" (`.btn-red`), linking
+externally to `https://www.agenticfinancereport.com/` (`rel="noopener" target="_blank"`) since the
+internal report page was deleted 21 September 2026. The ghost "Work with me →" button that used to
+sit beside it was removed the same day; "Work with me" stays reachable from `#work`, the nav
+toggle's replacement `.nav-cta`, the mobile menu and the footer.
 
 ## Home page section order
 `index.html` runs: hero → report (`#report`) → The Surf (`#the-surf`) → Neo (`#neo`) → ventures
@@ -116,14 +123,15 @@ is editorial framing, not a claim that all four ventures are substantively about
 
 The four cards, in order, and the source for each card's copy:
 1. **Agentic Finance Report** — "Research · 2026" pill. Facts from this repo's own `CLAUDE.md`
-   (release date, chapters, co-authors) and `agentic-finance/index.html`. No logo file exists; the
-   card uses a typographic wordmark ("Agentic Finance **Report.**", the accent on "Report." matching
-   the cover treatment), not the cover thumbnail. **Links externally to
+   (release date, chapters, co-authors) and the report repo (`../agentic_report/`). No logo file
+   exists; the card uses a typographic wordmark ("Agentic Finance **Report.**", the accent on
+   "Report." matching the cover treatment), not the cover thumbnail. **Links externally to
    https://www.agenticfinancereport.com/** (`rel="noopener" target="_blank"`, like the TensorX,
-   Solstice Staking and Neuer Lab cards), not to the internal `agentic-finance/index.html` page —
-   changed on the owner's instruction, 21 September 2026, so the card's link text reads "Visit
-   agenticfinancereport.com →" rather than "Read the report →". The rest of the site's links to the
-   internal report page (hero, `#report` section, nav, footer) are unchanged.
+   Solstice Staking and Neuer Lab cards) — changed on the owner's instruction, 21 September 2026, so
+   the card's link text reads "Visit agenticfinancereport.com →" rather than "Read the report →".
+   The internal `agentic-finance/index.html` page this used to point to was itself deleted the same
+   day, so every other link to the report on this site (hero, `#report` section, nav, footer, about,
+   press, work-with-me, blog) now points to the same external URL too.
 2. **TensorX** — "Sovereign AI" pill. Facts drawn only from
    `../agentic_report/docs/press-release-draft.md`'s "About TensorX" blurb and
    `../agentic_report/docs/CONTRIBUTORS.md` (open-weight models, EU infrastructure in Dublin and
@@ -155,8 +163,8 @@ The manifesto keeps its dark background and its `border-bottom: 3px solid var(--
 `border-top`, so entering it from the white `#ventures` section is a plain colour change (by design,
 matches how `.sec.dark` sections read elsewhere). `#neo` is `.sec.dark`, so it carries its own
 `border-top: 3px solid var(--red)` regardless of context: the grey `#the-surf` band straight into
-dark `#neo` is the same into-`.sec.dark` seam already used on `about/index.html` and
-`agentic-finance/index.html` (the dark section's own red top border, no extra styling needed); white
+dark `#neo` is the same into-`.sec.dark` seam already used on `about/index.html` (the dark section's
+own red top border, no extra styling needed); white
 `#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid var(--border)`; Neo
 into white `#ventures` uses `.sec.white`'s own `border-top: 1px solid var(--border)`, the same
 subtle single-border seam Neo used leaving into the (now-deleted) grey positions section and, before

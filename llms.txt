@@ -14,7 +14,6 @@
 ## Pages
 
 - [Home](https://www.marcusmaute.com/): position, the report, ventures, how to work with him
-- [The Agentic Finance Report](https://www.marcusmaute.com/agentic-finance/): what the report argues, contents with authors, his chapters, citation
 - [Work with me](https://www.marcusmaute.com/work-with-me/): keynotes and board briefings
 - [Writing](https://www.marcusmaute.com/blog/): essays on AI transformation
 - [About](https://www.marcusmaute.com/about/): biography and facts
