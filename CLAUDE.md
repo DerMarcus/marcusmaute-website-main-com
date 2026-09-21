@@ -42,6 +42,8 @@ a `<title>` and meta description.
 - No invented facts: no testimonials, no media/press logos, no numbers not already established
   on the site, unless the owner confirms them as real.
 - Do not rewrite the blog articles' body text, only their chrome (nav, footer, CTAs).
+- All internal links and asset paths are relative (never root-relative), so pages open correctly
+  from disk, from a local server and on Cloudflare; link directory pages as `.../index.html`.
 
 ## Facts that must stay consistent everywhere
 - Name: **Marcus Maute**. Role: **"TensorX Swiss Representative."** Location: **Zürich** (never Zug).
