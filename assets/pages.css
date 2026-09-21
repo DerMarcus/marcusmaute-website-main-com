@@ -153,6 +153,16 @@
 .follow h3 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; text-transform: uppercase; color: #fff; letter-spacing: 0.02em; line-height: 1; }
 .follow p { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 8px; max-width: 460px; line-height: 1.6; }
 
+/* ── the surf ── */
+#the-surf.sec { padding-top: 56px; padding-bottom: 56px; }
+.surf-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.surf-pill {
+  display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: var(--red);
+  padding: 7px 16px; border-radius: 999px; white-space: nowrap;
+}
+.surf-note { margin-top: 10px; }
+
 /* ── neo ── */
 #neo.sec { padding-top: 72px; padding-bottom: 72px; }
 #neo .section-sub { color: rgba(255,255,255,0.5); margin-top: 6px; }
@@ -187,4 +197,5 @@
   .follow { padding: 48px 24px; }
   .toc-table td, .toc-table th { font-size: 14px; }
   .neo-facts li { grid-template-columns: 1fr; gap: 4px; }
+  .surf-head { align-items: flex-start; }
 }

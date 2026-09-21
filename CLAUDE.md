@@ -81,21 +81,44 @@ stays reachable from `#work`, the nav toggle's replacement `.nav-cta`, the mobil
 footer.
 
 ## Home page section order
-`index.html` runs: hero → report (`#report`) → Neo (`#neo`) → positions (`#positions`) → manifesto
-(`.manifesto`, "What I believe") → work with me (`#work`) → writing → follow → footer (Neo moved to
-directly after the report 21 September 2026; before that it sat between the manifesto and work with
-me, and before that the report used to sit after the manifesto, with the manifesto right after the
-hero — this is in fact a reversion to that earlier report/positions/manifesto/work ordering, just
-with Neo now inserted right after the report).
+`index.html` runs: hero → report (`#report`) → The Surf (`#the-surf`) → Neo (`#neo`) → positions
+(`#positions`) → manifesto (`.manifesto`, "What I believe") → work with me (`#work`) → writing →
+follow → footer (The Surf inserted between the report and Neo 21 September 2026; before that Neo
+sat directly after the report; before that it sat between the manifesto and work with me, and
+before that the report used to sit after the manifesto, with the manifesto right after the hero —
+this is in fact a reversion to that earlier report/positions/manifesto/work ordering, just with Neo,
+then The Surf, inserted right after the report).
 The manifesto keeps its dark background and its `border-bottom: 3px solid var(--red)`; it carries
 no `border-top`, so entering it from the grey `#positions` section is a plain colour change (by
 design, matches how `.sec.dark` sections read elsewhere). `#neo` is `.sec.dark`, so it carries its
-own `border-top: 3px solid var(--red)` regardless of context: white `#report` straight into dark
-`#neo` is the same white-into-`.sec.dark` seam already used on `about/index.html` and
-`agentic-finance/index.html` (the dark section's own red top border, no extra styling needed); Neo
-into the grey `#positions` section uses `#positions`'s own `border-top: 1px solid var(--border)`,
-the same subtle seam Neo used leaving into `#work` before it moved. Don't add a second border at
-any of these seams.
+own `border-top: 3px solid var(--red)` regardless of context: the grey `#the-surf` band straight
+into dark `#neo` is the same into-`.sec.dark` seam already used on `about/index.html` and
+`agentic-finance/index.html` (the dark section's own red top border, no extra styling needed); white
+`#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid var(--border)`, the
+same subtle seam `#positions` uses leaving the dark manifesto; Neo into the grey `#positions`
+section uses `#positions`'s own `border-top: 1px solid var(--border)`, the same subtle seam Neo used
+leaving into `#work` before it moved. Don't add a second border at any of these seams.
+
+## The Surf section (`#the-surf`, home page)
+A compact grey `.sec.grey` band, home page only, between the report and Neo, added 21 September
+2026. **Marked "coming soon" — there is no launch date, host line, guests, platform links or
+description beyond what is below.** Styled with the site's own `/* ── the surf ── */` block in
+`assets/pages.css` (`.surf-head` layout, `.surf-pill` red rounded "Coming soon" badge, `#the-surf.sec`
+reduced vertical padding to keep the band compact per the owner's brief).
+- **Source material:** the owner attached `~/Downloads/7PO4ohCZ.zip.part` as source material (cover
+  art, description, host names). **That file did not exist anywhere on disk** when this section was
+  built (checked Downloads, Desktop, and a broader home-directory search by name and by
+  `.zip.part`/`.part` extension) — not merely corrupted, simply absent. The section therefore carries
+  **only the facts explicitly authorised as safe defaults**: the name "The Surf", the eyebrow label
+  "Podcast", a "Coming soon" pill, and the one permitted neutral line "Podcast · Coming soon." No
+  cover art, no host attribution line, no description beyond that. **If the zip ever surfaces,
+  re-open this section**: add cover art (converted to WebP + fallback, `assets/img/the-surf-*.webp`,
+  via `<picture>`), use any real description verbatim (tidied only for typos/British spelling), and
+  only then add a host line.
+- Not in the nav or `sitemap.xml` (no dedicated page exists yet).
+- `marcus-maute.md` and `llms.txt` each carry a short "The Surf (podcast): coming soon" entry
+  (same two facts as the page); re-run `python3 tools/build_agent_view.py` after any change to
+  `marcus-maute.md` to re-embed it in every page's Agent view.
 
 ## Neo section (`#neo`, home page)
 A dark `.sec.dark` band introducing Neo, an autonomous on-chain art-collecting agent that Marcus
