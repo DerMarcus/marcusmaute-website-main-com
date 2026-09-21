@@ -44,9 +44,25 @@ report. Don't add a second border at any of these seams.
 ## Neo section (`#neo`, home page)
 A dark `.sec.dark` band introducing Neo, an autonomous on-chain art-collecting agent that Marcus
 built and operates as an independent personal project, styled with the site's own `/* ── neo ── */`
-block in `assets/pages.css` (`.neo-grid`, `.neo-facts`, `.neo-disclosure`). Also linked from every
-page's footer (`https://github.com/DerMarcus/nftneo`, `rel="noopener" target="_blank"`, between
-About and LinkedIn) and from `about/index.html`'s facts table and `llms.txt`.
+block in `assets/pages.css` (`.neo-grid`, `.neo-facts`, `.neo-disclosure`, `.neo-shot`). Also linked
+from every page's footer (`https://github.com/DerMarcus/nftneo`, `rel="noopener" target="_blank"`,
+between About and LinkedIn) and from `about/index.html`'s facts table and `llms.txt`.
+- **Eyebrow:** "Autonomous agent · Personal project" (renamed from "What I'm building", 21
+  September 2026, owner instruction). Don't revert.
+- **Draft screenshot:** a framed screenshot of the nftneo.dev site draft sits in the right column
+  of `.neo-grid`, above `.neo-facts` (`.neo-shot` wrapper: a fake browser bar with three dots and
+  "nftneo.dev · draft", 1px border, soft shadow; `.neo-shot-caption` below reads "Draft of
+  nftneo.dev. The site is not live yet."). Added 21 September 2026 from a headless-Chrome capture
+  (1440×900) of the actual generated build at
+  `~/Downloads/neo/nftneo/site/dist/index.html` (that repo's own `site/build.py` output, dated
+  2026-09-16 — the current real draft, not the earlier static design mockups in
+  `~/Downloads/neo/resources/website-design/` or the `nftneo-ops` `design/` folder, which are
+  older references). Saved as `assets/img/nftneo-site-draft.webp` (quality 85) with a `.jpg`
+  fallback, served via `<picture>`. A full-width placement above the two-column body was tried and
+  rejected: it pushed the section past ~1.9 screens at desktop, well over the ~1.5-screen budget,
+  so the image went in the right column instead. **The caption's "not live yet" wording must stay
+  until the owner confirms nftneo.dev is live** — update it together with the `nftneo.dev` planned-
+  address note below when that happens.
 - **Facts source:** the project's public README and ARCHITECTURE at
   `github.com/DerMarcus/nftneo` only. `nftneo.dev` is the planned site address; it did not resolve
   as of 21 September 2026 (connection refused), so it appears in copy as text, never as a link,
