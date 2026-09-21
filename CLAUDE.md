@@ -88,27 +88,34 @@ sit beside it was removed the same day; "Work with me" stays reachable from `#wo
 toggle's replacement `.nav-cta`, the mobile menu and the footer.
 
 ## Home page section order
-`index.html` runs: hero → report (`#report`) → The Surf (`#the-surf`) → Neo (`#neo`) → ventures
-(`#ventures`) → work with me (`#work`) → writing → follow → footer. The positions section
+`index.html` runs: hero → report (`#report`) → The Surf (`#the-surf`) → ventures (`#ventures`) →
+Neo (`#neo`) → work with me (`#work`) → writing → follow → footer. The positions section
 (`#positions`, "Four positions.") was **deleted entirely on the owner's instruction, 21 September
 2026** — it no longer exists anywhere in the file, and its `.pov-*` CSS was removed with it (nothing
-else used those rules). Ventures moved from right after the hero to directly after Neo the same day,
-so the seam sequence is: hero straight into white `#report` again (as it was before Ventures first
-existed); Neo (dark) into white `#ventures` uses `.sec.white`'s own `border-top: 1px solid
-var(--border)`, the same subtle single-border seam Neo used leaving into grey sections elsewhere;
-white `#ventures` into white `#work` is a plain continuation, `#work`'s own `.sec.white` border-top
-doing the same job it always did. **The manifesto (`.manifesto`, "What I believe") moved off the
+else used those rules). Ventures moved from right after the hero to directly after Neo, then, later
+the same day, Neo was moved to directly after Ventures instead (a straight block swap, no copy
+changed), so the seam sequence is: hero straight into white `#report` again (as it was before
+Ventures first existed); white `#report` into grey `#the-surf` uses `.sec.grey`'s own
+`border-top: 1px solid var(--border)`; grey `#the-surf` into white `#ventures` is the mirror of
+that, `.sec.white`'s own border doing the job; white `#ventures` into dark `#neo` needs no extra
+styling since `#neo` carries its own `border-top: 3px solid var(--red)` regardless of context; dark
+`#neo` into white `#work` again needs nothing extra, `#work`'s own `.sec.white` border-top doing the
+same job it always did. No two adjacent sections share a background class in the current order.
+**The manifesto (`.manifesto`, "What I believe") moved off the
 home page entirely on 21 September 2026** — it now sits on `about/index.html`, in the slot the
-"How I work" section used to occupy (see "About page" below). (Earlier history: The Surf was
-inserted between the report and Neo 21 September 2026; before that Neo sat directly after the
+"How I work" section used to occupy (see "About page" below). (Earlier history: Neo sat directly
+after Ventures right after this move; before that, Ventures sat directly after Neo, right after The
+Surf was inserted between the report and Neo the same day; before that Neo sat directly after the
 report; before that it sat between the manifesto and work with me, and before that the report used
 to sit after the manifesto, with the manifesto right after the hero; the manifesto itself sat on the
 home page, between ventures and work with me, until it moved to the About page.)
 
 ## Ventures section (`#ventures`, home page)
-A white `.sec white` band, home page only, directly after Neo (`#neo`) and before the manifesto.
-Added 21 September 2026 right after the hero, then moved the same day to directly after Neo (in the
-slot the deleted positions section used to occupy), modelled on the "One thesis. Four ventures."
+A white `.sec white` band, home page only, directly after The Surf (`#the-surf`) and before Neo
+(`#neo`). Added 21 September 2026 right after the hero, then moved the same day to directly after
+Neo (in the slot the deleted positions section used to occupy), and later the same day Neo was moved
+to directly after Ventures instead, leaving Ventures in its current slot right after The Surf,
+modelled on the "One thesis. Four ventures."
 pattern from raoulpal.com but built in the site's own design language (not Pal's styling or headline
 wording): a heading ("One thesis. Four
 houses.") with a short standfirst on the right, then a 2×2 `.venture-grid` of `.venture-card`s
@@ -166,17 +173,18 @@ The four cards, in order, and the source for each card's copy:
    an open item.** **Marcus's role at Neuer Lab is not stated anywhere — do not add one until the
    owner supplies it.**
 `#neo` is `.sec.dark`, so it carries its own `border-top: 3px solid var(--red)` regardless of
-context: the grey `#the-surf` band straight into dark `#neo` is the same into-`.sec.dark` seam
-already used on `about/index.html` (the dark section's own red top border, no extra styling needed);
-white `#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid var(--border)`;
-Neo into white `#ventures` uses `.sec.white`'s own `border-top: 1px solid var(--border)`, the same
-subtle single-border seam Neo used leaving into the (now-deleted) grey positions section and, before
-that, into `#work`; white `#ventures` into white `#work` is the same again. Don't add a second
+context: white `#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid
+var(--border)`; grey `#the-surf` into white `#ventures` is the mirror seam, `.sec.white`'s own
+border doing the job; white `#ventures` straight into dark `#neo` needs no extra styling, the same
+into-`.sec.dark` seam already used on `about/index.html` (the dark section's own red top border);
+dark `#neo` into white `#work` needs nothing extra either, `#work`'s own `.sec.white` border-top
+doing the same job it always did. Don't add a second
 border at any of these seams. (The manifesto's own seam notes moved to "About page" below with the
 section itself.)
 
 ## The Surf section (`#the-surf`, home page)
-A compact grey `.sec.grey` band, home page only, between the report and Neo, added 21 September
+A compact grey `.sec.grey` band, home page only, between the report and Ventures (originally added
+between the report and Neo, before Neo moved to after Ventures), added 21 September
 2026. **Marked "coming soon" — there is still no launch date, host line, guests or platform links.**
 Styled with the site's own `/* ── the surf ── */` block in `assets/pages.css` (`.surf-grid`: a fixed
 ~260px cover column beside the flexible text column on desktop, stacking to one column under
