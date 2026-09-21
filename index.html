@@ -61,15 +61,6 @@
 .manifesto-sig-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
 .manifesto-sig-name { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; }
 .manifesto-sig-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 2px; }
-.pov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 52px; }
-.pov-card { background: #fff; padding: 40px 36px; position: relative; overflow: hidden; transition: background .18s; }
-.pov-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .28s; }
-.pov-card:hover { background: #f7f9ff; }
-.pov-card:hover::before { transform: scaleX(1); }
-.pov-num { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(48px, 5vw, 68px); font-weight: 900; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 16px; letter-spacing: -0.02em; }
-.pov-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); border: 1px solid rgba(200,25,44,0.3); padding: 3px 10px; border-radius: 2px; margin-bottom: 12px; }
-.pov-title { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 900; text-transform: uppercase; color: var(--text); line-height: 1.15; margin-bottom: 12px; letter-spacing: 0.01em; }
-.pov-body { font-size: 14px; color: var(--muted); line-height: 1.75; }
 .speaking-topics { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
 .speaking-topic { background: #fff; border: 1px solid var(--border); border-left: 3px solid transparent; padding: 20px 24px; transition: all .18s; }
 .speaking-topic:hover { border-left-color: var(--red); background: #fdf5f6; }
@@ -93,7 +84,6 @@
 @media (max-width: 900px) {
   .hero-content { padding: 96px 24px 72px; }
   .manifesto { padding: 64px 24px; }
-  .pov-grid { grid-template-columns: 1fr; }
   .posts-grid { grid-template-columns: 1fr; }
   .blog-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
@@ -145,57 +135,6 @@
     </div>
   </div>
   <div class="hero-bottom-bar"></div>
-</section>
-
-<!-- VENTURES -->
-<section class="sec white" id="ventures">
-  <div class="sec-inner">
-    <div class="ventures-head">
-      <div>
-        <div class="section-eyebrow">Ventures</div>
-        <div class="section-title">One thesis.<br>Four ventures.</div>
-      </div>
-      <p class="ventures-standfirst">Built so one thesis, agentic finance, can show up from more than one side: as research, as infrastructure, as capital, and as practice.</p>
-    </div>
-    <div class="venture-grid">
-      <div class="venture-card">
-        <div class="venture-top">
-          <div class="venture-logo is-wordmark">Agentic Finance <span class="accent">Report.</span></div>
-          <span class="venture-pill">Research · 2026</span>
-        </div>
-        <div class="venture-title">Agentic Finance Report</div>
-        <p class="venture-text">The industry report that names the thesis: eight chapters and a guest contribution from the regulated bank, the settlement layer, the sovereign inference, the orchestration and the identity layer already running it in production. Free to read from 29 September 2026 at agenticfinancereport.com.</p>
-        <a href="agentic-finance/index.html" class="venture-link">Read the report →</a>
-      </div>
-      <div class="venture-card">
-        <div class="venture-top">
-          <div class="venture-logo"><img src="assets/img/logos/tensorx-logo.svg" alt="TensorX" width="170" height="38" loading="lazy"></div>
-          <span class="venture-pill">Sovereign AI</span>
-        </div>
-        <div class="venture-title">TensorX</div>
-        <p class="venture-text">Sovereign AI infrastructure for regulated industries: open-weight models on EU infrastructure in Dublin and Helsinki, zero data retention by design, with inference agents can pay for directly through x402, in stablecoins. Marcus is TensorX Swiss Representative.</p>
-        <a href="https://tensorx.ai" class="venture-link" rel="noopener" target="_blank">Visit TensorX →</a>
-      </div>
-      <div class="venture-card">
-        <div class="venture-top">
-          <div class="venture-logo"><img src="assets/img/logos/solstice-staking-horizontal-black.svg" alt="Solstice Staking" width="170" height="50" loading="lazy"></div>
-          <span class="venture-pill">Staking</span>
-        </div>
-        <div class="venture-title">Solstice Staking</div>
-        <p class="venture-text">Institutional-grade, non-custodial staking infrastructure for the decentralised economy: validator and liquid-staking access to Ethereum, Solana and NEAR Protocol at zero commission, with more than $1 billion in staked assets. Solstice Staking AG, based in Zug, Switzerland.</p>
-        <a href="https://solsticestaking.io" class="venture-link" rel="noopener" target="_blank">Visit Solstice Staking →</a>
-      </div>
-      <div class="venture-card">
-        <div class="venture-top">
-          <div class="venture-logo is-wordmark">Neuer Lab</div>
-          <span class="venture-pill">Wellness</span>
-        </div>
-        <div class="venture-title">Neuer Lab</div>
-        <p class="venture-text">Mindset, spirituality and longevity, integrating evidence-based neuroscience with conscious human development: mental training, emotional release work and leadership and awareness workshops for individuals and organisations.</p>
-        <a href="https://neuerlab.com" class="venture-link" rel="noopener" target="_blank">Visit Neuer Lab →</a>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- REPORT -->
@@ -280,36 +219,52 @@
   </div>
 </section>
 
-<!-- POSITIONS -->
-<section class="sec grey" id="positions">
+<!-- VENTURES -->
+<section class="sec white" id="ventures">
   <div class="sec-inner">
-    <div class="section-eyebrow">Where I plant my flag</div>
-    <div class="section-title">Four positions.</div>
-    <p class="section-sub">The argument of the report, and of my work, in four sentences.</p>
-    <div class="pov-grid">
-      <div class="pov-card">
-        <div class="pov-num">01</div>
-        <div class="pov-tag">The mandate</div>
-        <div class="pov-title">The first step needs no technology</div>
-        <div class="pov-body">Before an institution buys a model, it writes the mandate: what the agent may do, within what limits, who confirms what, and where the line sits that it cannot cross. Every layer of the stack is bought; the mandate is the one thing no supplier can deliver.</div>
+    <div class="ventures-head">
+      <div>
+        <div class="section-eyebrow">Ventures</div>
+        <div class="section-title">One thesis.<br>Four ventures.</div>
       </div>
-      <div class="pov-card">
-        <div class="pov-num">02</div>
-        <div class="pov-tag">The loop</div>
-        <div class="pov-title">The queues, not the steps, are where the capital goes</div>
-        <div class="pov-body">A human treasury team runs the same loop an agent does: signal, reason, decide, comply, execute, report. The difference is the queues between the steps. Remove them and capital that used to wait can move when it should.</div>
+      <p class="ventures-standfirst">Built so one thesis, agentic finance, can show up from more than one side: as research, as infrastructure, as capital, and as practice.</p>
+    </div>
+    <div class="venture-grid">
+      <div class="venture-card">
+        <div class="venture-top">
+          <div class="venture-logo is-wordmark">Agentic Finance <span class="accent">Report.</span></div>
+          <span class="venture-pill">Research · 2026</span>
+        </div>
+        <div class="venture-title">Agentic Finance Report</div>
+        <p class="venture-text">The industry report that names the thesis: eight chapters and a guest contribution from the regulated bank, the settlement layer, the sovereign inference, the orchestration and the identity layer already running it in production. Free to read from 29 September 2026 at agenticfinancereport.com.</p>
+        <a href="https://www.agenticfinancereport.com/" class="venture-link" rel="noopener" target="_blank">Visit agenticfinancereport.com →</a>
       </div>
-      <div class="pov-card">
-        <div class="pov-num">03</div>
-        <div class="pov-tag">AI transformation</div>
-        <div class="pov-title">The organisation, not the model</div>
-        <div class="pov-body">Buy the model and leave the process alone, and you get the pilot that impresses and the P&amp;L that does not move. A mandate is a map of the jagged frontier drawn for one institution: autonomous where the agent is reliably competent, confirmed by a person near the edge, reserved to people beyond it.</div>
+      <div class="venture-card">
+        <div class="venture-top">
+          <div class="venture-logo"><img src="assets/img/logos/tensorx-logo.svg" alt="TensorX" width="170" height="38" loading="lazy"></div>
+          <span class="venture-pill">Sovereign AI</span>
+        </div>
+        <div class="venture-title">TensorX</div>
+        <p class="venture-text">Sovereign AI infrastructure for regulated industries: open-weight models on EU infrastructure in Dublin and Helsinki, zero data retention by design, with inference agents can pay for directly through x402, in stablecoins. Marcus is TensorX Swiss Representative.</p>
+        <a href="https://tensorx.ai" class="venture-link" rel="noopener" target="_blank">Visit TensorX →</a>
       </div>
-      <div class="pov-card">
-        <div class="pov-num">04</div>
-        <div class="pov-tag">The stack</div>
-        <div class="pov-title">The infrastructure is ready before the institutions are</div>
-        <div class="pov-body">Regulated custody, settlement in seconds, sovereign inference and multi-agent orchestration are in production today; verifiable agent identity is further along in standards than in deployment. What remains is organisational, and that is the part an institution controls.</div>
+      <div class="venture-card">
+        <div class="venture-top">
+          <div class="venture-logo"><img src="assets/img/logos/solstice-staking-horizontal-black.svg" alt="Solstice Staking" width="170" height="50" loading="lazy"></div>
+          <span class="venture-pill">Staking</span>
+        </div>
+        <div class="venture-title">Solstice Staking</div>
+        <p class="venture-text">Institutional-grade, non-custodial staking infrastructure for the decentralised economy: validator and liquid-staking access to Ethereum, Solana and NEAR Protocol at zero commission, with more than $1 billion in staked assets. Solstice Staking AG, based in Zug, Switzerland.</p>
+        <a href="https://solsticestaking.io" class="venture-link" rel="noopener" target="_blank">Visit Solstice Staking →</a>
+      </div>
+      <div class="venture-card">
+        <div class="venture-top">
+          <div class="venture-logo is-wordmark">Neuer Lab</div>
+          <span class="venture-pill">Wellness</span>
+        </div>
+        <div class="venture-title">Neuer Lab</div>
+        <p class="venture-text">Mindset, spirituality and longevity, integrating evidence-based neuroscience with conscious human development: mental training, emotional release work and leadership and awareness workshops for individuals and organisations.</p>
+        <a href="https://neuerlab.com" class="venture-link" rel="noopener" target="_blank">Visit Neuer Lab →</a>
       </div>
     </div>
   </div>

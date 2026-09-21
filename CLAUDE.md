@@ -81,19 +81,27 @@ stays reachable from `#work`, the nav toggle's replacement `.nav-cta`, the mobil
 footer.
 
 ## Home page section order
-`index.html` runs: hero → ventures (`#ventures`) → report (`#report`) → The Surf (`#the-surf`) → Neo
-(`#neo`) → positions (`#positions`) → manifesto (`.manifesto`, "What I believe") → work with me
-(`#work`) → writing → follow → footer (The Surf inserted between the report and Neo 21 September
-2026; before that Neo sat directly after the report; before that it sat between the manifesto and
-work with me, and before that the report used to sit after the manifesto, with the manifesto right
-after the hero — this is in fact a reversion to that earlier report/positions/manifesto/work
-ordering, just with Neo, then The Surf, inserted right after the report; Ventures inserted right
-after the hero, before the report, 21 September 2026).
+`index.html` runs: hero → report (`#report`) → The Surf (`#the-surf`) → Neo (`#neo`) → ventures
+(`#ventures`) → manifesto (`.manifesto`, "What I believe") → work with me (`#work`) → writing →
+follow → footer. The positions section (`#positions`, "Four positions.") was **deleted entirely on
+the owner's instruction, 21 September 2026** — it no longer exists anywhere in the file, and its
+`.pov-*` CSS was removed with it (nothing else used those rules). Ventures moved from right after
+the hero to directly after Neo the same day, so the seam sequence is: hero straight into white
+`#report` again (as it was before Ventures first existed); Neo (dark) into white `#ventures` uses
+`.sec.white`'s own `border-top: 1px solid var(--border)`, the same subtle single-border seam Neo
+used leaving into grey sections elsewhere; white `#ventures` into the dark manifesto is a plain
+colour change, since neither carries a border at that edge (the manifesto's only border is its own
+`border-bottom: 3px solid var(--red)`). (Earlier history: The Surf was inserted between the report
+and Neo 21 September 2026; before that Neo sat directly after the report; before that it sat between
+the manifesto and work with me, and before that the report used to sit after the manifesto, with the
+manifesto right after the hero.)
 
 ## Ventures section (`#ventures`, home page)
-A white `.sec white` band, home page only, directly after the hero and before `#report`, added 21
-September 2026, modelled on the "One thesis. Four ventures." pattern from raoulpal.com but built in
-the site's own design language (not Pal's styling or headline wording): a heading ("One thesis. Four
+A white `.sec white` band, home page only, directly after Neo (`#neo`) and before the manifesto.
+Added 21 September 2026 right after the hero, then moved the same day to directly after Neo (in the
+slot the deleted positions section used to occupy), modelled on the "One thesis. Four ventures."
+pattern from raoulpal.com but built in the site's own design language (not Pal's styling or headline
+wording): a heading ("One thesis. Four
 ventures.") with a short standfirst on the right, then a 2×2 `.venture-grid` of `.venture-card`s
 (logo top-left ~36px tall, a small pill label, the venture name, one or two sentences, an arrow link
 at the foot — a normal link, not a whole-card anchor, to keep the markup accessible). New CSS is
@@ -110,8 +118,12 @@ The four cards, in order, and the source for each card's copy:
 1. **Agentic Finance Report** — "Research · 2026" pill. Facts from this repo's own `CLAUDE.md`
    (release date, chapters, co-authors) and `agentic-finance/index.html`. No logo file exists; the
    card uses a typographic wordmark ("Agentic Finance **Report.**", the accent on "Report." matching
-   the cover treatment), not the cover thumbnail. Links to the internal
-   `agentic-finance/index.html` and names agenticfinancereport.com in the body text.
+   the cover treatment), not the cover thumbnail. **Links externally to
+   https://www.agenticfinancereport.com/** (`rel="noopener" target="_blank"`, like the TensorX,
+   Solstice Staking and Neuer Lab cards), not to the internal `agentic-finance/index.html` page —
+   changed on the owner's instruction, 21 September 2026, so the card's link text reads "Visit
+   agenticfinancereport.com →" rather than "Read the report →". The rest of the site's links to the
+   internal report page (hero, `#report` section, nav, footer) are unchanged.
 2. **TensorX** — "Sovereign AI" pill. Facts drawn only from
    `../agentic_report/docs/press-release-draft.md`'s "About TensorX" blurb and
    `../agentic_report/docs/CONTRIBUTORS.md` (open-weight models, EU infrastructure in Dublin and
@@ -139,16 +151,16 @@ The four cards, in order, and the source for each card's copy:
    to fetch assets) — the card uses a plain typographic wordmark, "Neuer Lab". **A real logo file is
    an open item.** **Marcus's role at Neuer Lab is not stated anywhere — do not add one until the
    owner supplies it.**
-The manifesto keeps its dark background and its `border-bottom: 3px solid var(--red)`; it carries
-no `border-top`, so entering it from the grey `#positions` section is a plain colour change (by
-design, matches how `.sec.dark` sections read elsewhere). `#neo` is `.sec.dark`, so it carries its
-own `border-top: 3px solid var(--red)` regardless of context: the grey `#the-surf` band straight
-into dark `#neo` is the same into-`.sec.dark` seam already used on `about/index.html` and
+The manifesto keeps its dark background and its `border-bottom: 3px solid var(--red)`; it carries no
+`border-top`, so entering it from the white `#ventures` section is a plain colour change (by design,
+matches how `.sec.dark` sections read elsewhere). `#neo` is `.sec.dark`, so it carries its own
+`border-top: 3px solid var(--red)` regardless of context: the grey `#the-surf` band straight into
+dark `#neo` is the same into-`.sec.dark` seam already used on `about/index.html` and
 `agentic-finance/index.html` (the dark section's own red top border, no extra styling needed); white
-`#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid var(--border)`, the
-same subtle seam `#positions` uses leaving the dark manifesto; Neo into the grey `#positions`
-section uses `#positions`'s own `border-top: 1px solid var(--border)`, the same subtle seam Neo used
-leaving into `#work` before it moved. Don't add a second border at any of these seams.
+`#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid var(--border)`; Neo
+into white `#ventures` uses `.sec.white`'s own `border-top: 1px solid var(--border)`, the same
+subtle single-border seam Neo used leaving into the (now-deleted) grey positions section and, before
+that, into `#work`. Don't add a second border at any of these seams.
 
 ## The Surf section (`#the-surf`, home page)
 A compact grey `.sec.grey` band, home page only, between the report and Neo, added 21 September
