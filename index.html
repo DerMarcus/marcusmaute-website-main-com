@@ -27,7 +27,7 @@
   "jobTitle": "TensorX Swiss Representative",
   "affiliation": { "@type": "Organization", "name": "TensorX", "url": "https://tensorx.ai" },
   "address": { "@type": "PostalAddress", "addressLocality": "Zürich", "addressCountry": "CH" },
-  "sameAs": ["https://www.linkedin.com/in/marcusmaute/", "https://agenticfinancereport.com/"],
+  "sameAs": ["https://www.linkedin.com/in/marcusmaute/", "https://x.com/marcusmaute", "https://agenticfinancereport.com/"],
   "knowsAbout": ["Agentic finance", "AI transformation", "Sovereign AI", "Digital-asset infrastructure", "Regulated finance", "AI agent governance"],
   "author": { "@type": "Report", "name": "Agentic Finance Report", "url": "https://agenticfinancereport.com/" }
 }
@@ -50,17 +50,6 @@
 .hero-proof-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); white-space: nowrap; flex-shrink: 0; padding-top: 3px; }
 .hero-proof-text { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 640px; }
 .hero-proof-text strong { color: rgba(255,255,255,0.8); font-weight: 600; }
-.manifesto { background: #06090f; padding: 96px 48px; position: relative; overflow: hidden; border-bottom: 3px solid var(--red); }
-.manifesto-inner { max-width: 860px; margin: 0 auto; position: relative; }
-.manifesto-text { font-size: clamp(19px, 2.2vw, 25px); color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 44px; }
-.manifesto-text em { font-style: italic; color: rgba(255,255,255,0.4); }
-.manifesto-text strong { font-weight: 600; color: #fff; }
-.manifesto-text p { margin-bottom: 24px; }
-.manifesto-text p:last-child { margin-bottom: 0; }
-.manifesto-sig { display: flex; align-items: center; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
-.manifesto-sig-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
-.manifesto-sig-name { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; }
-.manifesto-sig-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 2px; }
 .speaking-topics { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
 .speaking-topic { background: #fff; border: 1px solid var(--border); border-left: 3px solid transparent; padding: 20px 24px; transition: all .18s; }
 .speaking-topic:hover { border-left-color: var(--red); background: #fdf5f6; }
@@ -83,7 +72,6 @@
 .view-all { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,25,44,0.25); padding-bottom: 2px; }
 @media (max-width: 900px) {
   .hero-content { padding: 96px 24px 72px; }
-  .manifesto { padding: 64px 24px; }
   .posts-grid { grid-template-columns: 1fr; }
   .blog-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
@@ -270,26 +258,6 @@
   </div>
 </section>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="manifesto-inner">
-    <div class="section-eyebrow light">What I believe</div>
-    <div class="manifesto-text">
-      <p>On the Kardashev scale a Type I civilisation commands the energy of its entire planet. We stand at roughly 0.7. Every question I find interesting, in finance, in AI, in blockchain, comes back to one: <strong>how does a civilisation reach more energy, and what does it do with it?</strong></p>
-      <p>The internet was the first technology built at the scale of the planet rather than the nation. Blockchains are the second: shared ledgers nobody owns, running on every continent at once. I read them as <strong>the first Type I technologies</strong>, early infrastructure for a civilisation that thinks and settles as one.</p>
-      <p>Bitcoin is the clearest case. It is a global state machine whose security is bought with energy, so it pays for power wherever power is cheapest: the stranded dam, the flare stack, the grid that needs a flexible load at three in the morning. <strong>A buyer that shows up for every stranded kilowatt makes building more generation worth it.</strong> Proof of work is the right incentive, and the right direction. We should want to tap into more power, rather than ration what we have.</p>
-      <p>Agents are the other half. Software that decides and acts is what a civilisation does with energy once it has it, and the mandate, the custody and the identity behind an agent are how it stays ours. <strong>More energy, and a hand on the mandate.</strong> That is where I work.</p>
-    </div>
-    <div class="manifesto-sig">
-      <div class="manifesto-sig-dot"></div>
-      <div>
-        <div class="manifesto-sig-name">Marcus Maute</div>
-        <div class="manifesto-sig-title">Lead author, Agentic Finance Report · TensorX Swiss Representative · Zürich</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- WORK WITH ME -->
 <section class="sec white" id="work">
   <div class="sec-inner two-col wide-left">
@@ -345,7 +313,10 @@
       <h3>Follow the work.</h3>
       <p>Short, first-person notes on agentic finance and AI transformation, from inside the infrastructure rather than from a slide.</p>
     </div>
-    <a href="https://www.linkedin.com/in/marcusmaute/" class="btn-red" rel="noopener" target="_blank">Marcus Maute on LinkedIn →</a>
+    <div class="follow-actions" style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="https://www.linkedin.com/in/marcusmaute/" class="btn-red" rel="noopener" target="_blank">Marcus Maute on LinkedIn →</a>
+      <a href="https://x.com/marcusmaute" class="btn-red" rel="noopener" target="_blank">Marcus Maute on X →</a>
+    </div>
   </div>
 </section>
 
@@ -397,6 +368,7 @@ University of Zürich supplying much of the talent behind them.
 - Based in: Zürich, Switzerland
 - Languages: English, German
 - LinkedIn: https://www.linkedin.com/in/marcusmaute/
+- X: https://x.com/marcusmaute
 - Contact: marcus@marcusmaute.com
 
 ## Ventures

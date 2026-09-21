@@ -89,19 +89,21 @@ toggle's replacement `.nav-cta`, the mobile menu and the footer.
 
 ## Home page section order
 `index.html` runs: hero → report (`#report`) → The Surf (`#the-surf`) → Neo (`#neo`) → ventures
-(`#ventures`) → manifesto (`.manifesto`, "What I believe") → work with me (`#work`) → writing →
-follow → footer. The positions section (`#positions`, "Four positions.") was **deleted entirely on
-the owner's instruction, 21 September 2026** — it no longer exists anywhere in the file, and its
-`.pov-*` CSS was removed with it (nothing else used those rules). Ventures moved from right after
-the hero to directly after Neo the same day, so the seam sequence is: hero straight into white
-`#report` again (as it was before Ventures first existed); Neo (dark) into white `#ventures` uses
-`.sec.white`'s own `border-top: 1px solid var(--border)`, the same subtle single-border seam Neo
-used leaving into grey sections elsewhere; white `#ventures` into the dark manifesto is a plain
-colour change, since neither carries a border at that edge (the manifesto's only border is its own
-`border-bottom: 3px solid var(--red)`). (Earlier history: The Surf was inserted between the report
-and Neo 21 September 2026; before that Neo sat directly after the report; before that it sat between
-the manifesto and work with me, and before that the report used to sit after the manifesto, with the
-manifesto right after the hero.)
+(`#ventures`) → work with me (`#work`) → writing → follow → footer. The positions section
+(`#positions`, "Four positions.") was **deleted entirely on the owner's instruction, 21 September
+2026** — it no longer exists anywhere in the file, and its `.pov-*` CSS was removed with it (nothing
+else used those rules). Ventures moved from right after the hero to directly after Neo the same day,
+so the seam sequence is: hero straight into white `#report` again (as it was before Ventures first
+existed); Neo (dark) into white `#ventures` uses `.sec.white`'s own `border-top: 1px solid
+var(--border)`, the same subtle single-border seam Neo used leaving into grey sections elsewhere;
+white `#ventures` into white `#work` is a plain continuation, `#work`'s own `.sec.white` border-top
+doing the same job it always did. **The manifesto (`.manifesto`, "What I believe") moved off the
+home page entirely on 21 September 2026** — it now sits on `about/index.html`, in the slot the
+"How I work" section used to occupy (see "About page" below). (Earlier history: The Surf was
+inserted between the report and Neo 21 September 2026; before that Neo sat directly after the
+report; before that it sat between the manifesto and work with me, and before that the report used
+to sit after the manifesto, with the manifesto right after the hero; the manifesto itself sat on the
+home page, between ventures and work with me, until it moved to the About page.)
 
 ## Ventures section (`#ventures`, home page)
 A white `.sec white` band, home page only, directly after Neo (`#neo`) and before the manifesto.
@@ -163,16 +165,15 @@ The four cards, in order, and the source for each card's copy:
    to fetch assets) — the card uses a plain typographic wordmark, "Neuer Lab". **A real logo file is
    an open item.** **Marcus's role at Neuer Lab is not stated anywhere — do not add one until the
    owner supplies it.**
-The manifesto keeps its dark background and its `border-bottom: 3px solid var(--red)`; it carries no
-`border-top`, so entering it from the white `#ventures` section is a plain colour change (by design,
-matches how `.sec.dark` sections read elsewhere). `#neo` is `.sec.dark`, so it carries its own
-`border-top: 3px solid var(--red)` regardless of context: the grey `#the-surf` band straight into
-dark `#neo` is the same into-`.sec.dark` seam already used on `about/index.html` (the dark section's
-own red top border, no extra styling needed); white
-`#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid var(--border)`; Neo
-into white `#ventures` uses `.sec.white`'s own `border-top: 1px solid var(--border)`, the same
+`#neo` is `.sec.dark`, so it carries its own `border-top: 3px solid var(--red)` regardless of
+context: the grey `#the-surf` band straight into dark `#neo` is the same into-`.sec.dark` seam
+already used on `about/index.html` (the dark section's own red top border, no extra styling needed);
+white `#report` into grey `#the-surf` uses `.sec.grey`'s own `border-top: 1px solid var(--border)`;
+Neo into white `#ventures` uses `.sec.white`'s own `border-top: 1px solid var(--border)`, the same
 subtle single-border seam Neo used leaving into the (now-deleted) grey positions section and, before
-that, into `#work`. Don't add a second border at any of these seams.
+that, into `#work`; white `#ventures` into white `#work` is the same again. Don't add a second
+border at any of these seams. (The manifesto's own seam notes moved to "About page" below with the
+section itself.)
 
 ## The Surf section (`#the-surf`, home page)
 A compact grey `.sec.grey` band, home page only, between the report and Neo, added 21 September
@@ -250,6 +251,18 @@ between About and LinkedIn) and from `about/index.html`'s facts table and `llms.
   removed from the Neo section; the pre-launch fact stays in its prose paragraph) and re-embedded
   into every page via `tools/build_agent_view.py`. Don't reintroduce them without the owner asking.
 
+## About page: manifesto moved here (21 September 2026)
+`about/index.html` runs: page hero → "Who I am" (`.sec white`, bio + facts table) → manifesto
+(`.manifesto`, "What I believe") → footer. The manifesto section (eyebrow, four-paragraph text and
+signature block, unchanged markup) moved here from the home page, replacing the "How I work" /
+"The mandate first." dark section it used to occupy directly (that section, and its "Work with me" /
+"Press page" CTA buttons, is gone; nothing else linked to it, so no anchors needed fixing). Its last
+line now reads "That is what I believe." (was "That is where I work.", fixed to agree with the new
+"What I believe" eyebrow when it was still on the home page). The `.manifesto*` CSS lives in
+`assets/pages.css` (not page-inline any more, so any page that loads `pages.css` gets it) under
+`/* ── manifesto ── */`, with its mobile padding override in the shared `@media (max-width: 900px)`
+block at the bottom of the same file.
+
 ## work-with-me: advisory block hidden
 The "Advisory — Two ways in." section (`The Mandate Workshop` and `Readiness assessment` cards) in
 `work-with-me/index.html` is wrapped in an HTML comment (`<!-- HIDDEN 2026-09-21 (owner): advisory
@@ -293,6 +306,9 @@ toggle and the Agent view" above for the toggle, the human-view/agent-view wrapp
 - The **$4.8 trillion** addressable capital and **~200 bps** uplift figures are **modelled by
   APEX:E3, not measured** — always keep that label when citing them.
 - Report site: **https://agenticfinancereport.com/**.
+- X: **https://x.com/marcusmaute** — added 21 September 2026 next to LinkedIn on the home page's
+  Follow section, the About facts table and the JSON-LD `sameAs` on index/about/press. Not (yet) in
+  the shared footer link row or `work-with-me/index.html`'s `sameAs`.
 - **No newsletter** (removed 21 September 2026; the subscribe form was never connected to
   anything). Don't reintroduce one.
 - No testimonials or media/press logos unless real and confirmed by the owner.
