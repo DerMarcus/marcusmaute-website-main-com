@@ -101,24 +101,38 @@ leaving into `#work` before it moved. Don't add a second border at any of these 
 
 ## The Surf section (`#the-surf`, home page)
 A compact grey `.sec.grey` band, home page only, between the report and Neo, added 21 September
-2026. **Marked "coming soon" — there is no launch date, host line, guests, platform links or
-description beyond what is below.** Styled with the site's own `/* ── the surf ── */` block in
-`assets/pages.css` (`.surf-head` layout, `.surf-pill` red rounded "Coming soon" badge, `#the-surf.sec`
-reduced vertical padding to keep the band compact per the owner's brief).
-- **Source material:** the owner attached `~/Downloads/7PO4ohCZ.zip.part` as source material (cover
-  art, description, host names). **That file did not exist anywhere on disk** when this section was
-  built (checked Downloads, Desktop, and a broader home-directory search by name and by
-  `.zip.part`/`.part` extension) — not merely corrupted, simply absent. The section therefore carries
-  **only the facts explicitly authorised as safe defaults**: the name "The Surf", the eyebrow label
-  "Podcast", a "Coming soon" pill, and the one permitted neutral line "Podcast · Coming soon." No
-  cover art, no host attribution line, no description beyond that. **If the zip ever surfaces,
-  re-open this section**: add cover art (converted to WebP + fallback, `assets/img/the-surf-*.webp`,
-  via `<picture>`), use any real description verbatim (tidied only for typos/British spelling), and
-  only then add a host line.
+2026. **Marked "coming soon" — there is still no launch date, host line, guests or platform links.**
+Styled with the site's own `/* ── the surf ── */` block in `assets/pages.css` (`.surf-grid`: a fixed
+~260px cover column beside the flexible text column on desktop, stacking to one column under
+900px; `.surf-head` for the eyebrow/title/pill row; `.surf-pill` red rounded "Coming soon" badge;
+`#the-surf.sec` reduced vertical padding to keep the band compact).
+- **Source material, first pass:** the owner initially attached `~/Downloads/7PO4ohCZ.zip.part`,
+  which **did not exist anywhere on disk** (checked Downloads, Desktop, and a broader
+  home-directory search) — not corrupted, simply absent. The section first shipped with only the
+  safe defaults: name, "Podcast" eyebrow, "Coming soon" pill, no cover, no description.
+- **Source material, current:** `~/Downloads/files(5).zip` (the `.zip.part` was an unfinished
+  download of the same thing), extracted to `/private/tmp/the-surf/`. Contains
+  `the-surf-cover-EN.png` / `-DE.png` (3000×3000 px, ready to upload), `the-surf-cover-EN.svg` /
+  `-DE.svg` (vector masters, text outlined) and `the-surf-cover-spec.md` (a design-reproduction
+  brief, mostly production notes for recreating the cover art itself — colours, type, the wave-line
+  formula — not podcast facts). The only podcast facts pulled from it: directory title "The Surf —
+  Talking AI, Blockchain & Agentic Finance", two separate feeds (English and German), recorded in
+  Zürich (spec names "HeadsQuarter podcast studio", not used on the page). **No host is named in the
+  spec**, so no host line was added. The spec's "Apple and Spotify" mention is a cover-art export-size
+  recommendation (3000×3000 px), not a stated platform commitment, so platforms are still not shown.
+- **Cover in use:** the EN PNG converted with `.venv-wp`'s PIL
+  (`/Users/marcusmaute/Downloads/agentic_report/.venv-wp/bin/python`) to `assets/img/the-surf-cover.webp`
+  (max 1200px, q85) and a `.jpg` fallback, shown via `<picture>` at ~260px (desktop) / ~220px
+  (mobile), width/height set, `loading="lazy"`. **The DE cover (`the-surf-cover-DE.png/.svg`) is not
+  used anywhere yet** — it's available in the zip for whenever a German-language page or feed exists;
+  don't add it speculatively.
+- Copy: eyebrow "Podcast", title "The Surf.", pill "Coming soon", body line "Talking AI, blockchain
+  & agentic finance. Recorded in Zürich · English and German." (tagline and location/language facts
+  from the spec, tidied to sentence case; no launch date, no platforms, no host).
 - Not in the nav or `sitemap.xml` (no dedicated page exists yet).
-- `marcus-maute.md` and `llms.txt` each carry a short "The Surf (podcast): coming soon" entry
-  (same two facts as the page); re-run `python3 tools/build_agent_view.py` after any change to
-  `marcus-maute.md` to re-embed it in every page's Agent view.
+- `marcus-maute.md` and `llms.txt` each carry a matching "The Surf (podcast)" entry with the same
+  facts; re-run `python3 tools/build_agent_view.py` after any change to `marcus-maute.md` to
+  re-embed it in every page's Agent view (confirmed idempotent on a clean second run).
 
 ## Neo section (`#neo`, home page)
 A dark `.sec.dark` band introducing Neo, an autonomous on-chain art-collecting agent that Marcus

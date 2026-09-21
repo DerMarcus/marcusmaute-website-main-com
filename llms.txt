@@ -26,7 +26,8 @@ Neo (https://github.com/DerMarcus/nftneo): an autonomous agent that collects ful
 
 ## The Surf (podcast): coming soon
 
-The Surf: a podcast. Coming soon; no further details yet.
+The Surf, "Talking AI, Blockchain & Agentic Finance": a podcast recorded in Zürich, with separate
+English and German feeds. Coming soon; no launch date yet.
 
 ## The Agentic Finance Report (2026)
 
