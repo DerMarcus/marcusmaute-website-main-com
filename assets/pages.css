@@ -155,12 +155,17 @@
 
 /* ── the surf ── */
 #the-surf.sec { padding-top: 56px; padding-bottom: 56px; }
-.surf-grid { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: center; }
+.surf-grid {
+  display: grid; grid-template-columns: 1fr 260px; grid-template-areas: "text cover";
+  gap: 40px; align-items: center;
+}
 .surf-cover {
+  grid-area: cover;
   display: block; width: 100%; max-width: 260px; border-radius: 6px; overflow: hidden;
   box-shadow: 0 16px 40px rgba(13,26,48,0.18), 0 0 0 1px rgba(13,26,48,0.06);
 }
 .surf-cover img { display: block; width: 100%; height: auto; }
+.surf-text { grid-area: text; }
 .surf-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .surf-pill {
   display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
@@ -178,7 +183,6 @@
 .neo-facts li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.12); align-items: baseline; }
 .neo-facts .k { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
 .neo-facts .v { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.55; }
-.neo-disclosure { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 18px; line-height: 1.6; }
 .neo-shot { border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; overflow: hidden; background: #0d0d0d; box-shadow: 0 16px 40px rgba(0,0,0,0.35); margin-bottom: 10px; }
 .neo-shot-bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: #15181f; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .neo-shot-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.18); display: inline-block; }
@@ -204,6 +208,6 @@
   .toc-table td, .toc-table th { font-size: 14px; }
   .neo-facts li { grid-template-columns: 1fr; gap: 4px; }
   .surf-head { align-items: flex-start; }
-  .surf-grid { grid-template-columns: 1fr; gap: 24px; }
+  .surf-grid { grid-template-columns: 1fr; grid-template-areas: "cover" "text"; gap: 24px; }
   .surf-cover { max-width: 220px; }
 }

@@ -137,7 +137,7 @@ Styled with the site's own `/* ── the surf ── */` block in `assets/pages
 ## Neo section (`#neo`, home page)
 A dark `.sec.dark` band introducing Neo, an autonomous on-chain art-collecting agent that Marcus
 built and operates as an independent personal project, styled with the site's own `/* ── neo ── */`
-block in `assets/pages.css` (`.neo-grid`, `.neo-facts`, `.neo-disclosure`, `.neo-shot`). Also linked
+block in `assets/pages.css` (`.neo-grid`, `.neo-facts`, `.neo-shot`). Also linked
 from every page's footer (`https://github.com/DerMarcus/nftneo`, `rel="noopener" target="_blank"`,
 between About and LinkedIn) and from `about/index.html`'s facts table and `llms.txt`.
 - **Eyebrow:** "Autonomous agent · Personal project" (renamed from "What I'm building", 21
@@ -163,10 +163,17 @@ between About and LinkedIn) and from `about/index.html`'s facts table and `llms.
 - **Neo is always pre-launch** ("Phase 0, pre-launch": nothing acquired, no valuations or ledger
   entries published yet) until the owner says otherwise. When Neo makes its first acquisition,
   this section, the footer/about/llms.txt mentions and this note all need updating together, not
-  just the home page.
+  just the home page. The pre-launch status lives in the prose paragraph, not a fact row.
 - **Neo is never described as part of the Agentic Finance Report.** It applies the report's
-  mandate-enforcement principle as an independent project; keep the disclosure line ("Independent
-  personal project. Not part of the Agentic Finance Report; not investment advice.") intact.
+  mandate-enforcement principle as an independent project.
+- **Fact-list rows and the disclosure line removed (owner instruction, 21 September 2026).** The
+  "Inference · TensorX-hosted open-weight model", "Status · Phase 0, pre-launch" and "Built and
+  operated by · Marcus Maute, as a personal project" rows, and the standalone disclosure line
+  ("Independent personal project. Not part of the Agentic Finance Report; not investment advice.")
+  and its `.neo-disclosure` wrapper/CSS rule, were dropped from `#neo` as unnecessary on the owner's
+  own site. `marcus-maute.md` was updated to match (same three facts and disclosure sentence
+  removed from the Neo section; the pre-launch fact stays in its prose paragraph) and re-embedded
+  into every page via `tools/build_agent_view.py`. Don't reintroduce them without the owner asking.
 
 ## work-with-me: advisory block hidden
 The "Advisory — Two ways in." section (`The Mandate Workshop` and `Readiness assessment` cards) in
