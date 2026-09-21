@@ -22,6 +22,7 @@ work-with-me/index.html             Speaking (advisory block hidden in an HTML c
 press/index.html                    Bios, headshot, report facts, quotes cleared for use
 about/index.html                    Bio, background
 blog/index.html                     Writing index ("The Blog")
+blog/brian-armstrong-bezos-letter-ai-age.html  Article (see "Blog" below)
 blog/energy-currency.html           Article (see "Blog" below)
 404.html                            Not-found page (Cloudflare Pages 404; root-relative paths, see below)
 marcus-maute.md                     Site-wide factual Markdown (the Agent view's content), repo root
@@ -321,7 +322,23 @@ a `<link rel="alternate" type="text/markdown">`, a `<title>` and meta descriptio
 toggle and the Agent view" above for the toggle, the human-view/agent-view wrapper and `site.js`.
 
 ## Blog
-The blog carries a single article, **`blog/energy-currency.html`, "Energy currency."**, dated
+The blog carries two articles, newest first on `blog/index.html` (featured card) and on the home
+page's writing section (now a two-card `.posts-grid`, `repeat(2, minmax(0,1fr))` on desktop,
+single column under 900px).
+
+**`blog/brian-armstrong-bezos-letter-ai-age.html`, "Did Brian Armstrong Just Write the Bezos
+Letter for the AI Age?"**, dated **5 May 2026**. **This is the owner's own text, reproduced
+verbatim** (added 2026, source: `docs/`-adjacent scratch note, not tracked in this repo) — it is
+**exempt from the site's content rules**: it keeps his em-dashes, American spellings
+("organizational", "optimized") and "X is not Y" / negation-first constructions. Do not edit its
+body copy for style. Category/eyebrow: "AI & organisations". Its three `>` blockquotes from
+Armstrong's memo are styled with the shared `.pull-quote` (from `assets/article.css`); the closing
+bold paragraph reuses the `.closing-line` component (page-scoped `<style>`, same rule as
+`energy-currency.html`'s); the final "→ Full letter:" line links out to Armstrong's X post
+(`target="_blank" rel="noopener"`). No CTA block. Read time (4 min) computed at ~200 wpm from the
+773-word body, the same rate `energy-currency.html`'s "11 min" implies for its ~2,210 words.
+
+**`blog/energy-currency.html`, "Energy currency."**, dated
 **13 June 2024** (the owner's original publication date; the site itself was rebuilt around the
 Agentic Finance Report in September 2026, but this article predates that and keeps its own date).
 The three earlier articles (`ai-transformation-stack.html`, `dt-vs-ai-transformation.html`,
