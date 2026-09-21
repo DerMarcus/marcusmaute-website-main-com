@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Writing — Marcus Maute</title>
 <meta name="description" content="Long-form writing on AI transformation, infrastructure, and what executives get wrong.">
+<link rel="canonical" href="https://www.marcusmaute.com/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
@@ -189,7 +190,7 @@
   .featured-card { grid-template-columns: 1fr; }
   .featured-left::after { top: auto; right: 0; bottom: 0; left: 0; width: auto; height: 3px; }
   .post-row { flex-wrap: wrap; }
-  .post-row-meta { text-align: left; }
+  .post-row-meta { flex: 1 0 100%; text-align: left; margin-top: 8px; }
   .nl-strip { padding: 48px 24px; }
   .nl-strip-inner { flex-direction: column; align-items: flex-start; }
   .nl-strip-form { flex-direction: column; width: 100%; }
@@ -203,25 +204,28 @@
 <nav class="nav">
   <a href="/" class="nav-logo"><span class="logo-thin">MARCUS</span><span class="logo-bold">MAUTE</span></a>
   <div class="nav-links">
+    <a href="/agentic-finance/">The Report</a>
     <a href="/blog/" class="active">Writing</a>
-    <a href="/#speaking">Speaking</a>
-    <a href="/#newsletter" class="nav-cta">Newsletter →</a>
+    <a href="/about/">About</a>
+    <a href="/work-with-me/" class="nav-cta">Work with me →</a>
   </div>
   <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
+  <a href="/agentic-finance/">The Report</a>
   <a href="/blog/">Writing</a>
-  <a href="/#speaking">Speaking</a>
-  <a href="/#newsletter">Newsletter →</a>
+  <a href="/about/">About</a>
+  <a href="/press/">Press</a>
+  <a href="/work-with-me/">Work with me →</a>
 </div>
 
 <div class="page-hero">
   <div class="page-hero-inner">
     <div class="section-eyebrow light">Writing</div>
     <div class="page-title">The Blog.</div>
-    <p class="page-sub">Long-form thinking on AI transformation, infrastructure, and what executives get wrong. Posted when I have something worth saying.</p>
+    <p class="page-sub">Long-form thinking on AI transformation and, from here on, agentic finance. Posted when I have something worth saying.</p>
   </div>
 </div>
 
@@ -277,13 +281,10 @@
 <div class="nl-strip">
   <div class="nl-strip-inner">
     <div>
-      <h3>The Transformation Layer</h3>
-      <p>Weekly 300-word essay. No news digest. Pure POV on AI transformation, every Monday.</p>
+      <h3>The Agentic Finance Report</h3>
+      <p>The framework behind this writing: eight chapters and a guest contribution on how institutions let AI agents act on capital. Free to read.</p>
     </div>
-    <form class="nl-strip-form" onsubmit="e=event;e.preventDefault();this.querySelector('button').textContent='✓ Subscribed'">
-      <input type="email" placeholder="your@email.com" required>
-      <button type="submit">Subscribe →</button>
-    </form>
+    <a href="/agentic-finance/" class="btn-navy" style="flex-shrink:0">About the report →</a>
   </div>
 </div>
 
@@ -291,12 +292,15 @@
   <div class="footer-inner">
     <a href="/" class="footer-logo"><span class="flogo-thin">MARCUS</span><span class="flogo-bold">MAUTE</span></a>
     <div class="footer-links">
+      <a href="/agentic-finance/">The Report</a>
+      <a href="/work-with-me/">Work with me</a>
       <a href="/blog/">Writing</a>
-      <a href="/#speaking">Speaking</a>
-      <a href="https://linkedin.com/in/marcusmaute" target="_blank">LinkedIn</a>
+      <a href="/press/">Press</a>
+      <a href="/about/">About</a>
+      <a href="https://www.linkedin.com/in/marcusmaute/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:marcus@marcusmaute.com">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Marcus Maute · Zug, Switzerland</div>
+    <div class="footer-copy">© 2026 Marcus Maute · Zürich, Switzerland</div>
   </div>
 </footer>
 

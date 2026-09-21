@@ -1,0 +1,31 @@
+# Marcus Maute
+
+> Lead author of the Agentic Finance Report (2026) and TensorX Swiss Representative, based in Zürich. Works on how regulated financial institutions let AI agents act on capital inside mandates people write and control: the mandate first, then the stack.
+
+- Name: Marcus Maute
+- Role: TensorX Swiss Representative (https://tensorx.ai)
+- Location: Zürich, Switzerland
+- Languages: English, German
+- LinkedIn: https://www.linkedin.com/in/marcusmaute/
+- Contact: marcus@marcusmaute.com
+- Topics: agentic finance, AI transformation, sovereign AI, digital-asset infrastructure, regulated finance, AI agent governance
+
+## Pages
+
+- [Home](https://www.marcusmaute.com/): position, the report, four positions, how to work with him
+- [The Agentic Finance Report](https://www.marcusmaute.com/agentic-finance/): what the report argues, contents with authors, his chapters, citation
+- [Work with me](https://www.marcusmaute.com/work-with-me/): the Mandate Workshop, readiness assessment, keynotes and board briefings
+- [Writing](https://www.marcusmaute.com/blog/): essays on AI transformation
+- [About](https://www.marcusmaute.com/about/): biography and facts
+- [Press](https://www.marcusmaute.com/press/): biography in three lengths, headshot, report facts, quotes cleared for use
+
+## The Agentic Finance Report (2026)
+
+- Website and downloads: https://agenticfinancereport.com/ (PDF and Markdown editions from 29 September 2026; machine-readable index at https://agenticfinancereport.com/llms.txt)
+- Lead author: Marcus Maute (executive summary, chapter 02 "What Is Agentic Finance?", chapter 08 "Conclusions & Recommendations")
+- Co-authors: TensorX, AMINA Bank, Solana Foundation, APEX:E3, Cardano Foundation. Guest contribution: Blindsight. Foreword: Tim Grant, Executive Chairman, TensorX
+- Launch: CV Summit 2026, Kongresshaus Zurich, 29–30 September 2026. Distribution partner: CV VC
+- Definition: Agentic Finance is capital managed continuously rather than periodically, by software acting inside mandates that people write and can withdraw, on rails that settle at machine speed
+- Five preconditions (chapter 08): the asset is held by a regulated institution; the rail settles finally and cheaply; the reasoning runs where the institution can see it; the decision is attributable to the agent that made it; the agent is identifiable as acting for a legal entity
+- Figures of $4.8 trillion addressable capital and ~200 bps uplift are modelled by APEX:E3, not measured
+- Cite: Maute, M. (ed.), with TensorX, AMINA Bank, Solana Foundation, APEX:E3 and Cardano Foundation; guest contribution by Blindsight (2026). Agentic Finance Report. Industry report, edition 1.0. agenticfinancereport.com

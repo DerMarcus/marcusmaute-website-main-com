@@ -1,581 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus Maute — AI Transformation</title>
-<meta name="description" content="Most companies are spending millions on AI and can't point to a single changed decision. I write about why — from an operator's perspective.">
+<title>Marcus Maute — Agentic finance and AI transformation</title>
+<meta name="description" content="Marcus Maute is lead author of the Agentic Finance Report (2026) and TensorX's Swiss Representative, working from Zürich on how regulated institutions let AI agents act on capital: the mandate first, then the stack.">
+<link rel="canonical" href="https://www.marcusmaute.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marcus Maute — Agentic finance and AI transformation">
+<meta property="og:description" content="Lead author of the Agentic Finance Report (2026). When the software that decides is also the software that acts, someone has to write the mandate.">
+<meta property="og:url" content="https://www.marcusmaute.com/">
+<meta property="og:image" content="https://www.marcusmaute.com/assets/img/marcus-maute-press.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/pages.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.marcusmaute.com/#person",
+  "name": "Marcus Maute",
+  "url": "https://www.marcusmaute.com",
+  "image": "https://www.marcusmaute.com/assets/img/marcus-maute-press.jpg",
+  "jobTitle": "TensorX Swiss Representative",
+  "affiliation": { "@type": "Organization", "name": "TensorX", "url": "https://tensorx.ai" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Zürich", "addressCountry": "CH" },
+  "sameAs": ["https://www.linkedin.com/in/marcusmaute/", "https://agenticfinancereport.com/"],
+  "knowsAbout": ["Agentic finance", "AI transformation", "Sovereign AI", "Digital-asset infrastructure", "Regulated finance", "AI agent governance"],
+  "author": { "@type": "Report", "name": "Agentic Finance Report", "url": "https://agenticfinancereport.com/" }
+}
+</script>
 <style>
-/* ─── HERO ─── */
-.hero {
-  background: #06090f;
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(105deg, rgba(6,9,15,0.97) 0%, rgba(6,9,15,0.88) 45%, rgba(6,9,15,0.25) 100%),
-    linear-gradient(135deg, #0b1a3a 0%, #120818 50%, #0a1530 100%);
-  background-size: cover;
-  background-position: center top;
-}
-/* swap for real photo: background-image: url('/assets/marcus.jpg'); */
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px),
-    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px);
-}
-.hero-bottom-bar {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--red);
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 48px;
-  width: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 120px;
-  padding-bottom: 100px;
-}
-.hero-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 28px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+.hero { background: #06090f; position: relative; overflow: hidden; min-height: 88vh; display: flex; flex-direction: column; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(6,9,15,0.97) 0%, rgba(6,9,15,0.9) 45%, rgba(6,9,15,0.3) 100%), linear-gradient(135deg, #0b1a3a 0%, #120818 50%, #0a1530 100%); }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px), repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px); }
+.hero-bottom-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--red); }
+.hero-content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 120px 48px 90px; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
 .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--red); }
-.hero h1 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(56px, 8vw, 104px);
-  font-weight: 900;
-  color: #fff;
-  line-height: 0.93;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  margin-bottom: 32px;
-  max-width: 760px;
-}
+.hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(50px, 7.4vw, 100px); font-weight: 900; color: #fff; line-height: 0.93; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 30px; max-width: 860px; }
 .hero h1 .accent { color: var(--red); }
 .hero h1 .italic { font-style: italic; color: rgba(255,255,255,0.45); font-weight: 400; }
-.hero-lead {
-  font-size: 19px;
-  color: rgba(255,255,255,0.62);
-  max-width: 520px;
-  line-height: 1.75;
-  margin-bottom: 44px;
-}
+.hero-lead { font-size: 19px; color: rgba(255,255,255,0.62); max-width: 560px; line-height: 1.75; margin-bottom: 40px; }
 .hero-lead strong { color: #fff; font-weight: 600; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
-.hero-proof {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
-  padding-top: 36px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-.hero-proof-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.hero-proof-logos { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
-.hero-proof-logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.16);
-}
-
-/* ─── MANIFESTO ─── */
-.manifesto {
-  background: #06090f;
-  padding: 100px 48px;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 3px solid var(--red);
-}
-.manifesto::before {
-  content: 'WHAT I BELIEVE';
-  position: absolute;
-  right: -60px; top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(60px, 11vw, 150px);
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.02);
-  pointer-events: none;
-  white-space: nowrap;
-}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.hero-proof { display: flex; align-items: flex-start; gap: 28px; flex-wrap: wrap; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+.hero-proof-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); white-space: nowrap; flex-shrink: 0; padding-top: 3px; }
+.hero-proof-text { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 640px; }
+.hero-proof-text strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+.manifesto { background: #06090f; padding: 96px 48px; position: relative; overflow: hidden; border-bottom: 3px solid var(--red); }
 .manifesto-inner { max-width: 860px; margin: 0 auto; position: relative; }
-.manifesto-text {
-  font-size: clamp(19px, 2.2vw, 26px);
-  color: rgba(255,255,255,0.78);
-  line-height: 1.7;
-  margin-bottom: 48px;
-}
-.manifesto-text em { font-style: italic; color: rgba(255,255,255,0.38); }
+.manifesto-text { font-size: clamp(19px, 2.2vw, 25px); color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 44px; }
+.manifesto-text em { font-style: italic; color: rgba(255,255,255,0.4); }
 .manifesto-text strong { font-weight: 600; color: #fff; }
 .manifesto-text p { margin-bottom: 24px; }
 .manifesto-text p:last-child { margin-bottom: 0; }
-.manifesto-sig {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
+.manifesto-sig { display: flex; align-items: center; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
 .manifesto-sig-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
-.manifesto-sig-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 18px; font-weight: 900;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  color: #fff;
-}
-.manifesto-sig-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-top: 2px;
-}
-
-/* ─── STATS ─── */
-.stats {
-  background: var(--red);
-  padding: 52px 48px;
-  position: relative;
-  overflow: hidden;
-}
-.stats::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(0,0,0,0.04) 80px, rgba(0,0,0,0.04) 81px);
-}
-.stats-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  position: relative;
-}
-.stat {
-  padding: 16px 36px;
-  border-right: 1px solid rgba(255,255,255,0.2);
-}
-.stat:first-child { padding-left: 0; }
-.stat:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(36px, 4.5vw, 58px);
-  font-weight: 900;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-.stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  margin-top: 6px;
-}
-
-/* ─── POVs ─── */
-.povs { background: var(--bg); padding: 100px 48px; }
-.pov-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  margin-top: 52px;
-}
-.pov-card {
-  background: #fff;
-  padding: 40px 36px;
-  transition: background .18s;
-  position: relative;
-  overflow: hidden;
-}
-.pov-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--red);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .28s;
-}
+.manifesto-sig-name { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; }
+.manifesto-sig-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 2px; }
+.pov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 52px; }
+.pov-card { background: #fff; padding: 40px 36px; position: relative; overflow: hidden; transition: background .18s; }
+.pov-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .28s; }
 .pov-card:hover { background: #f7f9ff; }
 .pov-card:hover::before { transform: scaleX(1); }
-.pov-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(48px, 5vw, 68px);
-  font-weight: 900;
-  color: rgba(0,0,0,0.05);
-  line-height: 1;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
-.pov-tag {
-  display: inline-block;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--red);
-  border: 1px solid rgba(200,25,44,0.3);
-  padding: 3px 10px; border-radius: 2px;
-  margin-bottom: 12px;
-}
-.pov-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 21px; font-weight: 900;
-  text-transform: uppercase;
-  color: var(--text);
-  line-height: 1.15;
-  margin-bottom: 12px;
-  letter-spacing: 0.01em;
-}
+.pov-num { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(48px, 5vw, 68px); font-weight: 900; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 16px; letter-spacing: -0.02em; }
+.pov-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); border: 1px solid rgba(200,25,44,0.3); padding: 3px 10px; border-radius: 2px; margin-bottom: 12px; }
+.pov-title { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 900; text-transform: uppercase; color: var(--text); line-height: 1.15; margin-bottom: 12px; letter-spacing: 0.01em; }
 .pov-body { font-size: 14px; color: var(--muted); line-height: 1.75; }
-
-/* ─── LI POST ─── */
-.li-section { background: #fff; padding: 100px 48px; border-top: 1px solid var(--border); }
-.li-section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 500px;
-  gap: 72px;
-  align-items: center;
-}
-.li-post {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 28px;
-  position: relative;
-}
-.li-badge {
-  position: absolute; top: 20px; right: 20px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; font-weight: 800;
-  letter-spacing: 0.15em;
-  color: #0077b5;
-  background: rgba(0,119,181,0.08);
-  border: 1px solid rgba(0,119,181,0.2);
-  padding: 2px 9px; border-radius: 2px;
-}
-.li-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-right: 64px; }
-.li-avatar {
-  width: 44px; height: 44px;
-  background: linear-gradient(135deg, var(--navy-m), var(--red-d));
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 18px; font-weight: 900; color: #fff;
-  flex-shrink: 0;
-}
-.li-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px; font-weight: 800;
-  color: var(--text); display: block; letter-spacing: 0.02em;
-}
-.li-handle {
-  font-size: 12px; color: var(--dim);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600;
-}
-.li-body { font-size: 14px; color: var(--muted); line-height: 1.8; white-space: pre-line; }
-.li-body strong { font-weight: 600; color: var(--text); }
-.li-stats {
-  margin-top: 18px; padding-top: 14px;
-  border-top: 1px solid var(--border);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 0.06em; color: var(--dim);
-  display: flex; gap: 18px;
-}
-.li-stats span { color: var(--navy); font-weight: 700; }
-
-/* ─── SPEAKING ─── */
-.speaking { background: var(--bg); padding: 100px 48px; border-top: 1px solid var(--border); }
-.speaking-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 72px;
-  align-items: start;
-}
 .speaking-topics { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
-.speaking-topic {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-left: 3px solid transparent;
-  padding: 20px 24px;
-  transition: all .18s;
-}
+.speaking-topic { background: #fff; border: 1px solid var(--border); border-left: 3px solid transparent; padding: 20px 24px; transition: all .18s; }
 .speaking-topic:hover { border-left-color: var(--red); background: #fdf5f6; }
-.speaking-topic strong {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 16px; font-weight: 800;
-  text-transform: uppercase; color: var(--text);
-  display: block; letter-spacing: 0.03em; margin-bottom: 4px;
-}
+.speaking-topic strong { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--text); display: block; letter-spacing: 0.03em; margin-bottom: 4px; }
 .speaking-topic span { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-.speaking-cta {
-  background: var(--navy);
-  border-radius: var(--r);
-  padding: 36px;
-  position: sticky;
-  top: 84px;
-}
-.speaking-cta h3 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 30px; font-weight: 900;
-  text-transform: uppercase; color: #fff;
-  letter-spacing: 0.02em; line-height: 1;
-  margin-bottom: 12px;
-}
-.speaking-cta p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 24px; }
-.speaking-formats { display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
-.sf { display: flex; gap: 10px; align-items: center; }
-.sf-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
-.sf span {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.07em;
-  color: rgba(255,255,255,0.65);
-}
-
-/* ─── TESTIMONIALS ─── */
-.testimonials { background: #fff; padding: 100px 48px; border-top: 1px solid var(--border); }
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  margin-top: 52px;
-}
-.testimonial { background: var(--bg); padding: 36px 28px; }
-.testimonial-quote {
-  font-size: 15px;
-  font-style: italic;
-  color: var(--muted);
-  line-height: 1.75;
-  margin-bottom: 22px;
-}
-.testimonial-author {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--text); margin-bottom: 2px;
-}
-.testimonial-role {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--dim);
-}
-
-/* ─── BLOG PREVIEW ─── */
-.blog-preview { background: var(--bg); padding: 100px 48px; border-top: 1px solid var(--border); }
-.blog-header {
-  max-width: 1100px;
-  margin: 0 auto 48px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-.view-all {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--red); text-decoration: none;
-  border-bottom: 1px solid rgba(200,25,44,0.25);
-  padding-bottom: 2px;
-  transition: color .15s;
-}
-.view-all:hover { color: var(--red-h); }
-.posts-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.post-card {
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  transition: background .18s;
-}
+.posts-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.post-card { background: #fff; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background .18s; }
 .post-card:hover { background: #f5f7fb; }
-.post-card-top {
-  background: var(--navy);
-  padding: 28px 24px 22px;
-  position: relative;
-}
-.post-card-top::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 2px; background: var(--red);
-}
-.post-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--red); margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
-}
+.post-card-top { background: var(--navy); padding: 28px 24px 22px; position: relative; }
+.post-card-top::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); }
+.post-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .post-tag::before { content: ''; display: block; width: 18px; height: 1px; background: var(--red); }
-.post-title-card {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 21px; font-weight: 900;
-  text-transform: uppercase; color: #fff;
-  line-height: 1.1; letter-spacing: 0.01em;
-}
+.post-title-card { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 900; text-transform: uppercase; color: #fff; line-height: 1.1; letter-spacing: 0.01em; }
 .post-card-body { padding: 20px 24px; flex: 1; display: flex; flex-direction: column; }
 .post-excerpt { font-size: 13.5px; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 16px; }
-.post-foot {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-}
-.post-date {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim);
-}
-.post-cta {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em; color: var(--red);
-}
-
-/* ─── NEWSLETTER ─── */
-.newsletter {
-  background: #0b1220;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-}
-.newsletter::before {
-  content: 'SUBSCRIBE';
-  position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(60px, 10vw, 130px);
-  font-weight: 900; color: rgba(255,255,255,0.018);
-  white-space: nowrap; pointer-events: none; letter-spacing: 0.05em;
-}
-.nl-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 400px;
-  position: relative;
-}
-.nl-left {
-  padding: 80px 60px 80px 48px;
-  border-right: 1px solid rgba(255,255,255,0.07);
-}
-.nl-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(38px, 5vw, 64px);
-  font-weight: 900;
-  text-transform: uppercase; color: #fff;
-  line-height: 0.95; letter-spacing: 0.01em;
-  margin-bottom: 18px;
-}
-.nl-title em { font-style: normal; color: var(--red); }
-.nl-body { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 360px; }
-.nl-right { padding: 80px 48px 80px 60px; display: flex; flex-direction: column; justify-content: center; }
-.nl-promises { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
-.nl-promise { display: flex; gap: 12px; align-items: flex-start; }
-.nl-check {
-  width: 20px; height: 20px;
-  background: var(--red); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px; font-weight: 900; color: #fff;
-  flex-shrink: 0; margin-top: 2px;
-}
-.nl-promise span { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.5; }
-.nl-promise span strong { color: #fff; font-weight: 600; }
-.nl-note {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3); margin-top: 12px;
-}
-
-/* ─── RESPONSIVE ─── */
+.post-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
+.post-date { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+.post-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); }
+.blog-header { max-width: 1100px; margin: 0 auto 48px; display: flex; align-items: flex-end; justify-content: space-between; }
+.view-all { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,25,44,0.25); padding-bottom: 2px; }
 @media (max-width: 900px) {
-  .hero-content { padding: 100px 24px 80px; }
-  .manifesto { padding: 72px 24px; }
-  .stats { padding: 40px 24px; }
-  .stats-inner { grid-template-columns: 1fr 1fr; }
-  .stat { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .stat:nth-child(2n) { border-right: none; }
-  .stat:nth-last-child(-n+2) { border-bottom: none; }
-  .povs { padding: 72px 24px; }
+  .hero-content { padding: 96px 24px 72px; }
+  .manifesto { padding: 64px 24px; }
   .pov-grid { grid-template-columns: 1fr; }
-  .li-section { padding: 72px 24px; }
-  .li-section-inner { grid-template-columns: 1fr; gap: 40px; }
-  .speaking { padding: 72px 24px; }
-  .speaking-inner { grid-template-columns: 1fr; gap: 40px; }
-  .speaking-cta { position: static; }
-  .testimonials { padding: 72px 24px; }
-  .testimonial-grid { grid-template-columns: 1fr; }
-  .blog-preview { padding: 72px 24px; }
-  .blog-header { flex-direction: column; align-items: flex-start; gap: 12px; }
   .posts-grid { grid-template-columns: 1fr; }
-  .nl-inner { grid-template-columns: 1fr; }
-  .nl-left { padding: 60px 24px 36px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .nl-right { padding: 36px 24px 60px; }
+  .blog-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 </style>
 </head>
@@ -585,40 +105,35 @@
 <nav class="nav">
   <a href="/" class="nav-logo"><span class="logo-thin">MARCUS</span><span class="logo-bold">MAUTE</span></a>
   <div class="nav-links">
+    <a href="/agentic-finance/">The Report</a>
     <a href="/blog/">Writing</a>
-    <a href="#speaking">Speaking</a>
-    <a href="#newsletter" class="nav-cta">Newsletter →</a>
+    <a href="/about/">About</a>
+    <a href="/work-with-me/" class="nav-cta">Work with me →</a>
   </div>
-  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
+  <a href="/agentic-finance/">The Report</a>
   <a href="/blog/">Writing</a>
-  <a href="#speaking">Speaking</a>
-  <a href="#newsletter">Newsletter →</a>
+  <a href="/about/">About</a>
+  <a href="/press/">Press</a>
+  <a href="/work-with-me/">Work with me →</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Zug, Switzerland · AI Transformation</div>
-    <h1>I Help Companies<br>Stop <span class="accent">Doing</span> AI<br><span class="italic">And Start Using It.</span></h1>
-    <p class="hero-lead">Most companies are spending millions on AI and <strong>can't point to a single changed decision.</strong> I've seen why — from inside the infrastructure, not a PowerPoint deck. I write about it every week.</p>
+    <div class="hero-eyebrow">Zürich · Agentic finance and AI transformation</div>
+    <h1>When software <span class="accent">acts</span> on capital,<br><span class="italic">someone has to write the mandate.</span></h1>
+    <p class="hero-lead">I work on how regulated institutions let AI agents act on capital: <strong>the mandate first, then the stack around it.</strong> Lead author of the <em>Agentic Finance Report</em>, co-published in 2026 with a FINMA-regulated bank, two blockchain foundations, an enterprise AI company and a sovereign-AI provider.</p>
     <div class="hero-actions">
-      <a href="#newsletter" class="btn-red">Get the weekly essay</a>
-      <a href="/blog/" class="btn-ghost">Read the blog →</a>
+      <a href="/agentic-finance/" class="btn-red">The Agentic Finance Report</a>
+      <a href="/work-with-me/" class="btn-ghost">Work with me →</a>
     </div>
     <div class="hero-proof">
-      <div class="hero-proof-label">Seen in</div>
-      <div class="hero-proof-logos">
-        <span class="hero-proof-logo">Handelsblatt</span>
-        <span class="hero-proof-logo">Web Summit</span>
-        <span class="hero-proof-logo">MIT SMR</span>
-        <span class="hero-proof-logo">Slush</span>
-        <span class="hero-proof-logo">Tech Open Air</span>
-      </div>
+      <div class="hero-proof-label">The proof</div>
+      <div class="hero-proof-text"><strong>Agentic Finance Report, edition 1.0.</strong> Co-authored with TensorX, AMINA Bank, the Solana Foundation, APEX:E3 and the Cardano Foundation, with a guest contribution from Blindsight. Foreword by Tim Grant. Launched at CV Summit, Kongresshaus Zurich, 29 September 2026.</div>
     </div>
   </div>
   <div class="hero-bottom-bar"></div>
@@ -629,167 +144,110 @@
   <div class="manifesto-inner">
     <div class="section-eyebrow light">What I believe</div>
     <div class="manifesto-text">
-      <p>I believe most AI transformation initiatives are failing <em>not because the technology is wrong</em>, but because the organisations around them haven't changed.</p>
-      <p>I believe the most important AI conversation isn't happening in the model layer — <strong>it's happening in the infrastructure layer, the organisational design layer, and the decision-making layer</strong> that executives are too busy to look at.</p>
-      <p>I believe Europe is building AI differently — with constraints that the US commentariat dismisses as obstacles, and that are quietly becoming advantages.</p>
-      <p>I believe the perspective that matters most comes from operators. People who've shipped real systems, managed real costs, and made real decisions when things broke at 3am. <strong>That's the perspective I bring.</strong></p>
+      <p>An assistant proposes. An agent acts. The moment the software that decides is also the software that acts, the question changes from <em>which model</em> to <strong>who wrote the mandate, and where is it enforced.</strong></p>
+      <p>A boundary that exists only in a prompt is not a boundary. The limits have to live where the agent cannot reach them: in custody, in the token, in the identity it carries.</p>
+      <p>Most AI programmes fail on the organisation, not the model. The technical deployment takes weeks; the governance takes months. <strong>The first step needs no technology at all.</strong></p>
+      <p>And the infrastructure is ready before the institutions are. That is the part an institution controls, and the part I work on.</p>
     </div>
     <div class="manifesto-sig">
       <div class="manifesto-sig-dot"></div>
       <div>
         <div class="manifesto-sig-name">Marcus Maute</div>
-        <div class="manifesto-sig-title">AI Transformation Strategist · Zug, Switzerland</div>
+        <div class="manifesto-sig-title">Lead author, Agentic Finance Report · TensorX Swiss Representative · Zürich</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat"><div class="stat-num">3×</div><div class="stat-label">Posts per week, consistently</div></div>
-    <div class="stat"><div class="stat-num">70%</div><div class="stat-label">Of DT initiatives failed — AI repeats it</div></div>
-    <div class="stat"><div class="stat-num">€2M</div><div class="stat-label">Avg. AI spend with nothing to show</div></div>
-    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Name. One brand. marcusmaute.com</div></div>
+<!-- REPORT -->
+<section class="sec white" id="report">
+  <div class="sec-inner">
+    <div class="report-feature">
+      <a class="report-cover" href="/agentic-finance/" aria-label="The Agentic Finance Report">
+        <picture>
+          <source srcset="/assets/img/agentic-finance-report-cover.webp" type="image/webp">
+          <img src="/assets/img/agentic-finance-report-cover.jpg" alt="Cover of the Agentic Finance Report, edition 1.0" width="300" height="424" loading="lazy">
+        </picture>
+      </a>
+      <div>
+        <div class="section-eyebrow">The report</div>
+        <div class="section-title">Agentic<br>Finance Report.</div>
+        <div class="prose">
+          <p>Capital that works around the clock. AI agents deciding and acting inside mandates written by people, on blockchain rails that settle in seconds. Eight chapters and a guest contribution, written by the people who run the infrastructure: the regulated bank, the settlement layer, the sovereign inference, the orchestration and the identity layer.</p>
+          <p>I wrote the executive summary, the definition and framework in chapter 02, and the conclusions and recommendations in chapter 08. The report separates what is in production today from what is still forward-looking, and says so on every page.</p>
+        </div>
+        <div class="report-meta"><strong>Edition 1.0 · 56 pages</strong><br>Launched at CV Summit 2026, Zurich · Free to read from 29 September 2026 at agenticfinancereport.com</div>
+        <div class="page-actions"><a href="/agentic-finance/" class="btn-navy">About the report</a><a href="https://agenticfinancereport.com/" class="btn-ghost" style="border-color:var(--border);color:var(--text)" rel="noopener">agenticfinancereport.com →</a></div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- POVs -->
-<section class="povs">
-  <div class="section-wrap">
+<!-- POSITIONS -->
+<section class="sec grey" id="positions">
+  <div class="sec-inner">
     <div class="section-eyebrow">Where I plant my flag</div>
-    <div class="section-title">Four positions.<br>Repeated relentlessly.</div>
-    <p class="section-sub">Experts become known for a handful of strongly-held positions, not a broad encyclopaedia. These are mine.</p>
+    <div class="section-title">Four positions.</div>
+    <p class="section-sub">The argument of the report, and of my work, in four sentences.</p>
     <div class="pov-grid">
       <div class="pov-card">
         <div class="pov-num">01</div>
-        <div class="pov-tag">Infrastructure</div>
-        <div class="pov-title">The layer nobody talks about is the one that kills you</div>
-        <div class="pov-body">Everyone obsesses over the model. GPT-4 vs Claude. Fine-tune vs RAG. Meanwhile data pipelines are breaking and inference costs are going to 10× at scale. I talk about the boring layer — because that's where companies actually fail.</div>
+        <div class="pov-tag">The mandate</div>
+        <div class="pov-title">The first step needs no technology</div>
+        <div class="pov-body">Before an institution buys a model, it writes the mandate: what the agent may do, within what limits, who confirms what, and where the line sits that it cannot cross. Every layer of the stack is bought; the mandate is the one thing no supplier can deliver.</div>
       </div>
       <div class="pov-card">
         <div class="pov-num">02</div>
-        <div class="pov-tag">Org Design</div>
-        <div class="pov-title">Bad org design kills more AI than bad models</div>
-        <div class="pov-body">The biggest AI failure mode isn't the technology. It's creating an AI team and watching every business unit wait to be served. Digital transformation failed for the same reason — and executives who lived through that already know this fear.</div>
+        <div class="pov-tag">The loop</div>
+        <div class="pov-title">The queues, not the steps, are where the capital goes</div>
+        <div class="pov-body">A human treasury team runs the same loop an agent does: signal, reason, decide, comply, execute, report. The difference is the queues between the steps. Remove them and capital that used to wait can move when it should.</div>
       </div>
       <div class="pov-card">
         <div class="pov-num">03</div>
-        <div class="pov-tag">European Lens</div>
-        <div class="pov-title">Europe's constraints are becoming its competitive advantage</div>
-        <div class="pov-body">I watch European companies navigate regulatory, cultural, and structural constraints that the US commentariat dismisses as obstacles. I write about why they're becoming advantages — for a DACH audience that's underserved by US-centric AI media.</div>
+        <div class="pov-tag">AI transformation</div>
+        <div class="pov-title">The organisation, not the model</div>
+        <div class="pov-body">Buy the model and leave the process alone, and you get the pilot that impresses and the P&amp;L that does not move. A mandate is a map of the jagged frontier drawn for one institution: autonomous where the agent is reliably competent, confirmed by a person near the edge, reserved to people beyond it.</div>
       </div>
       <div class="pov-card">
         <div class="pov-num">04</div>
-        <div class="pov-tag">Web3 Parallel</div>
-        <div class="pov-title">Web3 solved decentralised infrastructure. AI should learn from it</div>
-        <div class="pov-body">I've operated in both worlds. The parallels — and the cautionary lessons — between what the Web3 infrastructure wave got right and what AI is about to face are sharper than anyone in the AI space currently admits.</div>
+        <div class="pov-tag">The stack</div>
+        <div class="pov-title">The infrastructure is ready before the institutions are</div>
+        <div class="pov-body">Regulated custody, settlement in seconds, sovereign inference and multi-agent orchestration are in production today; verifiable agent identity is further along in standards than in deployment. What remains is organisational, and that is the part an institution controls.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LI POST -->
-<section class="li-section">
-  <div class="li-section-inner">
+<!-- WORK WITH ME -->
+<section class="sec white" id="work">
+  <div class="sec-inner two-col wide-left">
     <div>
-      <div class="section-eyebrow">From the feed</div>
-      <div class="section-title">This is how<br>I write.</div>
-      <p style="font-size:17px;color:var(--muted);line-height:1.75;margin-top:20px;max-width:400px">First-person. Specific. From real situations. If this resonates, the newsletter is 300 words of this every Monday.</p>
-      <a href="#newsletter" class="btn-red" style="margin-top:32px">Get the newsletter</a>
-    </div>
-    <div class="li-post">
-      <span class="li-badge">in</span>
-      <div class="li-header">
-        <div class="li-avatar">M</div>
-        <div>
-          <span class="li-name">Marcus Maute</span>
-          <span class="li-handle">AI Transformation · Zug, CH</span>
-        </div>
-      </div>
-      <div class="li-body">A CFO told me last month: <strong>"We've spent €2M on AI and I can't point to a single changed decision."</strong>
-
-She wasn't anti-AI. She was genuinely frustrated.
-
-We spent an hour mapping her company's actual decision flows. Not the org chart — the real map of who decides what, how fast, and based on what information.
-
-Every AI initiative had been optimising for tasks that weren't bottlenecks.
-
-The real bottleneck? Pricing decisions that took 3 weeks and 4 layers of approval.
-
-One AI initiative, properly targeted, would have paid for the €2M in a quarter.
-
-AI transformation isn't about deploying AI everywhere.
-It's about finding the 2–3 places where better, faster decisions create outsized value.
-
-The €2M isn't the problem. The target selection is.</div>
-      <div class="li-stats">
-        <span>847</span> reactions &nbsp;·&nbsp; <span>112</span> comments &nbsp;·&nbsp; <span>4.2k</span> impressions
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPEAKING -->
-<section class="speaking" id="speaking">
-  <div class="speaking-inner">
-    <div>
-      <div class="section-eyebrow">Speaking &amp; Advisory</div>
-      <div class="section-title">Work<br>with me.</div>
-      <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-top:18px;max-width:440px">I speak from an operator's perspective — which means I tell your leadership team what they need to hear, not what sounds good in a conference hall. Small number of engagements per quarter.</p>
+      <div class="section-eyebrow">Work with me</div>
+      <div class="section-title">The mandate,<br>then the stack.</div>
+      <p class="section-sub" style="margin-top:18px">Advisory for treasurers, COOs and boards putting their first agent in charge of capital, and talks for the people who have to decide whether to. A small number of engagements per quarter.</p>
       <div class="speaking-topics">
-        <div class="speaking-topic"><strong>The AI Transformation Stack</strong><span>Why most AI initiatives die in production — and the infrastructure layer that actually ships.</span></div>
-        <div class="speaking-topic"><strong>Don't Repeat Digital Transformation</strong><span>The playbook that failed 70% of companies — and how AI is repeating it, faster.</span></div>
-        <div class="speaking-topic"><strong>AI Org Design for Executives</strong><span>Structure your organisation for AI that compounds — not AI that creates a bottleneck with a job title.</span></div>
-        <div class="speaking-topic"><strong>Europe's AI Advantage</strong><span>Why European constraints are quietly becoming a competitive edge. A DACH-specific lens.</span></div>
+        <div class="speaking-topic"><strong>The Mandate Workshop</strong><span>Two days with your treasury or operations leadership. You leave with your institution's first agent mandate written against the report's framework: permitted universe, allowlists, caps, the three tiers, the escalation path and the audit requirement.</span></div>
+        <div class="speaking-topic"><strong>Readiness assessment</strong><span>The report's five preconditions applied to one institution, with a written gap list and the order to close it in.</span></div>
+        <div class="speaking-topic"><strong>Keynotes and board briefings</strong><span>Before the machine acts · The first step needs no technology · Your mandate is a map of the jagged frontier · Don't repeat digital transformation.</span></div>
       </div>
+      <div class="page-actions"><a href="/work-with-me/" class="btn-navy">Formats and topics</a></div>
     </div>
     <div>
-      <div class="speaking-cta">
+      <div class="cta-box sticky">
         <h3>Get in<br>touch</h3>
-        <p>Planning a leadership offsite, executive programme, or board briefing? Reach out directly. I respond personally.</p>
-        <div class="speaking-formats">
-          <div class="sf"><div class="sf-dot"></div><span>Keynotes — 30 to 60 min</span></div>
-          <div class="sf"><div class="sf-dot"></div><span>Executive workshops — half day</span></div>
-          <div class="sf"><div class="sf-dot"></div><span>Advisory retainers</span></div>
-          <div class="sf"><div class="sf-dot"></div><span>Board-level briefings</span></div>
-        </div>
-        <a href="mailto:marcus@marcusmaute.com" class="btn-red" style="display:block;text-align:center">marcus@marcusmaute.com →</a>
+        <p>Planning a treasury pilot, a leadership offsite or a board briefing on agentic finance? Write to me directly. I respond personally.</p>
+        <a href="mailto:marcus@marcusmaute.com" class="btn-red">marcus@marcusmaute.com →</a>
+        <div class="note">Zürich · English and German</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-wrap">
-    <div class="section-eyebrow">What people say</div>
-    <div class="section-title">The reaction.</div>
-    <div class="testimonial-grid">
-      <div class="testimonial">
-        <p class="testimonial-quote">"Marcus said in one post what we'd been trying to articulate in three board meetings. His infrastructure framing changed how we're thinking about our entire AI roadmap."</p>
-        <div class="testimonial-author">CTO, DACH Manufacturing Co.</div>
-        <div class="testimonial-role">LinkedIn reaction</div>
-      </div>
-      <div class="testimonial">
-        <p class="testimonial-quote">"The DT comparison piece is the most useful thing I've read on AI transformation this year. Sent it to our entire leadership team before our strategy offsite."</p>
-        <div class="testimonial-author">Chief Transformation Officer</div>
-        <div class="testimonial-role">Newsletter subscriber</div>
-      </div>
-      <div class="testimonial">
-        <p class="testimonial-quote">"Finally someone who talks about what actually breaks in production, not just the demo layer. Marcus writes like he's been in the room — because he has."</p>
-        <div class="testimonial-author">VP Engineering, Series B</div>
-        <div class="testimonial-role">LinkedIn comment</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG PREVIEW -->
-<section class="blog-preview">
+<!-- WRITING -->
+<section class="sec grey" id="writing">
   <div class="blog-header">
     <div>
-      <div class="section-eyebrow">From the blog</div>
+      <div class="section-eyebrow">Writing</div>
       <div class="section-title">Recent writing.</div>
     </div>
     <a href="/blog/" class="view-all">All articles →</a>
@@ -797,40 +255,27 @@ The €2M isn't the problem. The target selection is.</div>
   <div class="posts-grid">
     <a href="/blog/ai-transformation-stack.html" class="post-card">
       <div class="post-card-top"><div class="post-tag">Cornerstone</div><div class="post-title-card">The AI Transformation Stack</div></div>
-      <div class="post-card-body"><p class="post-excerpt">Three layers. Most roadmaps get the ratios backwards — and that's why pilots die in production. This is the foundational framework.</p><div class="post-foot"><span class="post-date">Mar 2026 · 8 min</span><span class="post-cta">Read →</span></div></div>
+      <div class="post-card-body"><p class="post-excerpt">Three layers. Most roadmaps get the ratios backwards, and that is why pilots die in production. The foundational framework.</p><div class="post-foot"><span class="post-date">Mar 2026 · 8 min</span><span class="post-cta">Read →</span></div></div>
     </a>
     <a href="/blog/dt-vs-ai-transformation.html" class="post-card">
       <div class="post-card-top"><div class="post-tag">DT vs AI</div><div class="post-title-card">Why Digital Transformation Failed</div></div>
-      <div class="post-card-body"><p class="post-excerpt">70% of DT initiatives failed. AI transformation is already making the same mistakes. Here's the pattern and how to break it.</p><div class="post-foot"><span class="post-date">Mar 2026 · 6 min</span><span class="post-cta">Read →</span></div></div>
+      <div class="post-card-body"><p class="post-excerpt">Most digital transformation programmes failed. AI transformation is already making the same mistakes. Here is the pattern and how to break it.</p><div class="post-foot"><span class="post-date">Mar 2026 · 6 min</span><span class="post-cta">Read →</span></div></div>
     </a>
     <a href="/blog/head-of-ai-mistake.html" class="post-card">
-      <div class="post-card-top"><div class="post-tag">Org Design</div><div class="post-title-card">Your Head of AI Hire Might Be the Problem</div></div>
-      <div class="post-card-body"><p class="post-excerpt">A central AI function feels like progress. In most companies it's building a bottleneck. Here's what winning companies do instead.</p><div class="post-foot"><span class="post-date">Mar 2026 · 5 min</span><span class="post-cta">Read →</span></div></div>
+      <div class="post-card-top"><div class="post-tag">Org design</div><div class="post-title-card">Your Head of AI Hire Might Be the Problem</div></div>
+      <div class="post-card-body"><p class="post-excerpt">A central AI function feels like progress. In most companies it is building a bottleneck. What the companies that get it right do instead.</p><div class="post-foot"><span class="post-date">Mar 2026 · 5 min</span><span class="post-cta">Read →</span></div></div>
     </a>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter" id="newsletter">
-  <div class="nl-inner">
-    <div class="nl-left">
-      <div class="section-eyebrow light">Weekly essay</div>
-      <div class="nl-title">The<br>Transformation<br><em>Layer.</em></div>
-      <p class="nl-body">One essay, every Monday. A clear POV on AI transformation, infrastructure, and what executives get wrong. 300 words. No fluff. No news digest. Just thinking worth your time.</p>
+<!-- FOLLOW -->
+<section class="follow" id="follow">
+  <div class="follow-inner">
+    <div>
+      <h3>Follow the work.</h3>
+      <p>Short, first-person notes on agentic finance and AI transformation, from inside the infrastructure rather than from a slide.</p>
     </div>
-    <div class="nl-right">
-      <div class="nl-promises">
-        <div class="nl-promise"><div class="nl-check">✓</div><span><strong>Weekly</strong> — every Monday morning</span></div>
-        <div class="nl-promise"><div class="nl-check">✓</div><span><strong>300 words</strong> — a read, not a commitment</span></div>
-        <div class="nl-promise"><div class="nl-check">✓</div><span><strong>Operator perspective</strong> — not consultant speak</span></div>
-        <div class="nl-promise"><div class="nl-check">✓</div><span>Unsubscribe any time, <strong>no questions asked</strong></span></div>
-      </div>
-      <form class="nl-form" onsubmit="handleSub(event)">
-        <input type="email" class="dark" placeholder="your@email.com" required id="sub-email">
-        <button type="submit" class="btn-red">Subscribe →</button>
-      </form>
-      <p class="nl-note" id="sub-msg">Join executives and practitioners reading every week</p>
-    </div>
+    <a href="https://www.linkedin.com/in/marcusmaute/" class="btn-red" rel="noopener" target="_blank">Marcus Maute on LinkedIn →</a>
   </div>
 </section>
 
@@ -838,27 +283,21 @@ The €2M isn't the problem. The target selection is.</div>
   <div class="footer-inner">
     <a href="/" class="footer-logo"><span class="flogo-thin">MARCUS</span><span class="flogo-bold">MAUTE</span></a>
     <div class="footer-links">
+      <a href="/agentic-finance/">The Report</a>
+      <a href="/work-with-me/">Work with me</a>
       <a href="/blog/">Writing</a>
-      <a href="#speaking">Speaking</a>
-      <a href="https://linkedin.com/in/marcusmaute" target="_blank">LinkedIn</a>
+      <a href="/press/">Press</a>
+      <a href="/about/">About</a>
+      <a href="https://www.linkedin.com/in/marcusmaute/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:marcus@marcusmaute.com">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Marcus Maute · Zug, Switzerland</div>
+    <div class="footer-copy">© 2026 Marcus Maute · Zürich, Switzerland</div>
   </div>
 </footer>
 
 <script>
-function toggleMenu(){
-  document.getElementById('nav-mobile').classList.toggle('open');
-}
-function handleSub(e){
-  e.preventDefault();
-  const msg = document.getElementById('sub-msg');
-  msg.textContent = '✓ You\'re in. First issue lands Monday.';
-  msg.style.color = '#fff';
-  document.getElementById('sub-email').value = '';
-}
+function toggleMenu(){ document.getElementById('nav-mobile').classList.toggle('open'); }
 </script>
-</div><!-- /.site-frame -->
+</div>
 </body>
 </html>

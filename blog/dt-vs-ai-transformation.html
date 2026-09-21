@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why Digital Transformation Failed — Marcus Maute</title>
 <meta name="description" content="70% of digital transformation initiatives failed. AI transformation is already making the same mistakes. Here's the pattern and how to break it.">
+<link rel="canonical" href="https://www.marcusmaute.com/blog/dt-vs-ai-transformation.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="stylesheet" href="/assets/article.css">
 <style>
-.compare-table { width: 100%; border-collapse: collapse; margin: 36px 0; font-size: 14px; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 36px 0; }
+.compare-table { width: 100%; min-width: 480px; border-collapse: collapse; margin: 0; font-size: 14px; }
 .compare-table th {
   text-align: left; padding: 12px 16px;
   font-family: 'Barlow Condensed', sans-serif;
@@ -45,18 +47,21 @@
 <nav class="nav">
   <a href="/" class="nav-logo"><span class="logo-thin">MARCUS</span><span class="logo-bold">MAUTE</span></a>
   <div class="nav-links">
+    <a href="/agentic-finance/">The Report</a>
     <a href="/blog/" class="active">Writing</a>
-    <a href="/#speaking">Speaking</a>
-    <a href="/#newsletter" class="nav-cta">Newsletter →</a>
+    <a href="/about/">About</a>
+    <a href="/work-with-me/" class="nav-cta">Work with me →</a>
   </div>
   <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
+  <a href="/agentic-finance/">The Report</a>
   <a href="/blog/">Writing</a>
-  <a href="/#speaking">Speaking</a>
-  <a href="/#newsletter">Newsletter →</a>
+  <a href="/about/">About</a>
+  <a href="/press/">Press</a>
+  <a href="/work-with-me/">Work with me →</a>
 </div>
 
 <div class="article-header">
@@ -106,6 +111,7 @@
 
 <p>The parallels to today's AI moment are uncomfortable.</p>
 
+<div class="table-scroll">
 <table class="compare-table">
   <tr>
     <th>The pattern</th>
@@ -138,6 +144,7 @@
     <td>Spent €2M. Can't name a single changed decision.</td>
   </tr>
 </table>
+</div>
 
 <p>The last row is not hypothetical. A CFO told me those exact words about her company's AI spend earlier this year.</p>
 
@@ -172,12 +179,9 @@
 <p>You have less time to make the same mistakes. The pattern is identical. The urgency is not.</p>
 
 <div class="article-cta">
-  <h3>The Transformation Layer</h3>
-  <p>A weekly 300-word essay on AI transformation, infrastructure, and what executives get wrong.</p>
-  <form class="nl-form" style="max-width:380px;margin:0 auto" onsubmit="e=event;e.preventDefault();this.querySelector('button').textContent='✓ Subscribed'">
-    <input type="email" class="light" placeholder="your@email.com" required>
-    <button type="submit" class="btn-red">Subscribe →</button>
-  </form>
+  <h3>Work with me</h3>
+  <p>Advisory and workshops on agentic AI transformation for boards and executive teams.</p>
+  <a href="/work-with-me/" class="btn-red">Work with me →</a>
 </div>
 
 <a href="/blog/head-of-ai-mistake.html" class="next-post">
@@ -195,12 +199,15 @@
   <div class="footer-inner">
     <a href="/" class="footer-logo"><span class="flogo-thin">MARCUS</span><span class="flogo-bold">MAUTE</span></a>
     <div class="footer-links">
+      <a href="/agentic-finance/">The Report</a>
+      <a href="/work-with-me/">Work with me</a>
       <a href="/blog/">Writing</a>
-      <a href="/#speaking">Speaking</a>
-      <a href="https://linkedin.com/in/marcusmaute" target="_blank">LinkedIn</a>
+      <a href="/press/">Press</a>
+      <a href="/about/">About</a>
+      <a href="https://www.linkedin.com/in/marcusmaute/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:marcus@marcusmaute.com">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Marcus Maute · Zug, Switzerland</div>
+    <div class="footer-copy">© 2026 Marcus Maute · Zürich, Switzerland</div>
   </div>
 </footer>
 

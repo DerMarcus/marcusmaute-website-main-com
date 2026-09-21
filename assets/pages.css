@@ -1,0 +1,172 @@
+/* ============================================================
+   MARCUSMAUTE.COM — shared page components (used by every page
+   except the blog articles, which keep article.css)
+   ============================================================ */
+
+/* ── page hero (dark) ── */
+.page-hero { background: #06090f; padding: 110px 48px 80px; position: relative; overflow: hidden; }
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px),
+    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px);
+}
+.page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--red); }
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.page-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(48px, 7vw, 92px); font-weight: 900; text-transform: uppercase;
+  line-height: 0.93; color: #fff; letter-spacing: 0.01em; margin-bottom: 22px; max-width: 900px;
+}
+.page-title .accent { color: var(--red); }
+.page-sub { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.7; }
+.page-sub strong { color: #fff; font-weight: 600; }
+.page-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+
+/* ── light sections ── */
+.sec { padding: 96px 48px; }
+.sec.white { background: #fff; border-top: 1px solid var(--border); }
+.sec.grey { background: var(--bg); border-top: 1px solid var(--border); }
+.sec.dark { background: #06090f; color: #fff; border-top: 3px solid var(--red); }
+.sec-inner { max-width: 1100px; margin: 0 auto; }
+.sec-inner.narrow { max-width: 760px; }
+.prose { font-size: 17px; color: var(--muted); line-height: 1.8; max-width: 720px; }
+.prose p { margin-bottom: 20px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--text); font-weight: 600; }
+.prose a { color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,25,44,0.25); }
+.prose a:hover { color: var(--red-h); }
+.sec.dark .prose { color: rgba(255,255,255,0.7); }
+.sec.dark .prose strong { color: #fff; }
+.sec.dark .section-title { color: #fff; }
+
+/* ── two columns ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.two-col.wide-left { grid-template-columns: 1.4fr 1fr; }
+
+/* ── report feature ── */
+.report-feature { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: center; }
+.report-cover { display: block; box-shadow: 0 24px 60px rgba(13,26,48,0.28), 0 0 0 1px rgba(255,255,255,0.06); border-radius: 3px; }
+.report-cover img { display: block; width: 100%; height: auto; border-radius: 3px; }
+.report-meta {
+  font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-top: 22px; line-height: 1.8;
+}
+.report-meta strong { color: var(--text); }
+.sec.dark .report-meta { color: rgba(255,255,255,0.4); }
+.sec.dark .report-meta strong { color: #fff; }
+
+/* ── pull quote ── */
+.pull { border-left: 3px solid var(--red); padding: 6px 0 6px 26px; margin: 36px 0; }
+.pull p {
+  font-family: 'Barlow Condensed', sans-serif; font-size: clamp(22px, 2.6vw, 30px); font-weight: 600;
+  line-height: 1.2; color: var(--text); text-transform: none; letter-spacing: 0;
+}
+.pull cite {
+  display: block; margin-top: 10px; font-family: 'Barlow Condensed', sans-serif; font-style: normal;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
+}
+.sec.dark .pull p { color: #fff; }
+
+/* ── numbered list (preconditions, steps) ── */
+.num-list { list-style: none; counter-reset: n; margin-top: 40px; border-top: 1px solid var(--border); }
+.num-list li { counter-increment: n; display: grid; grid-template-columns: 72px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: start; }
+.num-list li::before {
+  content: counter(n, decimal-leading-zero);
+  font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; line-height: 1;
+  color: rgba(13,26,48,0.12); letter-spacing: -0.02em;
+}
+.num-list strong { grid-column: 2; display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text); margin-bottom: 4px; }
+.num-list span { grid-column: 2; font-size: 15px; color: var(--muted); line-height: 1.65; }
+.sec.dark .num-list { border-color: rgba(255,255,255,0.1); }
+.sec.dark .num-list li { border-color: rgba(255,255,255,0.1); }
+.sec.dark .num-list li::before { color: rgba(255,255,255,0.12); }
+.sec.dark .num-list strong { color: #fff; }
+.sec.dark .num-list span { color: rgba(255,255,255,0.6); }
+
+/* ── cards ── */
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 48px; }
+.card-grid.three { grid-template-columns: repeat(3, 1fr); }
+.card { background: #fff; padding: 38px 34px; display: flex; flex-direction: column; }
+.card .tag {
+  display: inline-block; align-self: flex-start; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); border: 1px solid rgba(200,25,44,0.3);
+  padding: 3px 10px; border-radius: 2px; margin-bottom: 14px;
+}
+.card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.01em; color: var(--text); margin-bottom: 12px; }
+.card p { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+.card p + p { margin-top: 10px; }
+.card .facts { list-style: none; margin: 16px 0 0; padding: 0; }
+.card .facts li { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); padding: 7px 0; border-top: 1px solid var(--border); }
+.card .card-foot { margin-top: auto; padding-top: 20px; }
+
+/* ── contents table ── */
+.toc-table { width: 100%; border-collapse: collapse; margin-top: 36px; }
+.toc-table th { text-align: left; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); padding: 0 12px 12px 0; border-bottom: 2px solid var(--navy); }
+.toc-table td { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--border); font-size: 15px; color: var(--muted); vertical-align: top; }
+.toc-table td:first-child { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; color: var(--red); letter-spacing: 0.08em; white-space: nowrap; }
+.toc-table td.t { color: var(--text); font-weight: 600; }
+.toc-table tr.mine td.t { color: var(--navy); }
+.toc-table tr.mine td:first-child { color: var(--navy); }
+.toc-table .guest-chip { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--border); padding: 2px 8px; border-radius: 2px; }
+
+/* ── logo row (text, no logos) ── */
+.name-row { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 28px; }
+.name-row span { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
+.name-row span.guest { color: var(--dim); font-weight: 600; }
+.sec.dark .name-row span { color: rgba(255,255,255,0.85); }
+.sec.dark .name-row span.guest { color: rgba(255,255,255,0.45); }
+
+/* ── cite box ── */
+.cite-box { background: var(--bg); border: 1px solid var(--border); padding: 24px 28px; margin-top: 28px; }
+.cite-box p { font-family: 'Lora', serif; font-size: 14.5px; line-height: 1.7; color: var(--text); }
+.cite-box .label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+
+/* ── contact box ── */
+.cta-box { background: var(--navy); border-radius: var(--r); padding: 40px; color: #fff; }
+.cta-box h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; margin-bottom: 14px; }
+.cta-box p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 24px; }
+.cta-box .btn-red { display: block; text-align: center; }
+.cta-box .note { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 14px; text-align: center; }
+.sticky { position: sticky; top: 84px; }
+
+/* ── bio / person ── */
+.person { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+.person img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 0 0 1px var(--border); }
+.facts-table { width: 100%; border-collapse: collapse; margin-top: 28px; }
+.facts-table th { text-align: left; width: 180px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); padding: 12px 12px 12px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.facts-table td { font-size: 15px; color: var(--text); padding: 12px 0; border-bottom: 1px solid var(--border); line-height: 1.6; }
+.facts-table a { color: var(--red); text-decoration: none; }
+
+/* ── press downloads ── */
+.dl-list { list-style: none; margin-top: 24px; }
+.dl-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 20px; align-items: baseline; flex-wrap: wrap; }
+.dl-list a { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); text-decoration: none; }
+.dl-list span { font-size: 13.5px; color: var(--dim); }
+.bio-block { background: var(--bg); border: 1px solid var(--border); padding: 24px 28px; margin-top: 20px; }
+.bio-block .label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+.bio-block p { font-size: 15px; line-height: 1.75; color: var(--text); }
+
+/* ── LinkedIn strip (replaces the newsletter) ── */
+.follow { background: var(--navy); padding: 64px 48px; }
+.follow-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.follow h3 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; text-transform: uppercase; color: #fff; letter-spacing: 0.02em; line-height: 1; }
+.follow p { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 8px; max-width: 460px; line-height: 1.6; }
+
+/* ── responsive ── */
+@media (max-width: 900px) {
+  .page-hero { padding: 84px 24px 56px; }
+  .sec { padding: 64px 24px; }
+  .two-col, .two-col.wide-left { grid-template-columns: 1fr; gap: 40px; }
+  .report-feature { grid-template-columns: 1fr; gap: 36px; }
+  .report-cover { max-width: 260px; }
+  .card-grid, .card-grid.three { grid-template-columns: 1fr; }
+  .person { grid-template-columns: 1fr; }
+  .person img { width: 160px; height: 160px; }
+  .facts-table th { width: 120px; }
+  .sticky { position: static; }
+  .num-list li { grid-template-columns: 52px 1fr; gap: 14px; }
+  .num-list li::before { font-size: 30px; }
+  .follow { padding: 48px 24px; }
+  .toc-table td, .toc-table th { font-size: 14px; }
+}
