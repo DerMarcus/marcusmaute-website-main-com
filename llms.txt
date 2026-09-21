@@ -19,6 +19,10 @@
 - [About](https://www.marcusmaute.com/about/): biography and facts
 - [Press](https://www.marcusmaute.com/press/): biography in three lengths, headshot, report facts, quotes cleared for use
 
+## Neo
+
+Neo (https://github.com/DerMarcus/nftneo): an autonomous agent that collects fully on-chain generative art, built and operated by Marcus Maute as an independent personal project. Publishes its valuation before every acquisition; can buy and structurally cannot sell; pre-launch as of September 2026.
+
 ## The Agentic Finance Report (2026)
 
 - Website and downloads: https://agenticfinancereport.com/ (PDF and Markdown editions from 29 September 2026; machine-readable index at https://agenticfinancereport.com/llms.txt)

@@ -30,13 +30,34 @@ bars, comparison cards) — they don't need `pages.css`.
 
 ## Home page section order
 `index.html` runs: hero → report (`#report`) → positions (`#positions`) → manifesto (`.manifesto`,
-"What I believe") → work with me (`#work`) → writing → follow → footer (moved 21 September 2026;
-the report used to sit after the manifesto, and the manifesto used to sit right after the hero).
+"What I believe") → Neo (`#neo`) → work with me (`#work`) → writing → follow → footer (Neo added
+21 September 2026, between the manifesto and work with me; before that the report used to sit
+after the manifesto, and the manifesto used to sit right after the hero).
 The manifesto keeps its dark background and its `border-bottom: 3px solid var(--red)`; it carries
 no `border-top`, so entering it from the grey `#positions` section is a plain colour change (by
-design, matches how `.sec.dark` sections read elsewhere) and leaving it into the white `#work`
-section is the same dark-bottom-bar-into-light-top-border pairing that used to sit between the
-manifesto and the report. Don't add a second border at either seam.
+design, matches how `.sec.dark` sections read elsewhere). `#neo` is also `.sec.dark` with its own
+`border-top: 3px solid var(--red)` (from `.sec.dark`), so the manifesto's bottom bar and Neo's top
+bar sit back to back; leaving Neo into the white `#work` section is the same
+dark-bottom-bar-into-light-top-border pairing that used to sit between the manifesto and the
+report. Don't add a second border at any of these seams.
+
+## Neo section (`#neo`, home page)
+A dark `.sec.dark` band introducing Neo, an autonomous on-chain art-collecting agent that Marcus
+built and operates as an independent personal project, styled with the site's own `/* ── neo ── */`
+block in `assets/pages.css` (`.neo-grid`, `.neo-facts`, `.neo-disclosure`). Also linked from every
+page's footer (`https://github.com/DerMarcus/nftneo`, `rel="noopener" target="_blank"`, between
+About and LinkedIn) and from `about/index.html`'s facts table and `llms.txt`.
+- **Facts source:** the project's public README and ARCHITECTURE at
+  `github.com/DerMarcus/nftneo` only. `nftneo.dev` is the planned site address; it did not resolve
+  as of 21 September 2026 (connection refused), so it appears in copy as text, never as a link,
+  until it is verified live.
+- **Neo is always pre-launch** ("Phase 0, pre-launch": nothing acquired, no valuations or ledger
+  entries published yet) until the owner says otherwise. When Neo makes its first acquisition,
+  this section, the footer/about/llms.txt mentions and this note all need updating together, not
+  just the home page.
+- **Neo is never described as part of the Agentic Finance Report.** It applies the report's
+  mandate-enforcement principle as an independent project; keep the disclosure line ("Independent
+  personal project. Not part of the Agentic Finance Report; not investment advice.") intact.
 
 ## work-with-me: advisory block hidden
 The "Advisory — Two ways in." section (`The Mandate Workshop` and `Readiness assessment` cards) in
@@ -51,7 +72,8 @@ copy changes.
 
 ## Consistency (every page)
 Same nav (The Report · Writing · About · Work with me → as `.nav-cta`), same mobile nav (adds
-Press), same footer links (The Report, Work with me, Writing, Press, About, LinkedIn
+Press; Neo is deliberately **not** in either nav). Same footer links on all nine pages (The Report,
+Work with me, Writing, Press, About, Neo https://github.com/DerMarcus/nftneo, LinkedIn
 https://www.linkedin.com/in/marcusmaute/, Contact mailto:marcus@marcusmaute.com), footer
 "© 2026 Marcus Maute · Zürich, Switzerland", `<html lang="en-GB">`, a `<link rel="canonical">`,
 a `<title>` and meta description.
