@@ -20,6 +20,15 @@
 - [About](https://www.marcusmaute.com/about/): biography and facts
 - [Press](https://www.marcusmaute.com/press/): biography in three lengths, headshot, report facts, quotes cleared for use
 
+## Ventures
+
+One thesis, agentic finance, showing up from four different sides: research, infrastructure, capital and practice.
+
+- Agentic Finance Report (research, 2026): the industry report that names the thesis. https://agenticfinancereport.com/
+- TensorX (sovereign AI): sovereign AI infrastructure for regulated industries, open-weight models on EU infrastructure in Dublin and Helsinki, zero data retention by design, agents pay per call via x402 in stablecoins. Marcus is TensorX Swiss Representative. https://tensorx.ai
+- Solstice Staking (staking): institutional-grade, non-custodial staking infrastructure for Ethereum, Solana and NEAR Protocol at zero commission, more than $1 billion in staked assets. Solstice Staking AG, Zug, Switzerland. https://solsticestaking.io
+- Neuer Lab (wellness): mindset, spirituality and longevity, mental training, emotional release work and leadership and awareness workshops. https://neuerlab.com
+
 ## Neo
 
 Neo (https://github.com/DerMarcus/nftneo): an autonomous agent that collects fully on-chain generative art, built and operated by Marcus Maute as an independent personal project. Publishes its valuation before every acquisition; can buy and structurally cannot sell; pre-launch as of September 2026.
