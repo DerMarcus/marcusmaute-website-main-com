@@ -84,12 +84,27 @@ Every page (including 404.html) carries it:
 `.hero-actions` carries a single button, "The Agentic Finance Report" (`.btn-red`), linking
 externally to `https://www.agenticfinancereport.com/` (`rel="noopener" target="_blank"`) since the
 internal report page was deleted 21 September 2026. The ghost "Work with me →" button that used to
-sit beside it was removed the same day; "Work with me" stays reachable from `#work`, the nav
-toggle's replacement `.nav-cta`, the mobile menu and the footer.
+sit beside it was removed the same day; "Work with me" stays reachable from the nav toggle's
+replacement `.nav-cta`, the mobile menu and the footer, all of which link straight to
+`work-with-me/index.html` (never `#work`, see below).
 
 ## Home page section order
-`index.html` runs: hero → report (`#report`) → The Surf (`#the-surf`) → ventures (`#ventures`) →
-Neo (`#neo`) → work with me (`#work`) → writing → follow → footer. The positions section
+**`#work` ("Work with me / The mandate, then the stack.") is hidden (owner, 21 September 2026,
+"for now"),** wrapped in an HTML comment right after `#neo` and before `#writing`, the same pattern
+as the advisory block on `work-with-me/index.html` (see below) — `<!-- HIDDEN 2026-09-21 (owner):
+Work with me section on home page, restore when ready ... -->`. The section's own preceding
+`<!-- WORK WITH ME -->` marker comment was dropped rather than nested inside the wrapper (its
+close sequence would have ended the wrapper early); nothing else in the block needed changing to
+wrap it safely. No page linked to `index.html#work` or `#work` before this change (every "Work with
+me" link already pointed straight at `work-with-me/index.html`), so nothing needed repointing.
+`llms.txt`'s Home entry, which read "...ventures, how to work with him", was reworded to
+"...ventures, Neo" (`marcus-maute.md` did not mention `#work` and needed no change, so
+`tools/build_agent_view.py` was not re-run). To restore, uncomment the block in place; no other
+copy changes are needed since (unlike the work-with-me page's own advisory-block hide) nothing else
+on the site pointed at `#work` to begin with.
+
+With `#work` hidden, `index.html` renders: hero → report (`#report`) → The Surf (`#the-surf`) →
+ventures (`#ventures`) → Neo (`#neo`) → writing → follow → footer. The positions section
 (`#positions`, "Four positions.") was **deleted entirely on the owner's instruction, 21 September
 2026** — it no longer exists anywhere in the file, and its `.pov-*` CSS was removed with it (nothing
 else used those rules). Ventures moved from right after the hero to directly after Neo, then, later
@@ -100,9 +115,10 @@ Ventures first existed); white `#report` into dark `#the-surf` needs no extra st
 context (matched to Neo's treatment 21 September 2026, see "The Surf section" below); dark
 `#the-surf` into white `#ventures` needs nothing extra either, `.sec.white`'s own border doing the
 job; white `#ventures` into dark `#neo` needs no extra styling since `#neo` carries its own
-`border-top: 3px solid var(--red)` regardless of context; dark `#neo` into white `#work` again needs
-nothing extra, `#work`'s own `.sec.white` border-top doing the same job it always did. No two
-adjacent sections share a background class in the current order.
+`border-top: 3px solid var(--red)` regardless of context; dark `#neo` into grey `#writing` needs
+nothing extra either (verified in-browser 21 September 2026), `#neo`'s own red top border doing the
+job as it always did, and grey is a different background from dark so no clash was introduced by
+hiding `#work`. No two adjacent sections share a background class in the current order.
 **The manifesto (`.manifesto`, "What I believe") moved off the
 home page entirely on 21 September 2026** — it now sits on `about/index.html`, in the slot the
 "How I work" section used to occupy (see "About page" below). (Earlier history: Neo sat directly
@@ -179,8 +195,9 @@ context: white `#report` into dark `#the-surf` needs no extra styling, `#the-sur
 too and carrying its own red top border the same way; dark `#the-surf` into white `#ventures` needs
 nothing extra either, `.sec.white`'s own border doing the job; white `#ventures` straight into dark
 `#neo` needs no extra styling, the same into-`.sec.dark` seam already used on `about/index.html`
-(the dark section's own red top border); dark `#neo` into white `#work` needs nothing extra either,
-`#work`'s own `.sec.white` border-top doing the same job it always did. Don't add a second
+(the dark section's own red top border); dark `#neo` into grey `#writing` (with `#work` hidden
+between them since 21 September 2026, see "Home page section order" above) needs nothing extra
+either, `#neo`'s own red top border doing the same job it always did. Don't add a second
 border at any of these seams. (The manifesto's own seam notes moved to "About page" below with the
 section itself.)
 
@@ -287,11 +304,12 @@ The "Advisory — Two ways in." section (`The Mandate Workshop` and `Readiness a
 `work-with-me/index.html` is wrapped in an HTML comment (`<!-- HIDDEN 2026-09-21 (owner): advisory
 block, restore when ready ... -->`) rather than deleted, so it can be restored later. Because of
 that, the page hero now introduces talks and briefings directly (no more "That is where I work
-with institutions, and it is what I talk about on stage."), the home page's `#work` section lists
-only "Keynotes and board briefings" under `.speaking-topics`, and the report page's "Put it to
-work" box points at "Talks and briefings" (`../work-with-me/index.html`) instead of "The Mandate
-Workshop". If the owner asks to restore the advisory block, uncomment it and reverse those three
-copy changes.
+with institutions, and it is what I talk about on stage."), the home page's `#work` section (itself
+now also hidden, see "Home page section order" above) listed only "Keynotes and board briefings"
+under `.speaking-topics` while it was visible, and the report page's "Put it to work" box points at
+"Talks and briefings" (`../work-with-me/index.html`) instead of "The Mandate Workshop". If the owner
+asks to restore the advisory block, uncomment it and reverse those three copy changes (separately
+from whether `#work` itself is restored on the home page).
 
 ## Consistency (every page)
 Same nav (The Report · Writing · About · the Human/Agent toggle in place of the old "Work with me →"

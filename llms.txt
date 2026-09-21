@@ -14,7 +14,7 @@
 
 ## Pages
 
-- [Home](https://www.marcusmaute.com/): position, the report, ventures, how to work with him
+- [Home](https://www.marcusmaute.com/): position, the report, ventures, Neo
 - [Work with me](https://www.marcusmaute.com/work-with-me/): keynotes and board briefings
 - [Writing](https://www.marcusmaute.com/blog/): essays on AI transformation
 - [About](https://www.marcusmaute.com/about/): biography and facts, what he believes (energy, Kardashev scale, proof of work)
