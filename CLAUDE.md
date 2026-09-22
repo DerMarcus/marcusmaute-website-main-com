@@ -396,78 +396,130 @@ that note away from the transcription, and don't edit the transcription itself (
 written for the site, not to a verbatim historical source).
 
 ## Per-article colour themes
-Added 22 September 2026 (owner instruction), modelled on the home page hero: a colour field (the
-`.article-header` band) sitting inside `.site-frame`'s big white/rounded border, so each article
-reads as "the hero, in its own colour" rather than always dark. Each article now looks visually
-distinct while the layout (site nav/footer, `.article-header`/`.article-body-wrap` structure) is
-unchanged — **never** invent a new layout for a theme, only new colours.
+Added 22 September 2026, reworked the same day (owner instruction: the header band must be **the
+article's colour itself, not a dark tint of it** — "not dark, in the colour scheme of the article").
+Modelled on the home page hero: a colour field (the `.article-header` band) sitting inside
+`.site-frame`'s big white/rounded border, so each article reads as "the hero, in its own colour"
+rather than always dark. Each article now looks visually distinct while the layout (site nav/footer,
+`.article-header`/`.article-body-wrap` structure) is unchanged — **never** invent a new layout for a
+theme, only new colours.
 
 **How it works:**
 - `assets/article.css` defines a default set of CSS custom properties on `body` (the original dark
   look, so an article with no theme class renders exactly as before), then one class per theme that
-  overrides them:
-  - `--article-bg` — the `.article-header` band background.
-  - `--article-ink` — primary text on `--article-bg` (the H1). Defaults to white; every theme so far
-    keeps it white, so if a future theme needs dark text on a light band, also flip `--article-ink`
-    and re-check `.article-tag`'s fill (see below).
-  - `--article-soft` — secondary text on `--article-bg` (the lead paragraph).
+  overrides them. Because a theme's band can be a bright/saturated colour rather than a dark tint,
+  several tokens exist in pairs so each one only ever has to contrast the surface it actually sits
+  on, never double as both a background and a foreground colour:
+  - `--article-bg` — the `.article-header` band background. Can be the raw brand colour (Kaspa teal,
+    Coinbase blue) — it doesn't need to pass any contrast ratio itself, only `--article-ink`/
+    `--article-soft` against it do.
+  - `--article-ink` — primary text on `--article-bg` (the H1, `.article-meta-item strong`,
+    breadcrumb hover). White on a dark band, dark on a light band — **check which your band needs**,
+    don't assume white.
+  - `--article-soft` — secondary text on `--article-bg` (the lead paragraph, breadcrumb links, meta
+    items). Kept at ≥4.5:1 against `--article-bg` (WCAG AA, normal text) by picking `--article-ink`
+    at enough opacity — solve for the opacity, don't guess it (see the contrast note below).
+  - `--article-divider` / `--article-meta-line` — low-emphasis decorative marks on the band (the
+    breadcrumb's `/` separator, the meta row's top border). No AA requirement (decorative, not text
+    or a UI control), just visible against `--article-bg`.
+  - `--article-rule` — the 3px rule under the header band. **Its own token, not reused from
+    `--article-accent`**: on a bright-band theme `--article-accent` can equal `--article-bg` (Kaspa's
+    accent literally is the band colour), which would make the rule invisible. Pick something that
+    visibly contrasts `--article-bg` — often the same dark tone as `--article-ink`.
+  - `--article-tag-bg` / `--article-tag-text` — the `.article-tag` pill. Same reasoning as the rule:
+    the pill sits **on the band**, so its fill must contrast `--article-bg`, not just carry legible
+    text on itself. A light band gets a dark pill (light or white text on it); a dark/saturated band
+    gets a light or white pill (coloured text on it).
   - `--article-page-bg` — a light tint applied to `main#human-view`, i.e. the whole area behind
-    `.article-body-wrap`, inside the frame. This is what makes the "page" itself feel themed, not
-    just the header.
-  - `--article-accent` — the strong/bright brand colour: the 3px rule under the header, the
-    `pull-quote`/`closing-line` left border. Decorative only; never used for text, so it doesn't need
-    to pass contrast on its own.
-  - `--article-accent-text` — a darker, AA-safe variant of the same brand colour, used anywhere the
-    colour carries text or sits behind white text: body links (`.article-body a`), the `.article-tag`
-    pill fill, pull-quote/closing-line text.
+    `.article-body-wrap`, inside the frame. Unaffected by the header-band rework; still a light tint
+    regardless of how bright the header band is.
+  - `--article-accent` — the strong/bright brand colour, used only on the white/tinted **body**
+    area: the `pull-quote`/`closing-line` left border. Decorative only, doesn't need to pass contrast
+    on its own.
+  - `--article-accent-text` — a darker, AA-safe variant of the same brand colour, used on the body:
+    `.article-body a` links, `.article-tag` fill *when it happens to also work as the tag's background
+    against the band* (true for Kaspa/energy, not Armstrong — see the table), pull-quote/closing-line
+    text.
 - Each article opts in with a class on `<body>` (`<body class="theme-kaspa">`, set alongside
   `<body class="site-frame">`'s sibling markup, i.e. directly on the `<body>` tag). `blog/index.html`'s
-  and the home page's article cards/rows carry the **same class names** on the linking `<a>` (see
-  below), so one class name means one colour everywhere.
+  "All articles" list rows and the home page's article cards carry the **same class names** on the
+  linking `<a>` for their own (unrelated, still-dark-tint) list accents — see "Article-card accents in
+  lists" below, this is a separate, smaller design and intentionally didn't change in the header-band
+  rework.
 - Three bright brand tokens (`--kaspa-accent`, `--energy-accent`, `--armstrong-accent`) are hoisted up
   into `assets/style.css`'s `:root` rather than only living in `article.css`, because `index.html` and
-  `blog/index.html` need them for card accents but don't load `article.css`. `article.css`'s theme
-  classes reference these same tokens for `--article-accent` rather than redefining the hex, so the
-  brand colour only lives in one place.
+  `blog/index.html` need them for list accents but don't load `article.css`. `article.css`'s theme
+  classes reference these same tokens rather than redefining the hex, so the brand colour only lives
+  in one place.
 
 **Current themes:**
-| Theme class | Article | `--article-bg` | `--article-page-bg` | `--article-accent` | `--article-accent-text` |
-|---|---|---|---|---|---|
-| `.theme-kaspa` | Satoshi is working on Kaspa now. | `#0f2e2a` (deep teal) | `#f5faf9` | `#70c7ba` (Kaspa brand teal) | `#176055` |
-| `.theme-energy` | Energy currency. | `#1b130a` (warm dark sepia) | `#f3ebdd` (old paper) | `#e8a317` (amber) | `#7a4e0a` |
-| `.theme-armstrong` | Did Brian Armstrong... | `#050b1f` (near-black, blue-leaning) | `#eaf1ff` (light blue) | `#0052ff` (Coinbase blue) | `#0052ff` (already AA on white) |
+| Theme class | Article | `--article-bg` (the band itself) | `--article-ink` | `--article-rule` | `--article-tag-bg` / `-text` | `--article-page-bg` |
+|---|---|---|---|---|---|---|
+| `.theme-kaspa` | Satoshi is working on Kaspa now. | `#70c7ba` (Kaspa brand teal, full strength) | `#0f2e2a` (dark teal ink) | `#176055` | `#0f2e2a` / `#70c7ba` | `#f5faf9` |
+| `.theme-energy` | Energy currency. | `#eadfc8` (aged paper, not solid amber — see below) | `#1b130a` (near-black ink) | `#7a4e0a` (dark amber) | `#1b130a` / `#e8a317` | `#f3ebdd` |
+| `.theme-armstrong` | Did Brian Armstrong... | `#0052ff` (Coinbase blue, full strength) | `#ffffff` | `#ffffff` | `#ffffff` / `#0052ff` | `#eaf1ff` |
 
-Every `--article-accent-text`/`--article-page-bg` pair above was checked at ≥4.5:1 (WCAG AA, normal
-text) against white/its own page tint before use; the header bands (`--article-bg` vs white ink) all
-clear 14:1+. If you pick a new brand colour that's too light to use directly as text (Kaspa's own
-`#70c7ba` is 1.99:1 on white and would fail), darken it for `--article-accent-text` and check the
-ratio again rather than using the light brand colour for links.
+`--article-accent`/`--article-accent-text` (the body-area tokens, unchanged by the header rework):
+Kaspa `#70c7ba`/`#176055`, energy `#e8a317`/`#7a4e0a`, Armstrong `#0052ff`/`#0052ff`.
+
+**Energy: paper, not a solid amber band.** Both were built and screenshotted before deciding
+(22 September 2026): a full `#e8a317` band read as a loud, modern warning-orange banner, not a 1920s
+newsprint masthead. Aged paper (`#eadfc8`) with a dark-amber rule and a dark-ink/amber tag pill reads
+closer to the Tribune reproduction later in the article, so that's what shipped. If this is ever
+revisited, the amber-band values are: `--article-ink:#1b130a`, `--article-soft:rgba(27,19,10,0.75)`
+(4.80:1), `--article-rule:#1b130a` (8.46:1 on the band), `--article-tag-bg:#1b130a` /
+`--article-tag-text:#e8a317`.
+
+Every text pairing above was solved for ≥4.5:1 (WCAG AA, normal text), not just checked after the
+fact — `--article-soft`'s opacity in particular is a solved value, not a round number: Kaspa's ink at
+78% (not the more-obvious 72%) is what actually clears 4.5:1 on `#70c7ba`; Armstrong's white at 85%
+(not 78%) is what clears it on `#0052ff`. Decorative-only marks (`--article-divider`,
+`--article-meta-line`, `--article-rule`) were checked for visibility (they comfortably clear the
+3:1 non-text/UI-component threshold) but don't need full text-level AA.
 
 **To add a theme for a new article:**
-1. Pick the article's brand colour. If it's light/saturated (won't pass 4.5:1 as text on white),
-   also pick a darker "for text" version.
-2. Add the bright brand token to `assets/style.css`'s `:root` (`--<name>-accent`).
-3. Add a `.theme-<name>` block to `assets/article.css` setting `--article-bg`, `--article-page-bg`,
-   `--article-accent: var(--<name>-accent)` and `--article-accent-text`.
-4. Add `class="theme-<name>"` to the article's `<body>` tag.
-5. Add the same `theme-<name>` class to that article's card/row on `blog/index.html`
-   (`.featured-card`/`.post-row`, if it's the newest) and the home page's `.post-card` in
-   `index.html`'s Writing section, and add the matching `.post-card.theme-<name>` /
-   `.featured-card.theme-<name>` / `.post-row.theme-<name>` border-colour rule next to the existing
-   ones in each page's own `<style>` block (`--<name>-accent` is already available from `style.css`).
-6. If the article has its own diagram/figure colours hardcoded (like Kaspa's inline blockDAG SVG),
+1. Pick the article's brand colour as the band itself (`--article-bg`), not a darkened version of
+   it — the owner's explicit preference is the real colour, full strength.
+2. Work out whether `--article-ink` needs to be white or dark for that band, then **solve for
+   `--article-soft`'s opacity** against a ≥4.5:1 target (don't reuse another theme's opacity number —
+   Kaspa's 78% and Armstrong's 85% are specific to those two colours). A quick way: flatten
+   `ink-at-alpha` over the band and check contrast against the band at a few alpha values until one
+   clears 4.5.
+3. Pick `--article-rule` and `--article-tag-bg`/`--article-tag-text` so they contrast **the band**,
+   not each other — on a light band this is usually the same dark ink; on a dark/saturated band it's
+   usually white or the band's own light tint.
+4. Pick `--article-divider`/`--article-meta-line` as low-alpha versions of the ink colour (light
+   band) or white (dark band); no AA requirement, just keep them visible.
+5. Add the bright brand token to `assets/style.css`'s `:root` (`--<name>-accent`) and set
+   `--article-accent`/`--article-accent-text` in the theme block as before (these two are unaffected
+   by the header-band rework and still describe the body-area colour, not the band).
+6. Add `class="theme-<name>"` to the article's `<body>` tag.
+7. Add the same `theme-<name>` class to that article's row in `blog/index.html`'s "All articles" list
+   and the home page's `.post-card` in `index.html`'s Writing section for their (separate, dark-tint)
+   list accents — see "Article-card accents in lists" below.
+8. If the article has its own diagram/figure colours hardcoded (like Kaspa's inline blockDAG SVG),
    recolour those by hand in that page's markup — they're raw SVG presentation attributes, not CSS
    variables, so `var()` doesn't reliably apply to them; pick literal hex values consistent with the
    theme instead.
-7. Rasterise/screenshot the article at desktop and 375px and re-check contrast; `.pull-quote`,
-   `.closing-line`, `.fn a`/`.source-line a` (each article's own page-scoped `<style>` block) and
-   `.tribune-doc-label`/`.tribune-page-label` (energy-currency only) also read `--article-accent`/
+9. Rasterise/screenshot the article at desktop and 375px with a cache-busted load (see "Local
+   preview") and re-check every text element on the band (breadcrumb, tag, H1, standfirst, meta) at
+   actual rendered contrast, not just the numbers on paper. `.pull-quote`, `.closing-line`,
+   `.fn a`/`.source-line a` (each article's own page-scoped `<style>` block) and
+   `.tribune-doc-label`/`.tribune-page-label` (energy-currency only) read `--article-accent`/
    `--article-accent-text` and need no further edits, but verify visually anyway.
 
 **What stays untouched:** the site nav and footer are the same on every page regardless of article
 theme. Theming only ever changes colour (chrome), never wording, so it doesn't conflict with
 `blog/brian-armstrong-bezos-letter-ai-age.html`'s "don't rewrite the blog articles' body text" rule
 below.
+
+**Article-card accents in lists.** Separate from the header-band rework above: `index.html`'s Writing
+cards (`.post-card`) and `blog/index.html`'s "All articles" rows (`.post-row`) each carry a thin
+accent border in the article's `--<name>-accent` brand colour (top border on the cards, left border
+on the rows) so the uniqueness shows in the lists too. This uses the bright brand token directly
+(`var(--kaspa-accent)` etc.) rather than the header-band tokens, and was intentionally left as-is in
+the header-band rework — it's a small, subtle mark, not a colour field, so it doesn't have the same
+"is it dark enough for white text" problem the header band did.
 
 ## Content rules
 - British spelling in any copy written for the site.

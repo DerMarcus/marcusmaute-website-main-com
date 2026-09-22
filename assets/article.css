@@ -8,26 +8,61 @@
    themes" for the full recipe and contrast-checking notes. */
 body {
   --article-bg:          #06090f;              /* header/hero band background */
-  --article-ink:         #ffffff;              /* primary text on --article-bg */
-  --article-soft:        rgba(255,255,255,0.62); /* secondary text on --article-bg (lead, meta) */
+  --article-ink:         #ffffff;              /* primary text on --article-bg (h1, meta strong) */
+  --article-soft:        rgba(255,255,255,0.62); /* secondary text on --article-bg (lead, breadcrumb, meta) — kept >=4.5:1 on --article-bg */
+  --article-divider:     rgba(255,255,255,0.35); /* breadcrumb separator on --article-bg (decorative) */
+  --article-meta-line:   rgba(255,255,255,0.08); /* meta row's top border on --article-bg (decorative) */
+  --article-rule:        var(--red);           /* the 3px rule under the header band — must contrast the band itself, so it's its own token rather than reusing --article-accent (which can equal --article-bg on a bright-band theme) */
+  --article-tag-bg:      var(--article-accent-text); /* tag pill fill — must contrast --article-bg, not just its own text */
+  --article-tag-text:    var(--article-ink);
   --article-page-bg:     #ffffff;              /* tint behind the article body, inside .site-frame */
-  --article-accent:      var(--red);           /* strong brand colour: header rule, tag pill fill, quote/closing-line bar */
-  --article-accent-text: var(--red);           /* AA-safe on light backgrounds: body links, tag-pill text-on-fill */
+  --article-accent:      var(--red);           /* strong brand colour, used on the white/tinted body: quote/closing-line bar */
+  --article-accent-text: var(--red);           /* AA-safe on light backgrounds: body links, pull-quote/closing-line text */
 }
+/* Kaspa: the band is the brand teal itself (not a dark tint of it), so header
+   text flips to dark ink and the tag pill/rule invert to stay legible. */
 .theme-kaspa {
-  --article-bg:          #0f2e2a;
+  --article-bg:          var(--kaspa-accent); /* #70c7ba */
+  --article-ink:         #0f2e2a;
+  --article-soft:        rgba(15,46,42,0.78); /* 4.57:1 on #70c7ba */
+  --article-divider:     rgba(15,46,42,0.35);
+  --article-meta-line:   rgba(15,46,42,0.15);
+  --article-rule:        var(--article-accent-text); /* #176055 */
+  --article-tag-bg:      #0f2e2a;
+  --article-tag-text:    var(--kaspa-accent); /* #70c7ba, 7.32:1 on #0f2e2a */
   --article-page-bg:     #f5faf9;
   --article-accent:      var(--kaspa-accent); /* #70c7ba */
   --article-accent-text: #176055;
 }
+/* Energy: an aged-paper masthead (not a solid amber block — tried both, the
+   full amber band read as a loud modern banner rather than 1920s newsprint;
+   paper + a dark amber rule/tag reads closer to the Tribune reproduction
+   later in the article). */
 .theme-energy {
-  --article-bg:          #1b130a;
+  --article-bg:          #eadfc8;
+  --article-ink:         #1b130a;
+  --article-soft:        rgba(27,19,10,0.72); /* 6.37:1 on #eadfc8 */
+  --article-divider:     rgba(27,19,10,0.35);
+  --article-meta-line:   rgba(27,19,10,0.15);
+  --article-rule:        var(--article-accent-text); /* #7a4e0a, 5.44:1 on #eadfc8 */
+  --article-tag-bg:      #1b130a;
+  --article-tag-text:    var(--energy-accent); /* #e8a317, 8.46:1 on #1b130a */
   --article-page-bg:     #f3ebdd;
   --article-accent:      var(--energy-accent); /* #e8a317 */
   --article-accent-text: #7a4e0a;
 }
+/* Armstrong: the band is Coinbase blue itself. --article-accent-text equals
+   --article-bg here (both #0052ff), so the rule/tag can't reuse it — they
+   invert to white instead, same "contrast the band" rule as the other two. */
 .theme-armstrong {
-  --article-bg:          #050b1f;
+  --article-bg:          var(--armstrong-accent); /* #0052ff */
+  --article-ink:         #ffffff;
+  --article-soft:        rgba(255,255,255,0.85); /* 4.55:1 on #0052ff */
+  --article-divider:     rgba(255,255,255,0.45);
+  --article-meta-line:   rgba(255,255,255,0.18);
+  --article-rule:        #ffffff;
+  --article-tag-bg:      #ffffff;
+  --article-tag-text:    var(--armstrong-accent); /* #0052ff, 5.75:1 on white */
   --article-page-bg:     #eaf1ff;
   --article-accent:      var(--armstrong-accent); /* #0052ff */
   --article-accent-text: #0052ff;
@@ -49,7 +84,7 @@ body {
 .article-header::after {
   content: '';
   position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px; background: var(--article-accent);
+  height: 3px; background: var(--article-rule);
 }
 .article-header-inner { max-width: 720px; margin: 0 auto; position: relative; }
 .article-breadcrumb {
@@ -60,14 +95,14 @@ body {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(255,255,255,0.35); text-decoration: none;
+  color: var(--article-soft); text-decoration: none;
   transition: color .15s;
 }
-.article-breadcrumb a:hover { color: #fff; }
-.article-breadcrumb .sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+.article-breadcrumb a:hover { color: var(--article-ink); }
+.article-breadcrumb .sep { color: var(--article-divider); font-size: 11px; }
 .article-tag {
   display: inline-block;
-  background: var(--article-accent-text); color: var(--article-ink);
+  background: var(--article-tag-bg); color: var(--article-tag-text);
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 700;
   letter-spacing: 0.15em; text-transform: uppercase;
@@ -85,16 +120,16 @@ body {
 .article-meta {
   display: flex; align-items: center; gap: 20px;
   padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--article-meta-line);
   flex-wrap: wrap;
 }
 .article-meta-item {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
+  color: var(--article-soft);
 }
-.article-meta-item strong { color: rgba(255,255,255,0.65); font-weight: 700; }
+.article-meta-item strong { color: var(--article-ink); font-weight: 700; }
 
 /* Body */
 main#human-view { background: var(--article-page-bg); }
