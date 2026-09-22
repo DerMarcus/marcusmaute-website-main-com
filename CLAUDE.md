@@ -301,57 +301,50 @@ between About and LinkedIn) and from `about/index.html`'s facts table and `llms.
   removed from the Neo section; the pre-launch fact stays in its prose paragraph) and re-embedded
   into every page via `tools/build_agent_view.py`. Don't reintroduce them without the owner asking.
 
-## About page: manifesto moved here (21 September 2026), then restyled as a normal light section (22 September 2026)
-`about/index.html` runs: page hero → "What I believe" (`.sec white`, same style as "Who I am") →
-"Who I am" (`.sec white`, bio + facts table) → footer. The section (eyebrow, four-paragraph text,
-unchanged wording) moved here from the home page on 21 September 2026, replacing the "How I work" /
-"The mandate first." dark section it used to occupy directly (that section, and its "Work with me" /
-"Press page" CTA buttons, is gone; nothing else linked to it, so no anchors needed fixing); it first
-landed directly after "Who I am", then moved again to directly after the page hero as the page's
-first section (owner instruction, 22 September 2026).
+## About page: manifesto moved here, restyled, then merged into one section (21–22 September 2026)
+`about/index.html` now runs: page hero → one `.sec white` section, eyebrow **"What I believe"**
+(photo left, text + facts table right) → footer. There is only one content section on this page —
+what used to be a separate "What I believe" and a separate "Who I am" section were merged into one
+(owner instruction, 22 September 2026, same day as the two steps below) because the owner didn't want
+two sections at all.
 
-**Restyled from a dark manifesto to a normal light section (owner instruction, 22 September 2026):**
-the owner didn't want it reading as a separate dark "manifesto" block at all — he wanted it in the
-page's normal style, exactly like "Who I am": white background, a plain (non-`.light`)
-`.section-eyebrow` ("What I believe", red text + red rule), and the paragraphs in `.prose` (the same
-class "Who I am" uses: Lora body text, `var(--muted)` slate colour, 1.8 line height, `<strong>` in
-`var(--text)` dark-navy 600-weight — no bespoke sizing or colour). The old dark `.manifesto` markup
-(`#06090f` background, a bespoke `.manifesto-text` type scale, and a `.manifesto-sig` block with
-Marcus's name/title) is gone; the section is now `<section class="sec white"><div class="sec-inner
-narrow">…</div></section>`, matching the pattern `404.html`'s "Find your way" section already uses
-(`.sec-inner.narrow` = 760px max width, centred; `.prose` itself caps at 720px). The `.manifesto-sig`
-signature block was dropped entirely (owner: it only made sense in the manifesto styling) — nothing
-carries the "Lead author, Agentic Finance Report · TensorX Swiss Representative · Zürich" line on this
-section any more. All four paragraphs kept verbatim, including the closing "That is what I believe."
-line. **All `.manifesto*` CSS was removed from `assets/pages.css`** (the rule block under
-`/* ── manifesto ── */` and its mobile padding override in the shared `@media (max-width: 900px)`
-block) — grepped first to confirm nothing else referenced it.
+**History, in order (22 September 2026 except where noted):**
+1. The manifesto (eyebrow, four-paragraph text, signature block) moved here from the home page on
+   21 September 2026, replacing the "How I work" / "The mandate first." dark section it used to
+   occupy (that section, and its "Work with me" / "Press page" CTA buttons, is gone; nothing else
+   linked to it, so no anchors needed fixing). It first landed directly after "Who I am", styled as a
+   dark `.manifesto` block, then moved to directly after the page hero as the page's first section.
+2. **Restyled from a dark manifesto to the page's normal light style:** the owner didn't want it
+   reading as a separate dark block — he wanted white background, the plain (non-`.light`)
+   `.section-eyebrow` (red text + red rule) and `.prose` (Lora body text, `var(--muted)` slate,
+   1.8 line height, `<strong>` in `var(--text)` dark-navy 600-weight), i.e. identical styling to
+   "Who I am". The `.manifesto-sig` name/title block was dropped as no longer meaningful outside the
+   manifesto styling. **All `.manifesto*` CSS was removed from `assets/pages.css`** (the rule block
+   under `/* ── manifesto ── */` and its mobile padding override in the shared
+   `@media (max-width: 900px)` block) after grepping to confirm nothing else referenced it.
+3. **Merged into "Who I am" entirely** (same day, follow-up instruction): the owner didn't want two
+   back-to-back sections even without a visible seam between them. The four "What I believe"
+   paragraphs now sit inside the "Who I am" section's `.sec-inner.person` grid (photo left, text
+   column right), at the top of the `.prose` block, followed by the pre-existing report paragraph
+   ("In 2026 I was lead author…") and then the facts table, all under one eyebrow. **The "Who I am"
+   eyebrow/section was removed — the surviving eyebrow reads "What I believe".** The separate
+   `.sec-inner.narrow` section (step 2's version) no longer exists. All four paragraphs stayed
+   verbatim throughout every step, including the closing "That is what I believe." line.
 
-Because "What I believe" and "Who I am" are now both plain `.sec white` sections back to back, there
-is no border between them (by design: the owner wants them reading as one continuous page); the
-page-hero's own `::after` bottom rule (`3px solid var(--red)`, already on every page-hero) still
-separates the dark hero from the white content below. The two sections don't share an x-alignment:
-"What I believe" is a centred 760px `.sec-inner.narrow` column, "Who I am" is a full-width 1100px
-`.sec-inner.person` grid (220px photo + text), so their text columns share the same width (720px, via
-`.prose`'s own max-width) but sit roughly 100px apart horizontally at desktop widths — the owner
-offered either exact alignment or a comfortable same-width column and this was judged the cleaner,
-lower-risk option (it also matches the `404.html` pattern already in the codebase); revisit if the
-owner wants pixel-exact alignment with the "Who I am" text column instead.
-
-**"Who I am" rewritten (owner instruction, 22 September 2026):** it now opens directly with the
-report paragraph ("In 2026 I was lead author…"); the paragraph that used to precede it ("I represent
-TensorX in Switzerland and work at the intersection of sovereign AI, digital-asset infrastructure and
-regulated finance…") was removed as redundant now that "What I believe" covers similar ground higher
-up the page. The Zürich paragraph ("I am based in Zürich, which has become the densest
-concentration…") was also removed from the prose and folded into the facts table's **Based in** row
-instead: the cell now reads "Zürich, Switzerland. The densest concentration of applied AI research in
-Europe, with Google's largest engineering centre outside the United States, research or engineering
-operations for OpenAI, Anthropic, Microsoft, NVIDIA, Meta and Apple, and ETH Zürich and the University
-of Zürich supplying much of the talent behind them." (verbatim past "Zürich, Switzerland.",
-`.facts-table td`'s existing normal-weight/1.6-line-height styling handles the longer text without
-any inline style needed). `marcus-maute.md`'s own "Who I am" text was left as it was (it is a
-separate, site-wide document, not a per-page mirror of `about/index.html`) — don't assume the two
-stay in sync.
+**"Who I am" text changes (22 September 2026, predate the merge, still true):** the `.prose` block
+opens with the What I believe paragraphs, then the report paragraph ("In 2026 I was lead author…").
+The paragraph that used to precede the report paragraph ("I represent TensorX in Switzerland and work
+at the intersection of sovereign AI, digital-asset infrastructure and regulated finance…") was removed
+as redundant now that What I believe covers similar ground immediately above it. The Zürich paragraph
+("I am based in Zürich, which has become the densest concentration…") was also removed from the prose
+and folded into the facts table's **Based in** row instead: the cell now reads "Zürich, Switzerland.
+The densest concentration of applied AI research in Europe, with Google's largest engineering centre
+outside the United States, research or engineering operations for OpenAI, Anthropic, Microsoft,
+NVIDIA, Meta and Apple, and ETH Zürich and the University of Zürich supplying much of the talent
+behind them." (verbatim past "Zürich, Switzerland.", `.facts-table td`'s existing normal-weight/
+1.6-line-height styling handles the longer text without any inline style needed). `marcus-maute.md`'s
+own "Who I am" text was left as it was (it is a separate, site-wide document, not a per-page mirror of
+`about/index.html`) — don't assume the two stay in sync.
 
 **Facts table trimmed (owner instruction, 22 September 2026, `about/index.html` only):** the **Role**
 row ("TensorX Swiss Representative") and the **Contact** row (`mailto:marcus@marcusmaute.com`) were
