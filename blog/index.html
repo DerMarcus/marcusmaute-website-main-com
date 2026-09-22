@@ -49,11 +49,15 @@
   grid-template-columns: 1fr 1.4fr;
   background: #fff;
   border: 1px solid var(--border);
+  border-top: 3px solid transparent;
   text-decoration: none;
   color: inherit;
   transition: box-shadow .2s;
 }
 .featured-card:hover { box-shadow: 0 8px 40px rgba(13,34,82,0.1); }
+.featured-card.theme-kaspa { border-top-color: var(--kaspa-accent); }
+.featured-card.theme-energy { border-top-color: var(--energy-accent); }
+.featured-card.theme-armstrong { border-top-color: var(--armstrong-accent); }
 .featured-left {
   background: var(--navy);
   padding: 44px 40px;
@@ -111,13 +115,17 @@
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  padding: 22px 0;
+  padding: 22px 0 22px 14px;
   border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
   text-decoration: none;
   color: inherit;
   transition: background .15s;
 }
 .post-row:hover .post-row-title { color: var(--red); }
+.post-row.theme-kaspa { border-left-color: var(--kaspa-accent); }
+.post-row.theme-energy { border-left-color: var(--energy-accent); }
+.post-row.theme-armstrong { border-left-color: var(--armstrong-accent); }
 .post-row-tag {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 700;
@@ -241,7 +249,7 @@
 <div class="featured-wrap">
   <div class="featured-inner">
     <div class="section-eyebrow">Featured</div>
-    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="featured-card">
+    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="featured-card theme-armstrong">
       <div class="featured-left">
         <div>
           <div class="featured-eyebrow">Latest article</div>
@@ -260,7 +268,7 @@
 <div class="posts-section">
   <div class="posts-section-inner">
     <div class="posts-list-label">All articles</div>
-    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="post-row">
+    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="post-row theme-armstrong">
       <div class="post-row-tag">AI &amp; organisations</div>
       <div class="post-row-body">
         <div class="post-row-title">Did Brian Armstrong Just Write the Bezos Letter for the AI Age?</div>
@@ -268,7 +276,7 @@
       </div>
       <div class="post-row-meta">5 May 2026 · 4 min</div>
     </a>
-    <a href="../blog/satoshi-is-working-on-kaspa.html" class="post-row">
+    <a href="../blog/satoshi-is-working-on-kaspa.html" class="post-row theme-kaspa">
       <div class="post-row-tag">Bitcoin &amp; proof of work</div>
       <div class="post-row-body">
         <div class="post-row-title">Satoshi is working on Kaspa now.</div>
@@ -276,7 +284,7 @@
       </div>
       <div class="post-row-meta">8 Nov 2024 · 2 min</div>
     </a>
-    <a href="../blog/energy-currency.html" class="post-row">
+    <a href="../blog/energy-currency.html" class="post-row theme-energy">
       <div class="post-row-tag">Economics</div>
       <div class="post-row-body">
         <div class="post-row-title">Energy currency.</div>

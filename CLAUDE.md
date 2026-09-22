@@ -360,12 +360,19 @@ Zohar) that orders parallel blocks instead of orphaning them. Cross-links inline
 2024 photo of the steel Satoshi statue in Parco Ciani, Lugano
 (`assets/img/blog/lugano-satoshi.webp`, with an og-image JPEG at
 `assets/img/blog/lugano-satoshi-og.jpg`), and an inline SVG blockDAG diagram (14 numbered blocks,
-several merge and fork points, three tip blocks highlighted with a red outline) placed at the
+several merge and fork points, three tip blocks highlighted, now in the Kaspa palette, see "Per-article
+colour themes" below) placed at the
 `[DIAGRAM: ...]` marker in the source file. Two inline footnote markers were added (a judgement
 call, since the source has no inline citations) attaching the two Sources entries, Kaspa.org and
 the GHOSTDAG paper, to the sentences that state those facts. Read time: 2 min, from a 487-word body
 (excluding the Sources list and image/diagram captions) at ~200 wpm, the same rate the other two
-articles use.
+articles use. **The lead photo is floated (owner instruction, 22 September 2026):** it used to run
+full-width above the body; it now sits inside the body, floated right of the opening two paragraphs
+at 260px wide with its caption underneath (`.lead-figure` in the page's own `<style>`), so the text
+wraps around it instead of pushing everything below it down the page. `.article-body h2` carries
+`clear: both` on this page so "Bitcoin chose to stand still" clears the float instead of running
+alongside it. Below 600px it stops floating and sits centred above the text at 60% width (capped at
+260px).
 
 **`blog/energy-currency.html`, "Energy currency."**, dated
 **13 June 2024** (the owner's original publication date; the site itself was rebuilt around the
@@ -387,6 +394,80 @@ transcription is reproduced for its idea about money, not as an endorsement. Don
 that note away from the transcription, and don't edit the transcription itself (it keeps its own
 1921 spelling, em-dashes and "to-day", exempt from the site's no-em-dash rule, which applies to copy
 written for the site, not to a verbatim historical source).
+
+## Per-article colour themes
+Added 22 September 2026 (owner instruction), modelled on the home page hero: a colour field (the
+`.article-header` band) sitting inside `.site-frame`'s big white/rounded border, so each article
+reads as "the hero, in its own colour" rather than always dark. Each article now looks visually
+distinct while the layout (site nav/footer, `.article-header`/`.article-body-wrap` structure) is
+unchanged — **never** invent a new layout for a theme, only new colours.
+
+**How it works:**
+- `assets/article.css` defines a default set of CSS custom properties on `body` (the original dark
+  look, so an article with no theme class renders exactly as before), then one class per theme that
+  overrides them:
+  - `--article-bg` — the `.article-header` band background.
+  - `--article-ink` — primary text on `--article-bg` (the H1). Defaults to white; every theme so far
+    keeps it white, so if a future theme needs dark text on a light band, also flip `--article-ink`
+    and re-check `.article-tag`'s fill (see below).
+  - `--article-soft` — secondary text on `--article-bg` (the lead paragraph).
+  - `--article-page-bg` — a light tint applied to `main#human-view`, i.e. the whole area behind
+    `.article-body-wrap`, inside the frame. This is what makes the "page" itself feel themed, not
+    just the header.
+  - `--article-accent` — the strong/bright brand colour: the 3px rule under the header, the
+    `pull-quote`/`closing-line` left border. Decorative only; never used for text, so it doesn't need
+    to pass contrast on its own.
+  - `--article-accent-text` — a darker, AA-safe variant of the same brand colour, used anywhere the
+    colour carries text or sits behind white text: body links (`.article-body a`), the `.article-tag`
+    pill fill, pull-quote/closing-line text.
+- Each article opts in with a class on `<body>` (`<body class="theme-kaspa">`, set alongside
+  `<body class="site-frame">`'s sibling markup, i.e. directly on the `<body>` tag). `blog/index.html`'s
+  and the home page's article cards/rows carry the **same class names** on the linking `<a>` (see
+  below), so one class name means one colour everywhere.
+- Three bright brand tokens (`--kaspa-accent`, `--energy-accent`, `--armstrong-accent`) are hoisted up
+  into `assets/style.css`'s `:root` rather than only living in `article.css`, because `index.html` and
+  `blog/index.html` need them for card accents but don't load `article.css`. `article.css`'s theme
+  classes reference these same tokens for `--article-accent` rather than redefining the hex, so the
+  brand colour only lives in one place.
+
+**Current themes:**
+| Theme class | Article | `--article-bg` | `--article-page-bg` | `--article-accent` | `--article-accent-text` |
+|---|---|---|---|---|---|
+| `.theme-kaspa` | Satoshi is working on Kaspa now. | `#0f2e2a` (deep teal) | `#f5faf9` | `#70c7ba` (Kaspa brand teal) | `#176055` |
+| `.theme-energy` | Energy currency. | `#1b130a` (warm dark sepia) | `#f3ebdd` (old paper) | `#e8a317` (amber) | `#7a4e0a` |
+| `.theme-armstrong` | Did Brian Armstrong... | `#050b1f` (near-black, blue-leaning) | `#eaf1ff` (light blue) | `#0052ff` (Coinbase blue) | `#0052ff` (already AA on white) |
+
+Every `--article-accent-text`/`--article-page-bg` pair above was checked at ≥4.5:1 (WCAG AA, normal
+text) against white/its own page tint before use; the header bands (`--article-bg` vs white ink) all
+clear 14:1+. If you pick a new brand colour that's too light to use directly as text (Kaspa's own
+`#70c7ba` is 1.99:1 on white and would fail), darken it for `--article-accent-text` and check the
+ratio again rather than using the light brand colour for links.
+
+**To add a theme for a new article:**
+1. Pick the article's brand colour. If it's light/saturated (won't pass 4.5:1 as text on white),
+   also pick a darker "for text" version.
+2. Add the bright brand token to `assets/style.css`'s `:root` (`--<name>-accent`).
+3. Add a `.theme-<name>` block to `assets/article.css` setting `--article-bg`, `--article-page-bg`,
+   `--article-accent: var(--<name>-accent)` and `--article-accent-text`.
+4. Add `class="theme-<name>"` to the article's `<body>` tag.
+5. Add the same `theme-<name>` class to that article's card/row on `blog/index.html`
+   (`.featured-card`/`.post-row`, if it's the newest) and the home page's `.post-card` in
+   `index.html`'s Writing section, and add the matching `.post-card.theme-<name>` /
+   `.featured-card.theme-<name>` / `.post-row.theme-<name>` border-colour rule next to the existing
+   ones in each page's own `<style>` block (`--<name>-accent` is already available from `style.css`).
+6. If the article has its own diagram/figure colours hardcoded (like Kaspa's inline blockDAG SVG),
+   recolour those by hand in that page's markup — they're raw SVG presentation attributes, not CSS
+   variables, so `var()` doesn't reliably apply to them; pick literal hex values consistent with the
+   theme instead.
+7. Rasterise/screenshot the article at desktop and 375px and re-check contrast; `.pull-quote`,
+   `.closing-line`, `.fn a`/`.source-line a` (each article's own page-scoped `<style>` block) and
+   `.tribune-doc-label`/`.tribune-page-label` (energy-currency only) also read `--article-accent`/
+   `--article-accent-text` and need no further edits, but verify visually anyway.
+
+**What stays untouched:** the site nav and footer are the same on every page regardless of article
+theme. Theming only ever changes colour (chrome), never wording, so it doesn't conflict with
+`blog/brian-armstrong-bezos-letter-ai-age.html`'s "don't rewrite the blog articles' body text" rule
+below.
 
 ## Content rules
 - British spelling in any copy written for the site.

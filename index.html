@@ -56,8 +56,11 @@
 .speaking-topic strong { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--text); display: block; letter-spacing: 0.03em; margin-bottom: 4px; }
 .speaking-topic span { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
 .posts-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-.post-card { background: #fff; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background .18s; }
+.post-card { background: #fff; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background .18s; border-top: 3px solid transparent; }
 .post-card:hover { background: #f5f7fb; }
+.post-card.theme-kaspa { border-top-color: var(--kaspa-accent); }
+.post-card.theme-energy { border-top-color: var(--energy-accent); }
+.post-card.theme-armstrong { border-top-color: var(--armstrong-accent); }
 .post-card-top { background: var(--navy); padding: 32px 32px 26px; position: relative; }
 .post-card-top::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); }
 .post-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
@@ -294,15 +297,15 @@ here, since its own comment close sequence would have ended this wrapper early)
     <a href="blog/index.html" class="view-all">All articles →</a>
   </div>
   <div class="posts-grid">
-    <a href="blog/brian-armstrong-bezos-letter-ai-age.html" class="post-card">
+    <a href="blog/brian-armstrong-bezos-letter-ai-age.html" class="post-card theme-armstrong">
       <div class="post-card-top"><div class="post-tag">AI &amp; organisations</div><div class="post-title-card">Did Brian Armstrong Just Write the Bezos Letter for the AI Age?</div></div>
       <div class="post-card-body"><p class="post-excerpt">What his letter says — and what it doesn't: Coinbase's flattened, AI-native org chart read against the crypto-native companies that never had the layers to flatten in the first place.</p><div class="post-foot"><span class="post-date">5 May 2026 · 4 min</span><span class="post-cta">Read →</span></div></div>
     </a>
-    <a href="blog/satoshi-is-working-on-kaspa.html" class="post-card">
+    <a href="blog/satoshi-is-working-on-kaspa.html" class="post-card theme-kaspa">
       <div class="post-card-top"><div class="post-tag">Bitcoin &amp; proof of work</div><div class="post-title-card">Satoshi is working on Kaspa now.</div></div>
       <div class="post-card-body"><p class="post-excerpt">Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.</p><div class="post-foot"><span class="post-date">8 Nov 2024 · 2 min</span><span class="post-cta">Read →</span></div></div>
     </a>
-    <a href="blog/energy-currency.html" class="post-card">
+    <a href="blog/energy-currency.html" class="post-card theme-energy">
       <div class="post-card-top"><div class="post-tag">Economics</div><div class="post-title-card">Energy currency.</div></div>
       <div class="post-card-body"><p class="post-excerpt">In December 1921 Henry Ford proposed replacing gold with a currency backed by energy. On 3 January 2009 someone built one.</p><div class="post-foot"><span class="post-date">13 Jun 2024 · 11 min</span><span class="post-cta">Read →</span></div></div>
     </a>

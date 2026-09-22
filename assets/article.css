@@ -1,7 +1,40 @@
 /* article-shared.css — included inline in each blog post */
 
+/* ── Per-article colour theme ──
+   Custom properties, defaulted here to the original dark look, so an
+   unthemed article renders exactly as before. An article opts into a
+   theme with a class on <body> (e.g. <body class="theme-kaspa">).
+   To add a theme for a new article, see CLAUDE.md "Per-article colour
+   themes" for the full recipe and contrast-checking notes. */
+body {
+  --article-bg:          #06090f;              /* header/hero band background */
+  --article-ink:         #ffffff;              /* primary text on --article-bg */
+  --article-soft:        rgba(255,255,255,0.62); /* secondary text on --article-bg (lead, meta) */
+  --article-page-bg:     #ffffff;              /* tint behind the article body, inside .site-frame */
+  --article-accent:      var(--red);           /* strong brand colour: header rule, tag pill fill, quote/closing-line bar */
+  --article-accent-text: var(--red);           /* AA-safe on light backgrounds: body links, tag-pill text-on-fill */
+}
+.theme-kaspa {
+  --article-bg:          #0f2e2a;
+  --article-page-bg:     #f5faf9;
+  --article-accent:      var(--kaspa-accent); /* #70c7ba */
+  --article-accent-text: #176055;
+}
+.theme-energy {
+  --article-bg:          #1b130a;
+  --article-page-bg:     #f3ebdd;
+  --article-accent:      var(--energy-accent); /* #e8a317 */
+  --article-accent-text: #7a4e0a;
+}
+.theme-armstrong {
+  --article-bg:          #050b1f;
+  --article-page-bg:     #eaf1ff;
+  --article-accent:      var(--armstrong-accent); /* #0052ff */
+  --article-accent-text: #0052ff;
+}
+
 .article-header {
-  background: #06090f;
+  background: var(--article-bg);
   padding: 110px 48px 72px;
   position: relative;
   overflow: hidden;
@@ -16,7 +49,7 @@
 .article-header::after {
   content: '';
   position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px; background: var(--red);
+  height: 3px; background: var(--article-accent);
 }
 .article-header-inner { max-width: 720px; margin: 0 auto; position: relative; }
 .article-breadcrumb {
@@ -34,7 +67,7 @@
 .article-breadcrumb .sep { color: rgba(255,255,255,0.15); font-size: 11px; }
 .article-tag {
   display: inline-block;
-  background: var(--red); color: #fff;
+  background: var(--article-accent-text); color: var(--article-ink);
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 700;
   letter-spacing: 0.15em; text-transform: uppercase;
@@ -44,11 +77,11 @@
 .article-h1 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(40px, 6.5vw, 72px);
-  font-weight: 900; color: #fff;
+  font-weight: 900; color: var(--article-ink);
   text-transform: uppercase; line-height: 0.97;
   letter-spacing: 0.01em; margin-bottom: 22px;
 }
-.article-lead { font-size: 18px; color: rgba(255,255,255,0.62); line-height: 1.7; margin-bottom: 28px; max-width: 580px; }
+.article-lead { font-size: 18px; color: var(--article-soft); line-height: 1.7; margin-bottom: 28px; max-width: 580px; }
 .article-meta {
   display: flex; align-items: center; gap: 20px;
   padding-top: 22px;
@@ -64,6 +97,7 @@
 .article-meta-item strong { color: rgba(255,255,255,0.65); font-weight: 700; }
 
 /* Body */
+main#human-view { background: var(--article-page-bg); }
 .article-body-wrap { max-width: 720px; margin: 0 auto; padding: 64px 48px 80px; }
 .article-body h2 {
   font-family: 'Barlow Condensed', sans-serif;
@@ -74,14 +108,16 @@
 }
 .article-body p { font-size: 17px; line-height: 1.82; color: var(--text); margin-bottom: 22px; }
 .article-body strong { font-weight: 600; color: var(--navy); }
+.article-body a { color: var(--article-accent-text); text-underline-offset: 2px; }
+.article-body a:hover { color: var(--article-accent); }
 .pull-quote {
-  border-left: 4px solid var(--red);
+  border-left: 4px solid var(--article-accent);
   background: var(--bg);
   padding: 24px 28px;
   margin: 40px 0;
   border-radius: 0 var(--r) var(--r) 0;
 }
-.pull-quote p { font-size: 20px; font-style: italic; color: var(--navy); line-height: 1.55; margin: 0; font-weight: 600; font-size: 19px; }
+.pull-quote p { font-size: 20px; font-style: italic; color: var(--article-accent-text); line-height: 1.55; margin: 0; font-weight: 600; font-size: 19px; }
 
 /* CTA */
 .article-cta {

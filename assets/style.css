@@ -20,6 +20,15 @@
   --muted:  #4a5d7a;
   --dim:    #8a9ab8;
   --r:      4px;
+
+  /* Per-article brand accents — bright/decorative values only (not text-safe on
+     white on their own). The full per-article theme, including AA-safe text
+     variants, is defined in assets/article.css; these three are hoisted here
+     because blog/index.html and index.html reference them for card accents
+     without loading article.css. See CLAUDE.md "Per-article colour themes". */
+  --kaspa-accent:     #70c7ba;
+  --energy-accent:    #e8a317;
+  --armstrong-accent: #0052ff;
 }
 
 /* ── RESET ── */
