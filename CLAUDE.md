@@ -113,7 +113,15 @@ write the mandate.") and was updated to match: "Lead author of the Agentic Finan
 Money is energy. Now energy can also think." This supersedes the "left as they were" note above,
 which was about the earlier hero-lead rewrite, not this headline change — `og:description` is now
 tied to the headline, not the hero-lead paragraph. `<title>`, `<meta name="description">`, the
-twitter tags and the JSON-LD don't quote the headline and were left untouched. Elsewhere on the site,
+twitter tags and the JSON-LD don't quote the headline and were left untouched.
+
+**`.italic` span now carries a hard `<br>` too (owner instruction, 22 September 2026):** the h1
+renders as three lines instead of two — "Money is **energy**." / "*Now energy can*" / "*also
+think.*" — via `<span class="italic">Now energy can<br>also think.</span>`. Confirmed at 1440px
+and 768px (tablet) that this breaks exactly after "can", giving three lines; at 375px the first
+line also wraps naturally ("Money is" / "energy."), so the hero reads as four lines there, which
+still looks intentional (two lines of white/accent, two lines of grey italic). `og:description`
+above is plain text and unaffected by the added `<br>`. Elsewhere on the site,
 "write the mandate" (the report's first recommendation, "write the mandate and set the tiers", inside
 the embedded `marcus-maute.md` Agent view on every page) and "act on capital" (the report thesis,
 also inside that embedded text) are separate, report-thesis wording that happens to share words with
