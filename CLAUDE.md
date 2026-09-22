@@ -99,8 +99,25 @@ around it.** Lead author of the *Agentic Finance Report*, co-published in 2026 w
 bank, two blockchain foundations, an enterprise AI company and a sovereign-AI provider." It now reads
 "In retrospect it was obvious I was never going to be happy until I also became part of a movement
 for computers to flip the world order on its head." — plain text, no `<strong>`/`<em>`. The `<meta
-name="description">` and `og:description` on `index.html` were deliberately left as they were (owner
-instruction); they paraphrase the old paragraph but are not verbatim copies of it.
+name="description">` on `index.html` was deliberately left as it was (owner instruction); it
+paraphrases the old hero-lead paragraph but is not a verbatim copy of it, and doesn't quote the
+headline (below), so it is unaffected by the headline change.
+
+**`<h1>` rewritten (owner instruction, 22 September 2026):** the headline used to read "When software
+**acts** on capital, *someone has to write the mandate.*" (white first line, "acts" in the red
+`.accent` span; grey italic second line via `.italic`). It now reads "Money is **energy**." / "*Now
+energy can also think.*" — same two-line markup pattern, `.accent` moved onto "energy" (still the
+last word of line one), `.italic` unchanged on line two. `og:description` had echoed the old headline
+almost verbatim ("When the software that decides is also the software that acts, someone has to
+write the mandate.") and was updated to match: "Lead author of the Agentic Finance Report (2026).
+Money is energy. Now energy can also think." This supersedes the "left as they were" note above,
+which was about the earlier hero-lead rewrite, not this headline change — `og:description` is now
+tied to the headline, not the hero-lead paragraph. `<title>`, `<meta name="description">`, the
+twitter tags and the JSON-LD don't quote the headline and were left untouched. Elsewhere on the site,
+"write the mandate" (the report's first recommendation, "write the mandate and set the tiers", inside
+the embedded `marcus-maute.md` Agent view on every page) and "act on capital" (the report thesis,
+also inside that embedded text) are separate, report-thesis wording that happens to share words with
+the old headline — they are unrelated to it and were not touched.
 
 ## Home page section order
 **`#work` ("Work with me / The mandate, then the stack.") is hidden (owner, 21 September 2026,
