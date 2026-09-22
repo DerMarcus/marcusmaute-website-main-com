@@ -71,6 +71,24 @@
 .post-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
 .post-date { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
 .post-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); }
+/* Equal-height header row across the three cards: without this, a 2-line
+   title and a 4-line title leave .post-card-top at different heights per
+   card, so the standfirst/excerpt below starts at a different y in each
+   column. grid-template-rows: subgrid lets each card's three internal
+   rows (header / excerpt / foot) size against the SAME row tracks as its
+   siblings, so row 1 becomes "as tall as the tallest header in the row"
+   for all three at once. Falls back to the plain flex column above
+   (heights won't match, nothing else breaks) pre-subgrid or under 901px,
+   where the cards stack in one column and there's no row to sync anyway. */
+@media (min-width: 901px) {
+  @supports (grid-template-rows: subgrid) {
+    .posts-grid { grid-template-rows: auto 1fr auto; }
+    .post-card { display: grid; grid-row: span 3; grid-template-rows: subgrid; }
+    .post-card-body { display: contents; }
+    .post-excerpt { padding: 24px 32px 0; margin-bottom: 0; }
+    .post-foot { padding: 14px 32px 28px; }
+  }
+}
 .blog-header { max-width: 1100px; margin: 0 auto 48px; display: flex; align-items: flex-end; justify-content: space-between; }
 .view-all { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,25,44,0.25); padding-bottom: 2px; }
 @media (max-width: 900px) {

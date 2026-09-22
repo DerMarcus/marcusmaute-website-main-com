@@ -49,15 +49,11 @@
   grid-template-columns: 1fr 1.4fr;
   background: #fff;
   border: 1px solid var(--border);
-  border-top: 3px solid transparent;
   text-decoration: none;
   color: inherit;
   transition: box-shadow .2s;
 }
 .featured-card:hover { box-shadow: 0 8px 40px rgba(13,34,82,0.1); }
-.featured-card.theme-kaspa { border-top-color: var(--kaspa-accent); }
-.featured-card.theme-energy { border-top-color: var(--energy-accent); }
-.featured-card.theme-armstrong { border-top-color: var(--armstrong-accent); }
 .featured-left {
   background: var(--navy);
   padding: 44px 40px;
@@ -130,7 +126,7 @@
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--red); min-width: 100px;
+  color: var(--red); width: 180px; line-height: 1.4;
   padding-top: 3px; flex-shrink: 0;
 }
 .post-row-body { flex: 1; }
@@ -198,6 +194,7 @@
   .featured-card { grid-template-columns: 1fr; }
   .featured-left::after { top: auto; right: 0; bottom: 0; left: 0; width: auto; height: 3px; }
   .post-row { flex-wrap: wrap; }
+  .post-row-tag { width: auto; min-width: 100px; } /* fixed 180px column is a desktop-only fix for ragged title starts; mobile keeps its existing narrower, content-width label */
   .post-row-meta { flex: 1 0 100%; text-align: left; margin-top: 8px; }
   .nl-strip { padding: 48px 24px; }
   .nl-strip-inner { flex-direction: column; align-items: flex-start; }
@@ -249,7 +246,7 @@
 <div class="featured-wrap">
   <div class="featured-inner">
     <div class="section-eyebrow">Featured</div>
-    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="featured-card theme-armstrong">
+    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="featured-card">
       <div class="featured-left">
         <div>
           <div class="featured-eyebrow">Latest article</div>

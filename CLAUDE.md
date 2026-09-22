@@ -514,12 +514,17 @@ theme. Theming only ever changes colour (chrome), never wording, so it doesn't c
 below.
 
 **Article-card accents in lists.** Separate from the header-band rework above: `index.html`'s Writing
-cards (`.post-card`) and `blog/index.html`'s "All articles" rows (`.post-row`) each carry a thin
-accent border in the article's `--<name>-accent` brand colour (top border on the cards, left border
-on the rows) so the uniqueness shows in the lists too. This uses the bright brand token directly
+cards (`.post-card`) carry a thin top-border accent, and `blog/index.html`'s "All articles" rows
+(`.post-row`) carry a thin left-border accent, each in the article's `--<name>-accent` brand colour,
+so the uniqueness shows in the lists too. This uses the bright brand token directly
 (`var(--kaspa-accent)` etc.) rather than the header-band tokens, and was intentionally left as-is in
 the header-band rework — it's a small, subtle mark, not a colour field, so it doesn't have the same
-"is it dark enough for white text" problem the header band did.
+"is it dark enough for white text" problem the header band did. **`blog/index.html`'s featured card
+(`.featured-card`) does not carry this accent** (owner, 22 September 2026: the coloured top border
+there clashed) — it kept its plain `1px solid var(--border)` outline from before theming existed, and
+its `theme-<name>` class was removed from the markup since nothing on that element reads it any more.
+Don't reintroduce a coloured border on `.featured-card`; the "All articles" rows below it are where
+the per-article colour shows in that list.
 
 ## Content rules
 - British spelling in any copy written for the site.

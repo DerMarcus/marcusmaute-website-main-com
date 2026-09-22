@@ -86,7 +86,7 @@ body {
   position: absolute; bottom: 0; left: 0; right: 0;
   height: 3px; background: var(--article-rule);
 }
-.article-header-inner { max-width: 720px; margin: 0 auto; position: relative; }
+.article-header-inner { max-width: 800px; margin: 0 auto; position: relative; }
 .article-breadcrumb {
   display: flex; align-items: center; gap: 8px;
   margin-bottom: 28px;
@@ -133,7 +133,7 @@ body {
 
 /* Body */
 main#human-view { background: var(--article-page-bg); }
-.article-body-wrap { max-width: 720px; margin: 0 auto; padding: 64px 48px 80px; }
+.article-body-wrap { max-width: 800px; margin: 0 auto; padding: 64px 48px 80px; } /* was 720px; +80px keeps a ~70-75ch measure at 17px/Lora while giving the column some room */
 .article-body h2 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 30px; font-weight: 900;
@@ -145,6 +145,36 @@ main#human-view { background: var(--article-page-bg); }
 .article-body strong { font-weight: 600; color: var(--navy); }
 .article-body a { color: var(--article-accent-text); text-underline-offset: 2px; }
 .article-body a:hover { color: var(--article-accent); }
+/* Ordered/unordered lists: the global *{margin:0;padding:0} reset in
+   style.css also zeroes the UA default padding-inline-start on ol/ul, which
+   used to reserve room for an "outside" marker — with no padding left,
+   markers rendered hanging left of the text column instead of flush with
+   it. Markers are drawn with a custom ::before instead of list-style, and
+   positioned absolutely at the li's own left edge (= the paragraph column's
+   left edge), while padding-left on the li itself sets the hanging indent
+   wrapped lines fall under — so "1." lines up with where a paragraph's text
+   starts, and a wrapped second line indents under the text, not the number. */
+.article-body ol, .article-body ul { list-style: none; margin: 0 0 22px; padding: 0; }
+.article-body li {
+  position: relative;
+  padding-left: 1.6em;
+  font-size: 17px; line-height: 1.82; color: var(--text);
+  margin-bottom: 10px;
+}
+.article-body li:last-child { margin-bottom: 0; }
+.article-body ol { counter-reset: article-ol; }
+.article-body ol > li { counter-increment: article-ol; }
+.article-body ol > li::before {
+  content: counter(article-ol) '.';
+  position: absolute; left: 0; top: 0;
+  font-weight: 700; color: var(--navy);
+}
+.article-body ul > li::before {
+  content: '';
+  position: absolute; left: 0.15em; top: 0.72em;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--navy);
+}
 .pull-quote {
   border-left: 4px solid var(--article-accent);
   background: var(--bg);
