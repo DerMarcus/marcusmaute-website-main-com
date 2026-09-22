@@ -15,10 +15,8 @@
 ## Pages
 
 - [Home](https://www.marcusmaute.com/): position, the report, ventures, Neo
-- [Work with me](https://www.marcusmaute.com/work-with-me/): keynotes and board briefings
 - [Writing](https://www.marcusmaute.com/blog/): essays on energy, money, organisations and agentic finance
 - [About](https://www.marcusmaute.com/about/): biography and facts, what he believes (energy, Kardashev scale, proof of work)
-- [Press](https://www.marcusmaute.com/press/): biography in three lengths, headshot, report facts, quotes cleared for use
 
 ## Writing
 

@@ -212,7 +212,5 @@ Contact: marcus@marcusmaute.com · Zürich · travel across Europe
 
 - Home — https://www.marcusmaute.com/
 - The Agentic Finance Report — https://www.agenticfinancereport.com/
-- Work with me — https://www.marcusmaute.com/work-with-me/index.html
 - Writing — https://www.marcusmaute.com/blog/index.html
-- Press — https://www.marcusmaute.com/press/index.html
 - About — https://www.marcusmaute.com/about/index.html

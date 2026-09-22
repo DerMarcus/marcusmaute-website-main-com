@@ -6,7 +6,9 @@ Plain HTML/CSS site, no build step. Hosted on Cloudflare Pages from GitHub
 
 ## What this is
 Marcus Maute's personal site, repositioned around the **Agentic Finance Report** (2026).
-Four pages plus a blog: home, work with me, press, about.
+Four pages plus a blog: home, work with me, press, about. **Work with me and press are currently
+hidden site-wide (owner, 22 September 2026)** — see "work-with-me and press: hidden site-wide"
+below.
 
 **The report no longer has a page on this site.** `agentic-finance/index.html` was deleted on the
 owner's instruction (21 September 2026): the report now lives only at agenticfinancereport.com, and
@@ -18,8 +20,10 @@ footer, and the about/press/work-with-me/blog mentions) now points to
 ## Page map
 ```
 index.html                          Home (hero + #report section link out to agenticfinancereport.com)
-work-with-me/index.html             Speaking (advisory block hidden in an HTML comment, see below)
-press/index.html                    Bios, headshot, report facts, quotes cleared for use
+work-with-me/index.html             Speaking (advisory block hidden in an HTML comment, see below;
+                                     the whole page is also hidden site-wide, see below)
+press/index.html                    Bios, headshot, report facts, quotes cleared for use (the whole
+                                     page is hidden site-wide, see below)
 about/index.html                    Bio, background
 blog/index.html                     Writing index ("The Blog")
 blog/brian-armstrong-bezos-letter-ai-age.html  Article (see "Blog" below)
@@ -84,9 +88,19 @@ Every page (including 404.html) carries it:
 `.hero-actions` carries a single button, "The Agentic Finance Report" (`.btn-red`), linking
 externally to `https://www.agenticfinancereport.com/` (`rel="noopener" target="_blank"`) since the
 internal report page was deleted 21 September 2026. The ghost "Work with me →" button that used to
-sit beside it was removed the same day; "Work with me" stays reachable from the nav toggle's
-replacement `.nav-cta`, the mobile menu and the footer, all of which link straight to
-`work-with-me/index.html` (never `#work`, see below).
+sit beside it was removed the same day; "Work with me" used to stay reachable from the nav toggle's
+replacement `.nav-cta`, the mobile menu and the footer — **all three of those links were removed
+22 September 2026 when the work-with-me page was hidden site-wide**, see "work-with-me and press:
+hidden site-wide" below (never `#work`, see below).
+
+**`.hero-lead` rewritten (owner instruction, 22 September 2026):** the paragraph used to read "I work
+on how regulated institutions let AI agents act on capital: **the mandate first, then the stack
+around it.** Lead author of the *Agentic Finance Report*, co-published in 2026 with a FINMA-regulated
+bank, two blockchain foundations, an enterprise AI company and a sovereign-AI provider." It now reads
+"In retrospect it was obvious I was never going to be happy until I also became part of a movement
+for computers to flip the world order on its head." — plain text, no `<strong>`/`<em>`. The `<meta
+name="description">` and `og:description` on `index.html` were deliberately left as they were (owner
+instruction); they paraphrase the old paragraph but are not verbatim copies of it.
 
 ## Home page section order
 **`#work` ("Work with me / The mandate, then the stack.") is hidden (owner, 21 September 2026,
@@ -287,17 +301,61 @@ between About and LinkedIn) and from `about/index.html`'s facts table and `llms.
   removed from the Neo section; the pre-launch fact stays in its prose paragraph) and re-embedded
   into every page via `tools/build_agent_view.py`. Don't reintroduce them without the owner asking.
 
-## About page: manifesto moved here (21 September 2026)
-`about/index.html` runs: page hero → "Who I am" (`.sec white`, bio + facts table) → manifesto
-(`.manifesto`, "What I believe") → footer. The manifesto section (eyebrow, four-paragraph text and
-signature block, unchanged markup) moved here from the home page, replacing the "How I work" /
-"The mandate first." dark section it used to occupy directly (that section, and its "Work with me" /
-"Press page" CTA buttons, is gone; nothing else linked to it, so no anchors needed fixing). Its last
-line now reads "That is what I believe." (was "That is where I work.", fixed to agree with the new
-"What I believe" eyebrow when it was still on the home page). The `.manifesto*` CSS lives in
-`assets/pages.css` (not page-inline any more, so any page that loads `pages.css` gets it) under
-`/* ── manifesto ── */`, with its mobile padding override in the shared `@media (max-width: 900px)`
-block at the bottom of the same file.
+## About page: manifesto moved here (21 September 2026), then to the top (22 September 2026)
+`about/index.html` runs: page hero → manifesto (`.manifesto`, "What I believe") → "Who I am"
+(`.sec white`, bio + facts table) → footer. The manifesto section (eyebrow, four-paragraph text and
+signature block, unchanged markup) moved here from the home page on 21 September 2026, replacing the
+"How I work" / "The mandate first." dark section it used to occupy directly (that section, and its
+"Work with me" / "Press page" CTA buttons, is gone; nothing else linked to it, so no anchors needed
+fixing); it first landed directly after "Who I am", then **moved again, to directly after the page
+hero as the page's first section (owner instruction, 22 September 2026)** — page hero and manifesto
+are both dark (`#06090f`), but the page hero's own `::after` bottom rule (`3px solid var(--red)`,
+already there for every page-hero) sits exactly on the seam between them, so the two dark bands don't
+run together; no new CSS was needed. Its last line reads "That is what I believe." (was "That is
+where I work.", fixed to agree with the new "What I believe" eyebrow when it was still on the home
+page). The `.manifesto*` CSS lives in `assets/pages.css` (not page-inline any more, so any page that
+loads `pages.css` gets it) under `/* ── manifesto ── */`, with its mobile padding override in the
+shared `@media (max-width: 900px)` block at the bottom of the same file.
+
+**"Who I am" rewritten (owner instruction, 22 September 2026):** it now opens directly with the
+report paragraph ("In 2026 I was lead author…"); the paragraph that used to precede it ("I represent
+TensorX in Switzerland and work at the intersection of sovereign AI, digital-asset infrastructure and
+regulated finance…") was removed as redundant now that the manifesto covers that ground higher up the
+page. The Zürich paragraph ("I am based in Zürich, which has become the densest concentration…") was
+also removed from the prose and folded into the facts table's **Based in** row instead: the cell now
+reads "Zürich, Switzerland. The densest concentration of applied AI research in Europe, with Google's
+largest engineering centre outside the United States, research or engineering operations for OpenAI,
+Anthropic, Microsoft, NVIDIA, Meta and Apple, and ETH Zürich and the University of Zürich supplying
+much of the talent behind them." (verbatim past "Zürich, Switzerland.", `.facts-table td`'s existing
+normal-weight/1.6-line-height styling handles the longer text without an inline style needed beyond
+that). `marcus-maute.md`'s own "Who I am" text was left as it was (it is a separate, site-wide
+document, not a per-page mirror of `about/index.html`) — don't assume the two stay in sync.
+
+## work-with-me and press: hidden site-wide (22 September 2026, owner)
+Both pages stay on disk (`work-with-me/index.html`, `press/index.html`, unchanged content) but are
+hidden from discovery, "for now": every link to either page was removed from every other page
+(mobile nav's Press / "Work with me →" entries, the shared footer's Work with me / Press links,
+and the `press/`/`work-with-me/` mentions inside 404.html's "Find your way" list), both got
+`<meta name="robots" content="noindex">` in `<head>`, both `<url>` entries were dropped from
+`sitemap.xml`, and both were removed from `llms.txt`'s Pages list and from `marcus-maute.md`'s
+"Every page on this site" list (re-embedded into every page's Agent view via
+`tools/build_agent_view.py`). The pages' own `<link rel="canonical">`/`og:url` (their real URLs)
+were left as they were — the pages themselves are untouched, only inbound links and discoverability.
+Each page's own mobile nav and footer (which link to the *other* pages) were pruned the same way, so
+neither page links to the other or to itself any more either. The one remaining reference is a dead
+one: the commented-out `#work` section on `index.html` (see "Home page section order" below) still
+contains a "Formats and topics" link to `work-with-me/index.html` inside its HTML comment — it was
+left as is since it renders nothing and the whole block is itself already hidden.
+
+**To restore either page:** re-add its mobile-nav entry (`<a href="…/press/index.html">Press</a>` /
+`<a href="…/work-with-me/index.html">Work with me →</a>`, right after About, in that order) and its
+footer entry (`Work with me` right after The Report, `Press` right after Writing, matching the
+original position) on all nine pages, remove the `noindex` meta from the page's own `<head>`, add its
+`<url>` back to `sitemap.xml`, and add its line back to `llms.txt`'s Pages list and
+`marcus-maute.md`'s "Every page on this site" list (then re-run `tools/build_agent_view.py`). Restore
+the 404.html "Find your way" `<li>`s too. This is independent of the separate advisory-block hide
+inside `work-with-me/index.html` itself (below) and of `#work`'s hide on the home page (see "Home
+page section order" above) — restoring one does not restore the others.
 
 ## work-with-me: advisory block hidden
 The "Advisory — Two ways in." section (`The Mandate Workshop` and `Readiness assessment` cards) in
@@ -313,13 +371,21 @@ from whether `#work` itself is restored on the home page).
 
 ## Consistency (every page)
 Same nav (The Report · Writing · About · the Human/Agent toggle in place of the old "Work with me →"
-`nav-cta`), same mobile nav (the toggle at the top, then adds Press, then Work with me →; Neo is
-deliberately **not** in either nav). Same footer links on all nine pages (The Report, Work with me,
-Writing, Press, About, Neo https://github.com/DerMarcus/nftneo, LinkedIn
-https://www.linkedin.com/in/marcusmaute/, Contact mailto:marcus@marcusmaute.com), footer
+`nav-cta`), same mobile nav (the toggle at the top, then The Report, Writing, About; Neo is
+deliberately **not** in either nav). **Mobile nav no longer adds Press then Work with me → below
+About** — both entries were removed 22 September 2026 when those two pages were hidden site-wide
+(see "work-with-me and press: hidden site-wide" above); restore them there, in that order, if the
+pages are unhidden. Same footer links on all nine pages (The Report, Writing, About, Neo
+https://github.com/DerMarcus/nftneo, LinkedIn https://www.linkedin.com/in/marcusmaute/), footer
 "© 2026 Marcus Maute · Zürich, Switzerland", `<html lang="en-GB">`, a `<link rel="canonical">`,
-a `<link rel="alternate" type="text/markdown">`, a `<title>` and meta description. See "Human/Agent
-toggle and the Agent view" above for the toggle, the human-view/agent-view wrapper and `site.js`.
+a `<link rel="alternate" type="text/markdown">`, a `<title>` and meta description. **The footer's
+Work with me and Press links were removed 22 September 2026** (same page-hide, see above) **and its
+Contact `mailto:` link was removed separately the same day (owner instruction)** — the email itself
+stays everywhere else it already appeared (the About facts table, the press page, `mailto:` CTAs on
+work-with-me, etc.), only the footer link is gone; restore with
+`<a href="mailto:marcus@marcusmaute.com">Contact</a>` as the footer-links block's last entry if the
+owner asks. See "Human/Agent toggle and the Agent view" above for the toggle, the human-view/agent-view
+wrapper and `site.js`.
 
 ## Blog
 The blog carries three articles, newest first on `blog/index.html` (featured card) and on the home
