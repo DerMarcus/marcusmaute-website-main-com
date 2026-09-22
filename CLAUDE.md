@@ -336,7 +336,17 @@ Armstrong's memo are styled with the shared `.pull-quote` (from `assets/article.
 bold paragraph reuses the `.closing-line` component (page-scoped `<style>`, same rule as
 `energy-currency.html`'s); the final "→ Full letter:" line links out to Armstrong's X post
 (`target="_blank" rel="noopener"`). No CTA block. Read time (4 min) computed at ~200 wpm from the
-773-word body, the same rate `energy-currency.html`'s "11 min" implies for its ~2,210 words.
+751-word body (773 minus the removed USX paragraph, see below), the same rate
+`energy-currency.html`'s "11 min" implies for its ~2,210 words; still rounds to 4 min after the cut,
+so the displayed read time is unchanged.
+
+**Owner removed one paragraph, 2026-09-22:** "Stablecoins like USX, Solstice's Solana-native
+synthetic dollar, are purpose-built for exactly this: optimized speed, cryptographic security, and
+on-chain transparency for agentic transactions." was cut from the body (it sat between the
+"payment rails" paragraph and the "two tsunamis" paragraph). Nothing else in the article changed.
+**USX must not be reintroduced** — the sentence was the only USX/Solstice-product mention on this
+site (Solstice Staking's own venture card, which names the company but not USX, is unaffected and
+stays).
 
 **`blog/energy-currency.html`, "Energy currency."**, dated
 **13 June 2024** (the owner's original publication date; the site itself was rebuilt around the
