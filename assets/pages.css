@@ -179,7 +179,13 @@
 .surf-note { margin-top: 10px; }
 
 /* ── ventures ── */
-.ventures-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+/* align-items:center (not flex-end) centres the standfirst against the
+   title's own vertical centre. The eyebrow sits above ventures-head, not
+   inside it, so it can't skew that centring; .section-title's margin-bottom
+   is zeroed here since the title is now a direct flex item (align-items
+   centres the margin box, and the standfirst has no matching margin). */
+.ventures-head { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.ventures-head .section-title { margin-bottom: 0; }
 .ventures-standfirst { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 420px; }
 .venture-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 48px; }
 .venture-card { background: #fff; padding: 38px 34px; display: flex; flex-direction: column; transition: background .18s; }
@@ -232,5 +238,6 @@
   .surf-grid { grid-template-columns: 1fr; grid-template-areas: "cover" "text"; gap: 24px; }
   .surf-cover { max-width: 220px; }
   .ventures-head { align-items: flex-start; }
+  .ventures-head .section-title { margin-bottom: 16px; }
   .venture-grid { grid-template-columns: 1fr; }
 }

@@ -422,9 +422,15 @@ asks to restore the advisory block, uncomment it and reverse those three copy ch
 from whether `#work` itself is restored on the home page).
 
 ## Consistency (every page)
-Same nav (The Report · Writing · About · the Human/Agent toggle in place of the old "Work with me →"
-`nav-cta`), same mobile nav (the toggle at the top, then The Report, Writing, About; Neo is
-deliberately **not** in either nav). **Mobile nav no longer adds Press then Work with me → below
+Same nav (**Home** · The Report · Writing · About · the Human/Agent toggle in place of the old "Work
+with me →" `nav-cta`), same mobile nav (the toggle at the top, then Home, The Report, Writing, About;
+Neo is deliberately **not** in either nav). **Home was added as the first nav item on all nine pages
+22 September 2026** (owner instruction): `index.html` (home page → `index.html`/`./`), `about/`,
+`blog/` (index + all three articles), `work-with-me/` and `press/` (one level deep →
+`../index.html`), and `404.html` (root-relative → `/index.html`, matching that page's other nav
+links). It carries the same `active` class as the other current-page nav links, but **only on the
+home page's desktop `.nav-links`** — matching the existing site-wide convention that `.active` is
+never applied in `#nav-mobile` (About and Writing aren't marked active there either). **Mobile nav no longer adds Press then Work with me → below
 About** — both entries were removed 22 September 2026 when those two pages were hidden site-wide
 (see "work-with-me and press: hidden site-wide" above); restore them there, in that order, if the
 pages are unhidden. Same footer links on all nine pages (The Report, Writing, About, Neo

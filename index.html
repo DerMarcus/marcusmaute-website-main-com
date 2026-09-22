@@ -89,12 +89,18 @@
     .post-foot { padding: 14px 32px 28px; }
   }
 }
-.blog-header { max-width: 1100px; margin: 0 auto 48px; display: flex; align-items: flex-end; justify-content: space-between; }
+/* .writing-eyebrow sits above .blog-header (not inside its left column) so
+   it can't skew the row's vertical centring; it keeps the same max-width/
+   centring as .blog-header so it still lines up with the row below it. */
+.writing-eyebrow { max-width: 1100px; margin-left: auto; margin-right: auto; }
+.blog-header { max-width: 1100px; margin: 0 auto 48px; display: flex; align-items: center; justify-content: space-between; }
+.blog-header .section-title { margin-bottom: 0; }
 .view-all { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(200,25,44,0.25); padding-bottom: 2px; }
 @media (max-width: 900px) {
   .hero-content { padding: 96px 24px 72px; }
   .posts-grid { max-width: 100%; grid-template-columns: 1fr; }
   .blog-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .blog-header .section-title { margin-bottom: 16px; }
 }
 </style>
 <link rel="alternate" type="text/markdown" href="marcus-maute.md" title="Marcus Maute, in Markdown">
@@ -105,6 +111,7 @@
 <nav class="nav">
   <a href="index.html" class="nav-logo"><span class="logo-thin">MARCUS</span><span class="logo-bold">MAUTE</span></a>
   <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
     <a href="https://www.agenticfinancereport.com/" target="_blank" rel="noopener">The Report</a>
     <a href="blog/index.html">Writing</a>
     <a href="about/index.html">About</a>
@@ -120,6 +127,7 @@
     <button type="button" data-mode="human" aria-pressed="true"><span class="dot" aria-hidden="true"></span><span>Human</span></button>
     <button type="button" data-mode="agent" aria-pressed="false"><span class="prompt" aria-hidden="true">&gt;_</span><span>Agent</span></button>
   </div>
+  <a href="index.html">Home</a>
   <a href="https://www.agenticfinancereport.com/" target="_blank" rel="noopener">The Report</a>
   <a href="blog/index.html">Writing</a>
   <a href="about/index.html">About</a>
@@ -193,11 +201,9 @@
 <!-- VENTURES -->
 <section class="sec white" id="ventures">
   <div class="sec-inner">
+    <div class="section-eyebrow">Ventures</div>
     <div class="ventures-head">
-      <div>
-        <div class="section-eyebrow">Ventures</div>
-        <div class="section-title">One thesis.<br>Four houses.</div>
-      </div>
+      <div class="section-title">One thesis.<br>Four houses.</div>
       <p class="ventures-standfirst">Built so one thesis, agentic finance, can show up from more than one side: as research, as infrastructure, as capital, and as practice.</p>
     </div>
     <div class="venture-grid">
@@ -305,11 +311,9 @@ here, since its own comment close sequence would have ended this wrapper early)
 
 <!-- WRITING -->
 <section class="sec grey" id="writing">
+  <div class="section-eyebrow writing-eyebrow">Writing</div>
   <div class="blog-header">
-    <div>
-      <div class="section-eyebrow">Writing</div>
-      <div class="section-title">Recent writing.</div>
-    </div>
+    <div class="section-title">Recent writing.</div>
     <a href="blog/index.html" class="view-all">All articles →</a>
   </div>
   <div class="posts-grid">
