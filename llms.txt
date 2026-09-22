@@ -23,6 +23,7 @@
 ## Writing
 
 - Did Brian Armstrong Just Write the Bezos Letter for the AI Age? (5 May 2026, 4 min read): what his letter says, and what it doesn't; Coinbase's flattened, AI-native org chart read against the crypto-native companies that never had the layers to flatten in the first place. https://www.marcusmaute.com/blog/brian-armstrong-bezos-letter-ai-age.html
+- Satoshi is working on Kaspa now. (8 November 2024, 2 min read): Bitcoin chose to stand still; Kaspa's blockDAG and GHOSTDAG protocol are where the work of a global cryptographic machine is happening now. https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html
 - Energy currency. (13 June 2024, 11 min read): in December 1921 Henry Ford proposed replacing gold with a currency backed by energy; on 3 January 2009 someone built one. https://www.marcusmaute.com/blog/energy-currency.html
 
 ## Ventures

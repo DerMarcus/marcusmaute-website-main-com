@@ -3,198 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Writing — Marcus Maute</title>
-<meta name="description" content="Essays on energy, money and agentic finance.">
-<link rel="canonical" href="https://www.marcusmaute.com/blog/">
+<title>Satoshi is working on Kaspa now. — Marcus Maute</title>
+<meta name="description" content="Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.">
+<link rel="canonical" href="https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Satoshi is working on Kaspa now. — Marcus Maute">
+<meta property="og:description" content="Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.">
+<meta property="og:url" content="https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html">
+<meta property="og:image" content="https://www.marcusmaute.com/assets/img/blog/lugano-satoshi-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/article.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Satoshi is working on Kaspa now.",
+  "description": "Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.",
+  "datePublished": "2024-11-08",
+  "dateModified": "2024-11-08",
+  "author": { "@type": "Person", "name": "Marcus Maute", "url": "https://www.marcusmaute.com/" },
+  "publisher": { "@type": "Person", "name": "Marcus Maute" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html" },
+  "image": "https://www.marcusmaute.com/assets/img/blog/lugano-satoshi-og.jpg",
+  "articleSection": "Bitcoin & proof of work",
+  "url": "https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html"
+}
+</script>
 <style>
-.page-hero {
-  background: #06090f;
-  padding: 110px 48px 80px;
-  position: relative;
-  overflow: hidden;
+.lead-figure {
+  max-width: 640px;
+  margin: 0 auto 40px;
 }
-.page-hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px),
-    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(255,255,255,0.012) 100px, rgba(255,255,255,0.012) 101px);
+.lead-figure img {
+  display: block;
+  width: 100%; height: auto;
+  border-radius: var(--r);
 }
-.page-hero::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px; background: var(--red);
-}
-.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
-.page-title {
+.lead-figure-cap {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(52px, 8vw, 96px);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 0.92;
-  color: #fff;
-  letter-spacing: 0.01em;
-  margin-bottom: 20px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--dim); text-align: center;
+  margin-top: 10px;
 }
-.page-sub { font-size: 18px; color: rgba(255,255,255,0.55); max-width: 500px; line-height: 1.7; }
-
-/* Featured */
-.featured-wrap { background: var(--bg); padding: 72px 48px; }
-.featured-inner { max-width: 1100px; margin: 0 auto; }
-.featured-card {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  background: #fff;
+.dag-figure {
+  background: var(--bg);
   border: 1px solid var(--border);
-  text-decoration: none;
-  color: inherit;
-  transition: box-shadow .2s;
+  border-radius: var(--r);
+  padding: 28px 20px 20px;
+  margin: 36px 0 40px;
 }
-.featured-card:hover { box-shadow: 0 8px 40px rgba(13,34,82,0.1); }
-.featured-left {
-  background: var(--navy);
-  padding: 44px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-}
-.featured-left::after {
-  content: '';
-  position: absolute; top: 0; right: 0; bottom: 0;
-  width: 3px; background: var(--red);
-}
-.featured-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--red); margin-bottom: 14px;
-}
-.featured-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 900;
-  text-transform: uppercase; color: #fff;
-  line-height: 1.1; letter-spacing: 0.01em;
-}
-.featured-date {
+.dag-svg { display: block; width: 100%; height: auto; }
+.dag-figure-cap {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3); margin-top: 28px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--dim); text-align: center;
+  margin-top: 16px;
 }
-.featured-right { padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; }
-.featured-excerpt { font-size: 16px; color: var(--muted); line-height: 1.75; flex: 1; margin-bottom: 24px; }
-.featured-cta {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--red);
-  display: inline-flex; align-items: center; gap: 8px;
+.closing-line {
+  border-left: 4px solid var(--red);
+  background: var(--bg);
+  padding: 28px 30px;
+  margin: 44px 0 8px;
+  border-radius: 0 var(--r) var(--r) 0;
 }
-
-/* Post list */
-.posts-section { background: #fff; padding: 72px 48px; border-top: 1px solid var(--border); }
-.posts-section-inner { max-width: 1100px; margin: 0 auto; }
-.posts-list-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--dim); margin-bottom: 20px;
-  padding-bottom: 14px;
-  border-bottom: 2px solid var(--navy);
+.closing-line p {
+  font-size: 24px; font-weight: 700; font-style: italic;
+  color: var(--navy); line-height: 1.4; margin: 0;
 }
-.post-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none;
-  color: inherit;
-  transition: background .15s;
-}
-.post-row:hover .post-row-title { color: var(--red); }
-.post-row-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--red); min-width: 100px;
-  padding-top: 3px; flex-shrink: 0;
-}
-.post-row-body { flex: 1; }
-.post-row-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px; font-weight: 900;
-  text-transform: uppercase; color: var(--text);
-  line-height: 1.1; letter-spacing: 0.01em;
-  margin-bottom: 5px;
-  transition: color .15s;
-}
-.post-row-excerpt { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
-.post-row-meta {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--dim); text-align: right;
-  min-width: 90px; padding-top: 3px; flex-shrink: 0;
-}
-
-/* NL strip */
-.nl-strip { background: var(--red); padding: 56px 48px; }
-.nl-strip-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-.nl-strip h3 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 900;
-  text-transform: uppercase; color: #fff;
-  letter-spacing: 0.02em; line-height: 1;
-}
-.nl-strip p { font-size: 15px; color: rgba(255,255,255,0.75); margin-top: 8px; max-width: 360px; line-height: 1.6; }
-.nl-strip-form { display: flex; gap: 10px; flex-shrink: 0; }
-.nl-strip-form input {
-  padding: 13px 18px;
-  border: none;
-  border-radius: var(--r);
-  font-family: 'Lora', serif;
-  font-size: 14px;
-  width: 240px;
-}
-.nl-strip-form button {
-  background: var(--navy);
-  color: #fff; border: none;
-  padding: 13px 22px;
-  border-radius: var(--r);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  cursor: pointer; white-space: nowrap;
-  transition: background .15s;
-}
-.nl-strip-form button:hover { background: var(--navy-m); }
-
-@media (max-width: 900px) {
-  .page-hero { padding: 80px 24px 56px; }
-  .featured-wrap, .posts-section { padding: 56px 24px; }
-  .featured-card { grid-template-columns: 1fr; }
-  .featured-left::after { top: auto; right: 0; bottom: 0; left: 0; width: auto; height: 3px; }
-  .post-row { flex-wrap: wrap; }
-  .post-row-meta { flex: 1 0 100%; text-align: left; margin-top: 8px; }
-  .nl-strip { padding: 48px 24px; }
-  .nl-strip-inner { flex-direction: column; align-items: flex-start; }
-  .nl-strip-form { flex-direction: column; width: 100%; }
-  .nl-strip-form input { width: 100%; }
+.fn { font-size: 0.7em; }
+.fn a { color: var(--red); text-decoration: none; }
+.fn a:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .lead-figure { max-width: 100%; }
+  .lead-figure img { border-radius: 0; }
+  .dag-figure { padding: 22px 16px 16px; }
+  .closing-line { padding: 22px 22px; }
+  .closing-line p { font-size: 20px; }
 }
 </style>
 <link rel="alternate" type="text/markdown" href="../marcus-maute.md" title="Marcus Maute, in Markdown">
@@ -230,71 +119,124 @@
 </div>
 <main id="human-view">
 
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="section-eyebrow light">Writing</div>
-    <div class="page-title">The Blog.</div>
-    <p class="page-sub">Essays on energy, money and agentic finance. Posted when I have something worth saying.</p>
-  </div>
-</div>
-
-<div class="featured-wrap">
-  <div class="featured-inner">
-    <div class="section-eyebrow">Featured</div>
-    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="featured-card">
-      <div class="featured-left">
-        <div>
-          <div class="featured-eyebrow">Latest article</div>
-          <div class="featured-title">Did Brian Armstrong Just Write the Bezos Letter for the AI Age?</div>
-        </div>
-        <div class="featured-date">5 May 2026 · 4 min read</div>
-      </div>
-      <div class="featured-right">
-        <p class="featured-excerpt">What his letter says — and what it doesn't: Coinbase's flattened, AI-native org chart read against the crypto-native companies that never had the layers to flatten in the first place.</p>
-        <span class="featured-cta">Read the article →</span>
-      </div>
-    </a>
-  </div>
-</div>
-
-<div class="posts-section">
-  <div class="posts-section-inner">
-    <div class="posts-list-label">All articles</div>
-    <a href="../blog/brian-armstrong-bezos-letter-ai-age.html" class="post-row">
-      <div class="post-row-tag">AI &amp; organisations</div>
-      <div class="post-row-body">
-        <div class="post-row-title">Did Brian Armstrong Just Write the Bezos Letter for the AI Age?</div>
-        <div class="post-row-excerpt">Coinbase's flattened, AI-native org chart read against the crypto-native companies that never had the layers to flatten in the first place.</div>
-      </div>
-      <div class="post-row-meta">5 May 2026 · 4 min</div>
-    </a>
-    <a href="../blog/satoshi-is-working-on-kaspa.html" class="post-row">
-      <div class="post-row-tag">Bitcoin &amp; proof of work</div>
-      <div class="post-row-body">
-        <div class="post-row-title">Satoshi is working on Kaspa now.</div>
-        <div class="post-row-excerpt">Bitcoin chose to stand still. Kaspa is taking over and becoming the global cryptographic machine.</div>
-      </div>
-      <div class="post-row-meta">8 Nov 2024 · 2 min</div>
-    </a>
-    <a href="../blog/energy-currency.html" class="post-row">
-      <div class="post-row-tag">Economics</div>
-      <div class="post-row-body">
-        <div class="post-row-title">Energy currency.</div>
-        <div class="post-row-excerpt">Henry Ford proposed replacing gold with a currency backed by energy in 1921. Bitcoin built one, a century later.</div>
-      </div>
-      <div class="post-row-meta">13 Jun 2024 · 11 min</div>
-    </a>
-  </div>
-</div>
-
-<div class="nl-strip">
-  <div class="nl-strip-inner">
-    <div>
-      <h3>The Agentic Finance Report</h3>
-      <p>The framework behind this writing: eight chapters and a guest contribution on how institutions let AI agents act on capital. Free to read.</p>
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">/</span>
+      <a href="../blog/index.html">Writing</a><span class="sep">/</span>
+      <a href="#">This article</a>
     </div>
-    <a href="https://www.agenticfinancereport.com/" target="_blank" rel="noopener" class="btn-navy" style="flex-shrink:0">About the report →</a>
+    <div class="article-tag">Bitcoin &amp; proof of work</div>
+    <h1 class="article-h1">Satoshi is working<br>on Kaspa now.</h1>
+    <p class="article-lead">Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.</p>
+    <div class="article-meta">
+      <div class="article-meta-item"><strong>Marcus Maute</strong></div>
+      <div class="article-meta-item"><strong>8 November 2024</strong></div>
+      <div class="article-meta-item"><strong>2 min</strong> read</div>
+    </div>
   </div>
+</div>
+
+<div class="article-body-wrap">
+<div class="article-body">
+
+<figure class="lead-figure">
+  <img src="../assets/img/blog/lugano-satoshi.webp" width="1200" height="1600" alt="A weathered steel statue of a hooded, faceless figure representing Satoshi Nakamoto, standing among trees in Parco Ciani beside Lake Lugano." loading="eager">
+  <figcaption class="lead-figure-cap">Satoshi, in Parco Ciani, Lugano. Photo: Marcus Maute, 2024.</figcaption>
+</figure>
+
+<p>Satoshi is working on Kaspa now.</p>
+
+<p>You need proof? Look at how few updates Bitcoin has shipped lately, and you see the covenants dilemma for yourself. Kaspa is taking over and becoming the global cryptographic machine.</p>
+
+<p>I mean that as a reading of where the work is happening, rather than a claim about who anyone is. Satoshi created something special and walked away. What was left behind was a founding idea, and ideas move to wherever they can still grow.</p>
+
+<h2>Bitcoin chose to stand still</h2>
+
+<p>Bitcoin's last major upgrade, Taproot, activated in November 2021. Since then the most discussed proposals, the covenant opcodes such as OP_CTV and OP_CAT that would let a coin carry rules about how it may be spent next, have been debated for years without activating.</p>
+
+<p>That caution is Bitcoin's strength as a store of value. A monetary base that nobody can change is exactly what digital gold should be. It also means that the programmable, high-throughput layer the rest of the economy needs will be built somewhere else. That is the covenants dilemma: every change that would make Bitcoin more useful is a change to the thing that makes it trustworthy.</p>
+
+<h2>Digital silver</h2>
+
+<p>Kaspa launched on 7 November 2021, three years ago yesterday, and a week before Taproot.<sup class="fn"><a href="#src1">[1]</a></sup> It is a proof-of-work currency, like Bitcoin, built to solve the problems Bitcoin chose to leave alone: scalability and speed, while keeping strong security and decentralisation. It builds on Bitcoin's foundation and adds speed and scale, which makes it a kind of digital silver.</p>
+
+<p>Four things set it apart:</p>
+
+<ol>
+<li><strong>It solves the trilemma.</strong> Security, decentralisation and scale, without trading one away for the others.</li>
+<li><strong>No corporate sponsor.</strong> There is no company behind it that owns the roadmap.</li>
+<li><strong>No initial coin offering.</strong> A fair launch and a fair distribution, with no premine.</li>
+<li><strong>A directed acyclic graph of blocks.</strong> A blockDAG in place of a single chain.</li>
+</ol>
+
+<figure class="dag-figure">
+<svg class="dag-svg" viewBox="0 0 940 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a blockDAG: fourteen numbered blocks flowing left to right, each pointing back to one or more earlier blocks it references, with several merge and fork points and three highlighted tip blocks on the right.">
+  <defs>
+    <marker id="dagArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7c8db0"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="#7c8db0" stroke-width="1.8">
+    <line x1="191.9" y1="82.5" x2="103.8" y2="143.5" marker-end="url(#dagArrow)"/>
+    <line x1="191.9" y1="237.5" x2="103.8" y2="176.5" marker-end="url(#dagArrow)"/>
+    <line x1="321.9" y1="147.5" x2="233.8" y2="86.5" marker-end="url(#dagArrow)"/>
+    <line x1="321.9" y1="172.5" x2="233.8" y2="233.5" marker-end="url(#dagArrow)"/>
+    <line x1="318.0" y1="70.0" x2="239.0" y2="70.0" marker-end="url(#dagArrow)"/>
+    <line x1="451.9" y1="82.5" x2="363.8" y2="143.5" marker-end="url(#dagArrow)"/>
+    <line x1="448.0" y1="70.0" x2="369.0" y2="70.0" marker-end="url(#dagArrow)"/>
+    <line x1="451.9" y1="237.5" x2="363.8" y2="176.5" marker-end="url(#dagArrow)"/>
+    <line x1="581.9" y1="147.5" x2="493.8" y2="86.5" marker-end="url(#dagArrow)"/>
+    <line x1="581.9" y1="172.5" x2="493.8" y2="233.5" marker-end="url(#dagArrow)"/>
+    <line x1="578.0" y1="70.0" x2="499.0" y2="70.0" marker-end="url(#dagArrow)"/>
+    <line x1="711.9" y1="82.5" x2="623.8" y2="143.5" marker-end="url(#dagArrow)"/>
+    <line x1="708.0" y1="70.0" x2="629.0" y2="70.0" marker-end="url(#dagArrow)"/>
+    <line x1="711.9" y1="237.5" x2="623.8" y2="176.5" marker-end="url(#dagArrow)"/>
+    <line x1="838.0" y1="70.0" x2="759.0" y2="70.0" marker-end="url(#dagArrow)"/>
+    <line x1="841.9" y1="147.5" x2="753.8" y2="86.5" marker-end="url(#dagArrow)"/>
+    <line x1="841.9" y1="172.5" x2="753.8" y2="233.5" marker-end="url(#dagArrow)"/>
+    <line x1="838.0" y1="250.0" x2="759.0" y2="250.0" marker-end="url(#dagArrow)"/>
+  </g>
+  <g font-family="'Barlow Condensed', sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <g><circle cx="80" cy="160" r="22" fill="#0d2252"/><text x="80" y="166">1</text></g>
+    <g><circle cx="210" cy="70" r="22" fill="#0d2252"/><text x="210" y="76">2</text></g>
+    <g><circle cx="210" cy="250" r="22" fill="#0d2252"/><text x="210" y="256">3</text></g>
+    <g><circle cx="340" cy="160" r="22" fill="#0d2252"/><text x="340" y="166">4</text></g>
+    <g><circle cx="340" cy="70" r="22" fill="#0d2252"/><text x="340" y="76">5</text></g>
+    <g><circle cx="470" cy="70" r="22" fill="#0d2252"/><text x="470" y="76">6</text></g>
+    <g><circle cx="470" cy="250" r="22" fill="#0d2252"/><text x="470" y="256">7</text></g>
+    <g><circle cx="600" cy="160" r="22" fill="#0d2252"/><text x="600" y="166">8</text></g>
+    <g><circle cx="600" cy="70" r="22" fill="#0d2252"/><text x="600" y="76">9</text></g>
+    <g><circle cx="730" cy="70" r="22" fill="#0d2252"/><text x="730" y="76">10</text></g>
+    <g><circle cx="730" cy="250" r="22" fill="#0d2252"/><text x="730" y="256">11</text></g>
+    <g><circle cx="860" cy="70" r="22" fill="#0d2252" stroke="#c8192c" stroke-width="3"/><text x="860" y="76">12</text></g>
+    <g><circle cx="860" cy="160" r="22" fill="#0d2252" stroke="#c8192c" stroke-width="3"/><text x="860" y="166">13</text></g>
+    <g><circle cx="860" cy="250" r="22" fill="#0d2252" stroke="#c8192c" stroke-width="3"/><text x="860" y="256">14</text></g>
+  </g>
+</svg>
+  <figcaption class="dag-figure-cap">A blockDAG: every block points back to all the tips it has seen.</figcaption>
+</figure>
+
+<p>The fourth point is the one that matters most. In Bitcoin, two miners who find a block at the same moment compete, and one block is thrown away. Kaspa's GHOSTDAG protocol, from the research of Yonatan Sompolinsky and Aviv Zohar, keeps blocks created in parallel and orders all of them.<sup class="fn"><a href="#src2">[2]</a></sup> Nothing is orphaned, so blocks can come fast. Today Kaspa produces one block per second, with ten per second on its roadmap, and covenants are on that roadmap too.</p>
+
+<h2>Energy, again</h2>
+
+<p>In <a href="energy-currency.html">Energy currency</a> I wrote that the oldest requirements for money are that it is hard to earn, limited in supply and easy to verify, and that proof of work meets them with electricity and mathematics. Kaspa keeps that bargain. Every block is paid for in energy, and anyone can verify it in an instant. What changes is how much the machine can do with that energy.</p>
+
+<div class="closing-line">
+  <p>Most innovative and latest form of a currency in human history.</p>
+</div>
+
+<p>Bitcoin is the gold. Kaspa is where the building goes on.</p>
+
+<h2 id="sources">Sources</h2>
+
+<ol>
+<li id="src1">Kaspa. <a href="https://kaspa.org/" target="_blank" rel="noopener">https://kaspa.org/</a></li>
+<li id="src2">Y. Sompolinsky, S. Wyborski and A. Zohar, 'PHANTOM GHOSTDAG: A Scalable Generalization of Nakamoto Consensus'. <a href="https://eprint.iacr.org/2018/104" target="_blank" rel="noopener">https://eprint.iacr.org/2018/104</a></li>
+</ol>
+
+</div>
 </div>
 
 </main>

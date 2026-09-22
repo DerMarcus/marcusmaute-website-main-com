@@ -322,8 +322,8 @@ a `<link rel="alternate" type="text/markdown">`, a `<title>` and meta descriptio
 toggle and the Agent view" above for the toggle, the human-view/agent-view wrapper and `site.js`.
 
 ## Blog
-The blog carries two articles, newest first on `blog/index.html` (featured card) and on the home
-page's writing section (now a two-card `.posts-grid`, `repeat(2, minmax(0,1fr))` on desktop,
+The blog carries three articles, newest first on `blog/index.html` (featured card) and on the home
+page's writing section (now a three-card `.posts-grid`, `repeat(3, minmax(0,1fr))` on desktop,
 single column under 900px).
 
 **`blog/brian-armstrong-bezos-letter-ai-age.html`, "Did Brian Armstrong Just Write the Bezos
@@ -347,6 +347,25 @@ on-chain transparency for agentic transactions." was cut from the body (it sat b
 **USX must not be reintroduced** — the sentence was the only USX/Solstice-product mention on this
 site (Solstice Staking's own venture card, which names the company but not USX, is unaffected and
 stays).
+
+**`blog/satoshi-is-working-on-kaspa.html`, "Satoshi is working on Kaspa now."**, dated
+**8 November 2024**. Category/eyebrow: "Bitcoin & proof of work". The copy is the owner's, supplied
+verbatim as a source Markdown file and converted to HTML syntax only, no wording changes: it argues
+Bitcoin's caution (no major upgrade since Taproot activated in November 2021, the covenants dilemma
+still undecided) is exactly its strength as digital gold, and reads Kaspa, a proof-of-work currency
+with no corporate sponsor and no ICO, as the place the work of a fast, high-throughput cryptographic
+machine is now happening, via its blockDAG and the GHOSTDAG protocol (Sompolinsky, Wyborski and
+Zohar) that orders parallel blocks instead of orphaning them. Cross-links inline to `energy-currency.html`
+("Energy currency"). Structural choices that are ours, not his: a lead photograph, the owner's own
+2024 photo of the steel Satoshi statue in Parco Ciani, Lugano
+(`assets/img/blog/lugano-satoshi.webp`, with an og-image JPEG at
+`assets/img/blog/lugano-satoshi-og.jpg`), and an inline SVG blockDAG diagram (14 numbered blocks,
+several merge and fork points, three tip blocks highlighted with a red outline) placed at the
+`[DIAGRAM: ...]` marker in the source file. Two inline footnote markers were added (a judgement
+call, since the source has no inline citations) attaching the two Sources entries, Kaspa.org and
+the GHOSTDAG paper, to the sentences that state those facts. Read time: 2 min, from a 487-word body
+(excluding the Sources list and image/diagram captions) at ~200 wpm, the same rate the other two
+articles use.
 
 **`blog/energy-currency.html`, "Energy currency."**, dated
 **13 June 2024** (the owner's original publication date; the site itself was rebuilt around the
