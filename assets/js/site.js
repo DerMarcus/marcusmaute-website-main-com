@@ -32,6 +32,11 @@
     opts = opts || {};
     apply(mode);
     try { localStorage.setItem(KEY, mode); } catch (e) {}
+    // Leaving the Agent view has to drop #agent from the URL as well, or a reload,
+    // a shared link or an in-page anchor puts the reader straight back into it.
+    if (mode !== 'agent' && location.hash === '#agent' && window.history.replaceState) {
+      window.history.replaceState(null, '', location.pathname + location.search);
+    }
     if (opts.scroll) window.scrollTo(0, 0);
   }
 

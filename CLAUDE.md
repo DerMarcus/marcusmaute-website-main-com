@@ -432,8 +432,8 @@ asks to restore the advisory block, uncomment it and reverse those three copy ch
 from whether `#work` itself is restored on the home page).
 
 ## Consistency (every page)
-Same nav (**Home** · The Report · Writing · About · the Human/Agent toggle in place of the old "Work
-with me →" `nav-cta`), same mobile nav (the toggle at the top, then Home, The Report, Writing, About;
+Same nav (**Home** · Agentic Finance · Writing · About · the Human/Agent toggle in place of the old "Work
+with me →" `nav-cta`), same mobile nav (the toggle at the top, then Home, Agentic Finance, Writing, About;
 Neo is deliberately **not** in either nav). **Home was added as the first nav item on all nine pages
 22 September 2026** (owner instruction): `index.html` (home page → `index.html`/`./`), `about/`,
 `blog/` (index + all three articles), `work-with-me/` and `press/` (one level deep →
@@ -705,3 +705,15 @@ cd /tmp/mm-site && python3 -m http.server 8793
 Check both desktop and the 375px mobile width; watch for `.site-frame`'s `overflow:hidden`
 silently clipping anything wider than the viewport (wide tables need their own
 `overflow-x:auto` wrapper, not the page-level scrollWidth check alone).
+
+## Nav and the Agent view (27 September 2026)
+
+- **"The Report" was removed from the nav and the mobile nav** (owner, 27 September 2026). It stays in
+  the footer of every page and in the 404 page's suggested links, and the report is still linked from
+  the home page, the ventures card and `/agentic-finance`. The nav is now Home · Agentic Finance ·
+  Writing · About plus the Human/Agent toggle.
+- **`/agentic-finance` has no closing CTA box.** The "What to do next" box was removed the same day; the
+  section closes with the pointer paragraph to the report, the about page and the blog.
+- **Leaving the Agent view clears `#agent` from the URL** (`setMode` in `assets/js/site.js`). Without
+  that, a reload, a shared link or an in-page anchor dropped the reader straight back into the Agent
+  view, because the hash is read on load. The pill state itself was never wrong.
