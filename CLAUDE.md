@@ -41,12 +41,14 @@ blog/energy-currency.html           Article (see "Blog" below)
 404.html                            Not-found page (Cloudflare Pages 404; root-relative paths, see below)
 marcus-maute.md                     Site-wide factual Markdown (the Agent view's content), repo root
 assets/style.css                    Design system (Barlow Condensed + Lora, navy #0d2252, red #c8192c);
-                                     also carries the mode-toggle and Agent-view CSS (shared by every page)
+                                     also carries the mode-toggle, Agent-view CSS and the self-hosted
+                                     @font-face rules (shared by every page; see "Fonts" below)
 assets/pages.css                    Shared components for the five main pages (.page-hero, .num-list, .card, etc.)
 assets/article.css                  Shared chrome for blog articles
 assets/img/blog/                    Tribune scan images for the energy-currency article (see "Blog" below)
 assets/js/site.js                   Human/Agent toggle, mobile menu (see below)
 assets/img/                         marcus-maute-press.jpg, agentic-finance-report-cover.jpg/.webp
+assets/fonts/                       Self-hosted Barlow Condensed + Lora woff2 files, see "Fonts" below
 tools/build_agent_view.py           Re-embeds marcus-maute.md into every page's Agent view (see below)
 llms.txt, sitemap.xml, robots.txt, _headers   At the site root
 ```
@@ -430,6 +432,42 @@ under `.speaking-topics` while it was visible, and the report page's "Put it to 
 "Talks and briefings" (`../work-with-me/index.html`) instead of "The Mandate Workshop". If the owner
 asks to restore the advisory block, uncomment it and reverse those three copy changes (separately
 from whether `#work` itself is restored on the home page).
+
+## Fonts
+Self-hosted since 27 September 2026 (owner instruction: no external requests, and the Google
+Fonts round trip was blocking first render). Every page used to carry a `fonts.googleapis.com`
+`<link rel="preconnect">` plus a `<link rel="stylesheet">` pulling
+`Barlow+Condensed:wght@300;400;600;700;800;900` and `Lora:ital,wght@0,400;0,600;1,400`; both are
+now gone from all ten HTML files.
+
+The nine woff2 files live in `assets/fonts/`, latin subset, from
+`cdn.jsdelivr.net/npm/@fontsource/barlow-condensed/files/...` and
+`@fontsource/lora/files/...`, the same source and pattern agenticfinancereport.com uses for its
+own fonts (`website/agenticfinancereport.com/assets/fonts/`). The `@font-face` rules sit at the
+top of `assets/style.css`, before `:root`, with `font-display: swap`.
+
+Files, matching exactly the weights and styles the old Google Fonts URL loaded:
+- `BarlowCondensed-{300,400,600,700,800,900}.woff2` — normal style only, all six weights
+  (300 is the nav/footer logo mark, 600 is a handful of small labels, 700/800/900 carry the
+  heading scale, 400 is the baseline)
+- `Lora-400.woff2`, `Lora-600.woff2` — normal style (body text and `<strong>`)
+- `Lora-400-italic.woff2` — italic, weight 400 only
+
+**Do not add a Lora italic 600 or 700 file.** Several rules set `font-style: italic` at those
+weights (`.pull-quote p` in `assets/article.css`; `.tribune-headline`, `.tribune-dek` in
+`blog/energy-currency.html`) but the site has never loaded a true italic face at 600/700, only at
+400 — the old Google Fonts request didn't include them either. The browser has always faked those
+by slanting the upright 600/700 face. Adding real italic files there would swap synthetic italic
+for true italic letterforms, a visible rendering change, not just a delivery change. Same logic
+for Barlow Condensed: it is never used in italic outside one already-faux-italic span
+(`.hero h1 .italic` on the home page), so no Barlow Condensed italic file exists.
+
+The SIL Open Font License text for each family sits next to its files:
+`assets/fonts/BarlowCondensed-OFL.txt`, `assets/fonts/Lora-OFL.txt`. `_headers` gives
+`/assets/fonts/*` a one-year immutable cache. `index.html` preloads the two above-the-fold faces
+(`BarlowCondensed-900.woff2` for the hero `<h1>`, `Lora-400.woff2` for the hero lead paragraph)
+with `<link rel="preload" as="font" type="font/woff2" crossorigin>`; no other page preloads fonts,
+matching agenticfinancereport.com's own homepage-only preload.
 
 ## Consistency (every page)
 Same nav (**Home** · Agentic Finance · Writing · About · the Human/Agent toggle in place of the old "Work
