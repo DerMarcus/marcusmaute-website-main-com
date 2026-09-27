@@ -443,7 +443,7 @@ home page's desktop `.nav-links`** — matching the existing site-wide conventio
 never applied in `#nav-mobile` (About and Writing aren't marked active there either). **Mobile nav no longer adds Press then Work with me → below
 About** — both entries were removed 22 September 2026 when those two pages were hidden site-wide
 (see "work-with-me and press: hidden site-wide" above); restore them there, in that order, if the
-pages are unhidden. Same footer links on all nine pages (The Report, Writing, About, Neo
+pages are unhidden. Same footer links on all ten pages (Agentic Finance, Writing, About, Neo
 https://github.com/DerMarcus/nftneo, LinkedIn https://www.linkedin.com/in/marcusmaute/), footer
 "© 2026 Marcus Maute · Zürich, Switzerland", `<html lang="en-GB">`, a `<link rel="canonical">`,
 a `<link rel="alternate" type="text/markdown">`, a `<title>` and meta description. **The footer's
@@ -708,10 +708,12 @@ silently clipping anything wider than the viewport (wide tables need their own
 
 ## Nav and the Agent view (27 September 2026)
 
-- **"The Report" was removed from the nav and the mobile nav** (owner, 27 September 2026). It stays in
-  the footer of every page and in the 404 page's suggested links, and the report is still linked from
-  the home page, the ventures card and `/agentic-finance`. The nav is now Home · Agentic Finance ·
-  Writing · About plus the Human/Agent toggle.
+- **"The Report" was removed from the nav, the mobile nav and the footer** (owner, 27 September 2026),
+  and from the 404 page's suggested links, where `/agentic-finance` took its place. The report is still
+  linked from the home page hero and `#report` section, the ventures card and `/agentic-finance`
+  itself, so it is never more than one click away. The nav is now Home · Agentic Finance · Writing ·
+  About plus the Human/Agent toggle, and the footer is Agentic Finance · Writing · About · Neo ·
+  LinkedIn.
 - **`/agentic-finance` has no closing CTA box.** The "What to do next" box was removed the same day; the
   section closes with the pointer paragraph to the report, the about page and the blog.
 - **Leaving the Agent view clears `#agent` from the URL** (`setMode` in `assets/js/site.js`). Without
