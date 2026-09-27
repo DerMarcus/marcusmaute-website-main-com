@@ -18,6 +18,7 @@
 - [Agentic Finance](https://www.marcusmaute.com/agentic-finance/): his own account of agentic finance, the definition, the five preconditions, and the chapters he wrote himself in the report
 - [Writing](https://www.marcusmaute.com/blog/): essays on energy, money, organisations and agentic finance
 - [About](https://www.marcusmaute.com/about/): biography and facts, what he believes (energy, Kardashev scale, proof of work)
+- [Privacy](https://www.marcusmaute.com/privacy/): what the site does and does not do with data
 
 ## Writing
 

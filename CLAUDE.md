@@ -35,6 +35,9 @@ work-with-me/index.html             Speaking (advisory block hidden in an HTML c
 press/index.html                    Bios, headshot, report facts, quotes cleared for use (the whole
                                      page is hidden site-wide, see below)
 about/index.html                    Bio, background
+privacy/index.html                  Privacy notice (who's responsible, hosting, the Cloudflare Web
+                                     Analytics beacon, the mm-mode local-storage key, no cookies/
+                                     forms/third-party fonts or images); footer-only, not in the nav
 blog/index.html                     Writing index ("The Blog")
 blog/brian-armstrong-bezos-letter-ai-age.html  Article (see "Blog" below)
 blog/energy-currency.html           Article (see "Blog" below)
@@ -54,6 +57,19 @@ llms.txt, sitemap.xml, robots.txt, _headers   At the site root
 ```
 Blog articles carry their own per-page `<style>` for article-specific components (tables, ratio
 bars, comparison cards) — they don't need `pages.css`.
+
+## Analytics and the privacy notice
+The Cloudflare Web Analytics beacon (`<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' …>`,
+cookieless, aggregate only) was added to all ten pages and `privacy/index.html` **ships with it in the
+same change** (27 September 2026) — the site had no privacy notice or imprint at all before this, and
+adding a third-party script from a Swiss-operated site is exactly the gap that closes. If the beacon is
+ever added to a future page, add that page to `privacy/index.html`'s coverage (it already covers the
+whole site by domain, so no page-by-page edit is needed there) and keep the "eleven pages carry the
+beacon" count in mind when checking `grep -rn "cloudflareinsights" --exclude-dir=.git .`. `privacy/index.html`
+is footer-only (after About, see "Consistency" below) and deliberately not in the nav, matching the
+"Nav and the Agent view" note about keeping the nav short. It states the `mm-mode` local-storage key
+(`assets/js/site.js`) and the self-hosted fonts (`assets/fonts/`, see "Fonts" below) as verified facts,
+not boilerplate; keep both in sync if either changes.
 
 ## Human/Agent toggle and the Agent view
 Modelled on agenticfinancereport.com's own toggle (`../agentic_report/website/agenticfinancereport.com/`).

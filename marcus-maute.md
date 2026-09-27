@@ -216,6 +216,16 @@ Contact: marcus@marcusmaute.com · Zürich · travel across Europe
   of the 1921 New York Tribune article, reproduced as a historical document.
   https://www.marcusmaute.com/blog/energy-currency.html
 
+## Privacy
+
+marcusmaute.com sets no cookies, runs no advertising and has no forms, accounts or newsletter. Fonts
+are self-hosted in `assets/fonts` and images are served from this domain, so nothing loads from a
+third party except the Cloudflare Web Analytics beacon (cookieless, aggregate only, live since
+27 September 2026). The site is hosted on Cloudflare Pages, which processes connection data such as
+IP addresses to deliver and protect the service. The Human/Agent toggle's state is stored only in
+the visitor's own browser (`localStorage`, key `mm-mode`) and never leaves the device. Full notice:
+https://www.marcusmaute.com/privacy/index.html
+
 ## Every page on this site
 
 - Home — https://www.marcusmaute.com/
@@ -223,3 +233,4 @@ Contact: marcus@marcusmaute.com · Zürich · travel across Europe
 - Agentic Finance (my own page) — https://www.marcusmaute.com/agentic-finance/index.html
 - Writing — https://www.marcusmaute.com/blog/index.html
 - About — https://www.marcusmaute.com/about/index.html
+- Privacy — https://www.marcusmaute.com/privacy/index.html
