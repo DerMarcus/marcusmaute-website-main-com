@@ -3,103 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satoshi is working on Kaspa now. — Marcus Maute</title>
-<meta name="description" content="Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.">
-<link rel="canonical" href="https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html">
+<title>Agentic Finance — Marcus Maute</title>
+<meta name="description" content="Marcus Maute's own account of agentic finance: the definition, the five preconditions, and the chapters he wrote himself in the Agentic Finance Report (2026).">
+<link rel="canonical" href="https://www.marcusmaute.com/agentic-finance/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Satoshi is working on Kaspa now. — Marcus Maute">
-<meta property="og:description" content="Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.">
-<meta property="og:url" content="https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html">
-<meta property="og:image" content="https://www.marcusmaute.com/assets/img/blog/lugano-satoshi-og.jpg">
+<meta property="og:title" content="Agentic Finance — Marcus Maute">
+<meta property="og:description" content="The definition, the five preconditions, and the chapters I wrote myself in the Agentic Finance Report (2026).">
+<meta property="og:url" content="https://www.marcusmaute.com/agentic-finance/">
+<meta property="og:image" content="https://www.marcusmaute.com/assets/img/marcus-maute-press.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
-<link rel="stylesheet" href="../assets/article.css">
+<link rel="stylesheet" href="../assets/pages.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Satoshi is working on Kaspa now.",
-  "description": "Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.",
-  "datePublished": "2024-11-08",
-  "dateModified": "2024-11-08",
-  "author": { "@type": "Person", "name": "Marcus Maute", "url": "https://www.marcusmaute.com/" },
-  "publisher": { "@type": "Person", "name": "Marcus Maute" },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html" },
-  "image": "https://www.marcusmaute.com/assets/img/blog/lugano-satoshi-og.jpg",
-  "articleSection": "Bitcoin & proof of work",
-  "url": "https://www.marcusmaute.com/blog/satoshi-is-working-on-kaspa.html"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.marcusmaute.com/#person",
+      "name": "Marcus Maute",
+      "url": "https://www.marcusmaute.com",
+      "image": "https://www.marcusmaute.com/assets/img/marcus-maute-press.jpg",
+      "jobTitle": "TensorX Swiss Representative",
+      "affiliation": { "@type": "Organization", "name": "TensorX", "url": "https://tensorx.ai" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Zürich", "addressCountry": "CH" },
+      "sameAs": ["https://www.linkedin.com/in/marcusmaute/", "https://x.com/marcusmaute", "https://www.agenticfinancereport.com/"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.marcusmaute.com/agentic-finance/#webpage",
+      "url": "https://www.marcusmaute.com/agentic-finance/",
+      "name": "Agentic Finance — Marcus Maute",
+      "description": "Marcus Maute's own account of agentic finance: the definition, the five preconditions, and the chapters he wrote himself in the Agentic Finance Report (2026).",
+      "isPartOf": { "@type": "WebSite", "url": "https://www.marcusmaute.com/" },
+      "author": { "@id": "https://www.marcusmaute.com/#person" },
+      "about": {
+        "@type": "DefinedTerm",
+        "name": "Agentic finance",
+        "description": "Capital managed continuously rather than periodically, by software that both decides and acts, on-chain, inside mandates that people write and can withdraw, on rails that settle at machine speed."
+      },
+      "mainEntityOfPage": "https://www.marcusmaute.com/agentic-finance/"
+    }
+  ]
 }
 </script>
-<style>
-.lead-figure {
-  float: right;
-  width: 260px;
-  margin: 6px 0 20px 28px;
-}
-.lead-figure img {
-  display: block;
-  width: 100%; height: auto;
-  border-radius: var(--r);
-}
-.lead-figure-cap {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; font-weight: 600;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--dim); text-align: left; line-height: 1.4;
-  margin-top: 8px;
-}
-/* the opening paragraphs wrap the floated photo; make sure the next
-   heading clears it instead of sitting beside a half-height float */
-.article-body h2 { clear: both; }
-.dag-figure {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 28px 20px 20px;
-  margin: 36px 0 40px;
-}
-.dag-svg { display: block; width: 100%; height: auto; }
-.dag-figure-cap {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--dim); text-align: center;
-  margin-top: 16px;
-}
-.closing-line {
-  border-left: 4px solid var(--article-accent);
-  background: var(--bg);
-  padding: 28px 30px;
-  margin: 44px 0 8px;
-  border-radius: 0 var(--r) var(--r) 0;
-}
-.closing-line p {
-  font-size: 24px; font-weight: 700; font-style: italic;
-  color: var(--article-accent-text); line-height: 1.4; margin: 0;
-}
-.fn { font-size: 0.7em; }
-.fn a { color: var(--article-accent-text); text-decoration: none; }
-.fn a:hover { text-decoration: underline; }
-@media (max-width: 640px) {
-  .dag-figure { padding: 22px 16px 16px; }
-  .closing-line { padding: 22px 22px; }
-  .closing-line p { font-size: 20px; }
-}
-@media (max-width: 600px) {
-  .lead-figure {
-    float: none;
-    width: 60%;
-    max-width: 260px;
-    margin: 0 auto 24px;
-  }
-  .lead-figure-cap { text-align: center; }
-}
-</style>
 <link rel="alternate" type="text/markdown" href="../marcus-maute.md" title="Marcus Maute, in Markdown">
 </head>
-<body class="theme-kaspa">
+<body>
 <div class="site-frame">
 
 <nav class="nav">
@@ -107,17 +59,15 @@
   <div class="nav-links">
     <a href="../index.html">Home</a>
     <a href="https://www.agenticfinancereport.com/" target="_blank" rel="noopener">The Report</a>
-    <a href="../agentic-finance/index.html">Agentic Finance</a>
-    <a href="../blog/index.html" class="active">Writing</a>
+    <a href="../agentic-finance/index.html" class="active">Agentic Finance</a>
+    <a href="../blog/index.html">Writing</a>
     <a href="../about/index.html">About</a>
     <div class="mode-toggle" role="group" aria-label="Audience mode">
       <button type="button" data-mode="human" aria-pressed="true"><span class="dot" aria-hidden="true"></span><span>Human</span></button>
       <button type="button" data-mode="agent" aria-pressed="false"><span class="prompt" aria-hidden="true">&gt;_</span><span>Agent</span></button>
     </div>
   </div>
-  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <div class="mode-toggle mode-toggle-mobile" role="group" aria-label="Audience mode">
@@ -132,125 +82,112 @@
 </div>
 <main id="human-view">
 
-<div class="article-header">
-  <div class="article-header-inner">
-    <div class="article-breadcrumb">
-      <a href="../index.html">Home</a><span class="sep">/</span>
-      <a href="../blog/index.html">Writing</a><span class="sep">/</span>
-      <a href="#">This article</a>
-    </div>
-    <div class="article-tag">Bitcoin &amp; proof of work</div>
-    <h1 class="article-h1">Satoshi is working<br>on Kaspa now.</h1>
-    <p class="article-lead">Bitcoin became digital gold by standing still. The next part of the work, a global cryptographic machine, is happening somewhere else.</p>
-    <div class="article-meta">
-      <div class="article-meta-item"><strong>Marcus Maute</strong></div>
-      <div class="article-meta-item"><strong>8 November 2024</strong></div>
-      <div class="article-meta-item"><strong>2 min</strong> read</div>
-    </div>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-eyebrow light">Agentic finance</div>
+    <div class="page-title">My account of<br><span class="accent">agentic finance.</span></div>
+    <p class="page-sub">I am lead author of the <strong>Agentic Finance Report</strong> (2026), co-published with TensorX, AMINA Bank, the Solana Foundation, APEX:E3 and the Cardano Foundation. This page is my own summary in my own voice, not a copy of the report: the definition, the five preconditions, and the chapters I wrote myself. For the report itself, read it at agenticfinancereport.com.</p>
+    <div class="page-actions"><a href="https://www.agenticfinancereport.com/" target="_blank" rel="noopener" class="btn-red">Read the report →</a></div>
   </div>
 </div>
 
-<div class="article-body-wrap">
-<div class="article-body">
+<section class="sec white">
+  <div class="sec-inner">
+    <div class="section-eyebrow">Definition</div>
+    <div class="section-title">Capital that acts,<br>inside a mandate.</div>
+    <div class="two-col wide-left">
+      <div class="prose">
+        <p>I define agentic finance, in the report, as capital managed continuously rather than periodically, by software that both decides and acts, on-chain, inside mandates that people write and can withdraw, on rails that settle at machine speed.</p>
+        <p>The distinction that matters is between an assistant and an agent. An assistant proposes, and a person still executes. An agent acts directly, inside limits fixed in advance. Move that boundary out of a system prompt and into infrastructure, custody, a policy engine, a signing key that structurally cannot do more than it is allowed to, and the boundary holds even when the model is wrong, compromised or simply confused. Leave it in a prompt, and it was never a boundary.</p>
+        <p>Three conditions hold at once, for the first time: models good enough to be bounded and tested, continuous low-cost settlement, and assets in machine-addressable form. That is why I treat this as infrastructure already in production, not a forecast.</p>
+      </div>
+      <div>
+        <div class="pull">
+          <p>An assistant proposes. An agent acts. A boundary that exists only in a prompt is not a boundary.</p>
+          <cite>— chapter 02, Agentic Finance Report</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<figure class="lead-figure">
-  <img src="../assets/img/blog/lugano-satoshi.webp" width="1200" height="1600" alt="A weathered steel statue of a hooded, faceless figure representing Satoshi Nakamoto, standing among trees in Parco Ciani beside Lake Lugano." loading="eager">
-  <figcaption class="lead-figure-cap">Satoshi, in Parco Ciani, Lugano. Photo: Marcus Maute, 2024.</figcaption>
-</figure>
+<section class="sec grey">
+  <div class="sec-inner">
+    <div class="section-eyebrow">Before the machine acts</div>
+    <div class="section-title">Five things<br>have to be true.</div>
+    <p class="section-sub" style="margin-top:18px;max-width:640px">The report sets these out as the preconditions for letting software hold, move and settle capital. I use the same five when I assess whether an institution is actually ready, not just interested.</p>
+    <ul class="num-list">
+      <li><strong>The asset is held by a regulated institution.</strong><span>Custody, fiat rails and a balance sheet that stands behind settled tokens.</span></li>
+      <li><strong>The rail settles finally and cheaply.</strong><span>Settlement inside the decision cycle, at a cost that makes the smallest useful payment economical.</span></li>
+      <li><strong>The reasoning runs where the institution can see and trust it.</strong><span>Inference inside the jurisdiction, retaining nothing, pinned and replayable.</span></li>
+      <li><strong>The decision is attributable to the agent that made it.</strong><span>Orchestration that turns many narrow agents into one decision a committee can take apart.</span></li>
+      <li><strong>The agent is identifiable as acting for a legal entity.</strong><span>A verifiable credential naming the entity and the authority it acts under.</span></li>
+    </ul>
+  </div>
+</section>
 
-<p>Satoshi is working on Kaspa now.</p>
+<section class="sec white">
+  <div class="sec-inner">
+    <div class="section-eyebrow">In the report</div>
+    <div class="section-title">The chapters<br>that are mine.</div>
+    <div class="two-col wide-left">
+      <div>
+        <div class="prose">
+          <p>The report has a foreword, eight chapters and two guest contributions. Each chapter carries its author's name, because the point is that the people who run each layer wrote their own. Three are mine: the executive summary, chapter 02 and chapter 08.</p>
+        </div>
+        <div class="bio-block">
+          <div class="label">Executive summary</div>
+          <p>My starting claim is that AI, blockchain settlement and tokenised assets have merged into one system. A person in the loop is no longer a physical necessity, but accountability does not relax: enforcement moves from review after the fact to a boundary set before the agent acts, namely the mandate, the identity it carries and the rails it may use. Three conditions hold at once, which is why this is a live deployment question rather than a forecast. Most AI programmes fail on the organisation, not the model, so the loop I set out is a workflow redesign with governance built in.</p>
+        </div>
+        <div class="bio-block">
+          <div class="label">Chapter 02 — What Is Agentic Finance?</div>
+          <p>This is where I set out the framework the rest of the report uses. It draws the line between an assistant that proposes and an agent that acts, then walks through the five agent classes a treasury will meet: treasury, yield, compliance, collateral and payments. Compliance gates every other agent&rsquo;s action and is never optional, rather than sitting as one class among the five. Every agent runs the same loop: signal, reason, decide, comply, execute, report, with compliance checked before execution and every step reported immutably afterwards. On top of that sit three governance tiers: operational actions an agent runs fully autonomously, tactical decisions it proposes for a person to confirm, and strategic choices, mandate design, the risk framework, governance itself, that stay exclusively human. The chapter's underlying argument is that most AI programmes fail on the organisation rather than the model, and that a mandate is a map of the jagged frontier drawn for one institution, not a generic policy document.</p>
+        </div>
+        <div class="bio-block">
+          <div class="label">Chapter 08 — Conclusions &amp; Recommendations</div>
+          <p>The closing chapter states what the report has established, what is already in production and what is still forward-looking, and sets out six actions across three horizons. The first needs no technology at all: write the mandate and set the tiers. It also names the six risks a committee will raise, regulation still moving, authorisation limits that must live in infrastructure rather than in a policy document, prompt injection upstream of the signature, correlated agent behaviour, keys and custody and issuer risk, and chain and model concentration, with mitigations for each. The line I keep coming back to is the closing test: build it so that you can answer for it. What no supplier can deliver is the mandate itself.</p>
+        </div>
+      </div>
+      <div>
+        <table class="toc-table">
+          <tr><th>#</th><th>Chapter</th><th>Author</th></tr>
+          <tr><td>FW</td><td class="t">Build It So That You Can Answer For It</td><td>Tim Grant, TensorX</td></tr>
+          <tr class="mine"><td>01</td><td class="t">Executive Summary</td><td>Marcus Maute</td></tr>
+          <tr class="mine"><td>02</td><td class="t">What Is Agentic Finance?</td><td>Marcus Maute</td></tr>
+          <tr><td>03</td><td class="t">The Regulated Banking Foundation</td><td>AMINA Bank</td></tr>
+          <tr><td>04</td><td class="t">Why Solana Is the Execution Layer</td><td>Solana Foundation</td></tr>
+          <tr><td>05</td><td class="t">Sovereign AI Infrastructure</td><td>TensorX</td></tr>
+          <tr><td>06</td><td class="t">ALICE: The Orchestration Layer</td><td>APEX:E3</td></tr>
+          <tr><td>07</td><td class="t">Verifiable Identity, the Trust Layer</td><td>Cardano Foundation</td></tr>
+          <tr><td><span class="guest-chip">Guest</span></td><td class="t">The Attack That Never Breaks a Rule</td><td>Blindsight</td></tr>
+          <tr><td><span class="guest-chip">Guest</span></td><td class="t">Owning the Frontier Before It Is Priced</td><td>CV VC</td></tr>
+          <tr class="mine"><td>08</td><td class="t">Conclusions &amp; Recommendations</td><td>Marcus Maute</td></tr>
+        </table>
+        <div class="cite-box">
+          <div class="label">How to cite the report</div>
+          <p>Maute, M. (ed.), with TensorX, AMINA Bank, Solana Foundation, APEX:E3 and Cardano Foundation; guest contributions by Blindsight and CV VC (2026). <em>Agentic Finance Report.</em> Industry report, edition 1.0. agenticfinancereport.com</p>
+        </div>
+        <div class="page-actions" style="margin-top:24px"><a href="https://www.agenticfinancereport.com/" target="_blank" rel="noopener" class="btn-navy">Read the full report →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>You need proof? Look at how few updates Bitcoin has shipped lately, and you see the covenants dilemma for yourself. Kaspa is taking over and becoming the global cryptographic machine.</p>
-
-<p>I mean that as a reading of where the work is happening, rather than a claim about who anyone is. Satoshi created something special and walked away. What was left behind was a founding idea, and ideas move to wherever they can still grow.</p>
-
-<h2>Bitcoin chose to stand still</h2>
-
-<p>Bitcoin's last major upgrade, Taproot, activated in November 2021. Since then the most discussed proposals, the covenant opcodes such as OP_CTV and OP_CAT that would let a coin carry rules about how it may be spent next, have been debated for years without activating.</p>
-
-<p>That caution is Bitcoin's strength as a store of value. A monetary base that nobody can change is exactly what digital gold should be. It also means that the programmable, high-throughput layer the rest of the economy needs will be built somewhere else. That is the covenants dilemma: every change that would make Bitcoin more useful is a change to the thing that makes it trustworthy.</p>
-
-<h2>Digital silver</h2>
-
-<p>Kaspa launched on 7 November 2021, three years ago yesterday, and a week before Taproot.<sup class="fn"><a href="#src1">[1]</a></sup> It is a proof-of-work currency, like Bitcoin, built to solve the problems Bitcoin chose to leave alone: scalability and speed, while keeping strong security and decentralisation. It builds on Bitcoin's foundation and adds speed and scale, which makes it a kind of digital silver.</p>
-
-<p>Four things set it apart:</p>
-
-<ol>
-<li><strong>It solves the trilemma.</strong> Security, decentralisation and scale, without trading one away for the others.</li>
-<li><strong>No corporate sponsor.</strong> There is no company behind it that owns the roadmap.</li>
-<li><strong>No initial coin offering.</strong> A fair launch and a fair distribution, with no premine.</li>
-<li><strong>A directed acyclic graph of blocks.</strong> A blockDAG in place of a single chain.</li>
-</ol>
-
-<figure class="dag-figure">
-<svg class="dag-svg" viewBox="0 0 940 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a blockDAG: fourteen numbered blocks flowing left to right, each pointing back to one or more earlier blocks it references, with several merge and fork points and three highlighted tip blocks on the right.">
-  <defs>
-    <marker id="dagArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6a9690"/>
-    </marker>
-  </defs>
-  <g fill="none" stroke="#6a9690" stroke-width="1.8">
-    <line x1="191.9" y1="82.5" x2="103.8" y2="143.5" marker-end="url(#dagArrow)"/>
-    <line x1="191.9" y1="237.5" x2="103.8" y2="176.5" marker-end="url(#dagArrow)"/>
-    <line x1="321.9" y1="147.5" x2="233.8" y2="86.5" marker-end="url(#dagArrow)"/>
-    <line x1="321.9" y1="172.5" x2="233.8" y2="233.5" marker-end="url(#dagArrow)"/>
-    <line x1="318.0" y1="70.0" x2="239.0" y2="70.0" marker-end="url(#dagArrow)"/>
-    <line x1="451.9" y1="82.5" x2="363.8" y2="143.5" marker-end="url(#dagArrow)"/>
-    <line x1="448.0" y1="70.0" x2="369.0" y2="70.0" marker-end="url(#dagArrow)"/>
-    <line x1="451.9" y1="237.5" x2="363.8" y2="176.5" marker-end="url(#dagArrow)"/>
-    <line x1="581.9" y1="147.5" x2="493.8" y2="86.5" marker-end="url(#dagArrow)"/>
-    <line x1="581.9" y1="172.5" x2="493.8" y2="233.5" marker-end="url(#dagArrow)"/>
-    <line x1="578.0" y1="70.0" x2="499.0" y2="70.0" marker-end="url(#dagArrow)"/>
-    <line x1="711.9" y1="82.5" x2="623.8" y2="143.5" marker-end="url(#dagArrow)"/>
-    <line x1="708.0" y1="70.0" x2="629.0" y2="70.0" marker-end="url(#dagArrow)"/>
-    <line x1="711.9" y1="237.5" x2="623.8" y2="176.5" marker-end="url(#dagArrow)"/>
-    <line x1="838.0" y1="70.0" x2="759.0" y2="70.0" marker-end="url(#dagArrow)"/>
-    <line x1="841.9" y1="147.5" x2="753.8" y2="86.5" marker-end="url(#dagArrow)"/>
-    <line x1="841.9" y1="172.5" x2="753.8" y2="233.5" marker-end="url(#dagArrow)"/>
-    <line x1="838.0" y1="250.0" x2="759.0" y2="250.0" marker-end="url(#dagArrow)"/>
-  </g>
-  <g font-family="'Barlow Condensed', sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">
-    <g><circle cx="80" cy="160" r="22" fill="#176055"/><text x="80" y="166">1</text></g>
-    <g><circle cx="210" cy="70" r="22" fill="#176055"/><text x="210" y="76">2</text></g>
-    <g><circle cx="210" cy="250" r="22" fill="#176055"/><text x="210" y="256">3</text></g>
-    <g><circle cx="340" cy="160" r="22" fill="#176055"/><text x="340" y="166">4</text></g>
-    <g><circle cx="340" cy="70" r="22" fill="#176055"/><text x="340" y="76">5</text></g>
-    <g><circle cx="470" cy="70" r="22" fill="#176055"/><text x="470" y="76">6</text></g>
-    <g><circle cx="470" cy="250" r="22" fill="#176055"/><text x="470" y="256">7</text></g>
-    <g><circle cx="600" cy="160" r="22" fill="#176055"/><text x="600" y="166">8</text></g>
-    <g><circle cx="600" cy="70" r="22" fill="#176055"/><text x="600" y="76">9</text></g>
-    <g><circle cx="730" cy="70" r="22" fill="#176055"/><text x="730" y="76">10</text></g>
-    <g><circle cx="730" cy="250" r="22" fill="#176055"/><text x="730" y="256">11</text></g>
-    <g><circle cx="860" cy="70" r="22" fill="#176055" stroke="#70c7ba" stroke-width="3"/><text x="860" y="76">12</text></g>
-    <g><circle cx="860" cy="160" r="22" fill="#176055" stroke="#70c7ba" stroke-width="3"/><text x="860" y="166">13</text></g>
-    <g><circle cx="860" cy="250" r="22" fill="#176055" stroke="#70c7ba" stroke-width="3"/><text x="860" y="256">14</text></g>
-  </g>
-</svg>
-  <figcaption class="dag-figure-cap">A blockDAG: every block points back to all the tips it has seen.</figcaption>
-</figure>
-
-<p>The fourth point is the one that matters most. In Bitcoin, two miners who find a block at the same moment compete, and one block is thrown away. Kaspa's GHOSTDAG protocol, from the research of Yonatan Sompolinsky and Aviv Zohar, keeps blocks created in parallel and orders all of them.<sup class="fn"><a href="#src2">[2]</a></sup> Nothing is orphaned, so blocks can come fast. Today Kaspa produces one block per second, with ten per second on its roadmap, and covenants are on that roadmap too.</p>
-
-<h2>Energy, again</h2>
-
-<p>In <a href="energy-currency.html">Energy currency</a> I wrote that the oldest requirements for money are that it is hard to earn, limited in supply and easy to verify, and that proof of work meets them with electricity and mathematics. Kaspa keeps that bargain. Every block is paid for in energy, and anyone can verify it in an instant. What changes is how much the machine can do with that energy.</p>
-
-<div class="closing-line">
-  <p>Most innovative and latest form of a currency in human history.</p>
-</div>
-
-<p>Bitcoin is the gold. Kaspa is where the building goes on.</p>
-
-<h2 id="sources">Sources</h2>
-
-<ol>
-<li id="src1">Kaspa. <a href="https://kaspa.org/" target="_blank" rel="noopener">https://kaspa.org/</a></li>
-<li id="src2">Y. Sompolinsky, S. Wyborski and A. Zohar, 'PHANTOM GHOSTDAG: A Scalable Generalization of Nakamoto Consensus'. <a href="https://eprint.iacr.org/2018/104" target="_blank" rel="noopener">https://eprint.iacr.org/2018/104</a></li>
-</ol>
-
-</div>
-</div>
+<section class="sec dark">
+  <div class="sec-inner two-col wide-left">
+    <div>
+      <div class="cta-box">
+        <h3>What to do<br>next</h3>
+        <p>If you are an allocator, a treasurer, a journalist, or a system reading this page, write to me directly. I read and answer everything myself.</p>
+        <a href="mailto:marcus@marcusmaute.com" class="btn-red">marcus@marcusmaute.com →</a>
+        <div class="note">Zürich · English and German</div>
+      </div>
+    </div>
+    <div class="prose">
+      <p>For the report itself, its full chapters and its co-authors, go to <a href="https://www.agenticfinancereport.com/" target="_blank" rel="noopener">agenticfinancereport.com</a>. For who I am and what else I work on, see the <a href="../about/index.html">about page</a>. For occasional writing on energy, money and organisations, see <a href="../blog/index.html">the blog</a>.</p>
+    </div>
+  </div>
+</section>
 
 </main>
 
@@ -513,8 +450,7 @@ Contact: marcus@marcusmaute.com · Zürich · travel across Europe
     <div class="footer-copy">© 2026 Marcus Maute · Zürich, Switzerland</div>
   </div>
 </footer>
-
 <script src="../assets/js/site.js" defer></script>
-</div><!-- /.site-frame -->
+</div>
 </body>
 </html>

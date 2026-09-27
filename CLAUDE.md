@@ -6,20 +6,30 @@ Plain HTML/CSS site, no build step. Hosted on Cloudflare Pages from GitHub
 
 ## What this is
 Marcus Maute's personal site, repositioned around the **Agentic Finance Report** (2026).
-Four pages plus a blog: home, work with me, press, about. **Work with me and press are currently
-hidden site-wide (owner, 22 September 2026)** — see "work-with-me and press: hidden site-wide"
-below.
+Five pages plus a blog: home, agentic-finance, work with me, press, about. **Work with me and press
+are currently hidden site-wide (owner, 22 September 2026)** — see "work-with-me and press: hidden
+site-wide" below.
 
-**The report no longer has a page on this site.** `agentic-finance/index.html` was deleted on the
-owner's instruction (21 September 2026): the report now lives only at agenticfinancereport.com, and
-every link that used to point at the internal page (hero button, `#report` section, nav, mobile nav,
-footer, and the about/press/work-with-me/blog mentions) now points to
+**The report itself still has no page on this site.** The original `agentic-finance/index.html` was
+deleted on the owner's instruction (21 September 2026): the report itself lives only at
+agenticfinancereport.com, and every link that points at the report (hero button, `#report` section,
+nav, mobile nav, footer, and the about/press/work-with-me/blog mentions) points to
 **https://www.agenticfinancereport.com/** with `rel="noopener" target="_blank"`. The home page's
 `#report` section and the Ventures card both describe the report but neither hosts it.
+
+**`agentic-finance/index.html` exists again as of the owner's instruction (27 September 2026),
+this time as Marcus's own reference page, not a second copy of the report:** his definition, the
+five preconditions and the chapters he wrote himself (executive summary, chapter 02, chapter 08), in
+his own voice, with a link out to agenticfinancereport.com. It is in the main nav (between "The
+Report" and "Writing"), the footer, `sitemap.xml`, `llms.txt` and `marcus-maute.md`. Don't rebuild it
+into a second report page; keep it short and first-person.
 
 ## Page map
 ```
 index.html                          Home (hero + #report section link out to agenticfinancereport.com)
+agentic-finance/index.html          Marcus's own reference page on agentic finance (definition, five
+                                     preconditions, his three chapters); links out to
+                                     agenticfinancereport.com for the report itself
 work-with-me/index.html             Speaking (advisory block hidden in an HTML comment, see below;
                                      the whole page is also hidden site-wide, see below)
 press/index.html                    Bios, headshot, report facts, quotes cleared for use (the whole
@@ -667,11 +677,17 @@ the per-article colour shows in that list.
 - Name: **Marcus Maute**. Role: **"TensorX Swiss Representative."** Location: **Zürich** (never Zug).
 - **"Lead author, Agentic Finance Report (2026)."**
 - Co-authors: **TensorX, AMINA Bank, Solana Foundation, APEX:E3, Cardano Foundation**.
-- Guest contribution: **Blindsight**. Foreword: **Tim Grant**.
+- Guest contributions: **Blindsight and CV VC** (never co-authors). CV VC is also the report's
+  **co-publishing partner** (never "distribution partner"). Foreword: **Tim Grant**.
 - Launch: **CV Summit 2026, Kongresshaus Zurich, 29–30 September 2026**.
+- The Markdown editions (full report and machine-readable summary) are **live now**; the **PDF**
+  publishes **29 September 2026**. Don't say both arrive on the 29th.
+- Five preconditions, precondition 3: "the reasoning runs where the institution **can see and
+  trust** it" (not just "can see it").
 - The **$4.8 trillion** addressable capital and **~200 bps** uplift figures are **modelled by
   APEX:E3, not measured** — always keep that label when citing them.
-- Report site: **https://agenticfinancereport.com/**.
+- Report site: **https://www.agenticfinancereport.com/** (with www — the bare domain only redirects
+  over http, so a bare https link fails).
 - X: **https://x.com/marcusmaute** — added 21 September 2026 next to LinkedIn on the home page's
   Follow section, the About facts table and the JSON-LD `sameAs` on index/about/press. Not (yet) in
   the shared footer link row or `work-with-me/index.html`'s `sameAs`.
